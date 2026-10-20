@@ -222,7 +222,7 @@
     ui.empty.hidden = results.length !== 0;
     ui.grid.hidden = results.length === 0;
     ui.loadMore.hidden = results.length <= visible.length;
-    ui.resultCount.innerHTML = '';
+    ui.resultCount.replaceChildren();
     const strong = node('strong', '', String(results.length));
     ui.resultCount.append(strong, document.createTextNode(` / ${state.records.length} রিসোর্স`));
     updateActiveFilters();
@@ -278,7 +278,6 @@
     for (const tag of record.tags) tags.append(node('span', 'resource-tag', tag));
     updateDialogSave();
     if (!ui.dialog.open) ui.dialog.showModal();
-    byId('dialog-close')?.focus();
     ui.dialog.querySelector('[data-action="close-dialog"]').focus();
   }
 

@@ -13,35 +13,35 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "upstream/hackingtool-master/docs/TOOLS.md"
+SOURCE = ROOT / "docs/TOOLS.md"
 OUTPUT = ROOT / "data/catalog.json"
 ARCHIVE_CATALOG_URL = (
     "https://github.com/HumayunShariarHimu/HackingTools/blob/main/"
-    "upstream/hackingtool-master/docs/TOOLS.md"
+    "docs/TOOLS.md"
 )
 
 CATEGORY_DESCRIPTIONS = {
-    "Anonymously Hiding Tools": "Resources about network privacy, anonymity and tunnelling. Review the upstream project and local rules before use.",
-    "Information gathering tools": "Resources for security inventory, public-source research and network discovery. Active requests require a written scope.",
-    "Wordlist Generator": "Resources related to password-audit data and wordlists. Use only synthetic or explicitly authorized test data.",
-    "Wireless attack tools": "Wi-Fi and wireless-security resources. Restrict any testing to equipment and radio environments you own or are authorized to assess.",
-    "SQL Injection Tools": "Resources for understanding and assessing SQL injection in deliberately vulnerable labs or explicitly scoped applications.",
-    "Phishing attack tools": "Phishing-related references and simulation resources for defensive awareness. Never collect real credentials or target people without explicit approval.",
-    "Web Attack tools": "Web application security resources. Interact only with applications that are yours or explicitly in scope.",
-    "Post exploitation tools": "High-risk post-compromise and privilege-analysis resources. This directory does not run them; use isolated labs and explicit written authorization only.",
-    "Forensic tools": "Resources for preserving, examining and explaining digital evidence. Follow evidence-handling and privacy requirements.",
-    "Payload creation tools": "Payload-related references with elevated risk. Do not deploy generated artifacts; use isolated, disposable labs under written authorization.",
-    "Exploit framework": "Exploit-development and validation references. Keep activity inside intentionally vulnerable labs or signed-off scope.",
-    "Reverse engineering tools": "Resources for examining software, binaries and file formats. Respect ownership, privacy and applicable legal restrictions.",
-    "DDOS Attack Tools": "Denial-of-service-related resources are listed for defensive awareness only. Do not generate disruptive traffic or test public systems.",
-    "Remote Administrator Tools (RAT)": "Remote administration and remote-access references. Verify publisher, consent, authorization and endpoint controls before considering use.",
-    "XSS Attack Tools": "Cross-site scripting resources for safe education and authorized application testing. Prefer dedicated training labs.",
-    "Steganography Tools": "Resources for hiding, detecting or inspecting data embedded in media. Handle files lawfully and preserve originals when investigating.",
-    "Active Directory Tools": "Windows identity and directory-security resources. Use only in a lab or a documented, explicitly authorized environment.",
-    "Cloud Security Tools": "Cloud security resources. Confirm account ownership, tenant boundaries, provider policies and written scope before testing.",
-    "Mobile Security Tools": "Mobile application and device-security resources. Use test devices and applications you own or are authorized to assess.",
-    "Other tools": "Additional security and learning resources. Check the official project documentation, permissions and operating context before use.",
-    "Password / Hash Cracking": "Password-audit and hash-analysis resources. Work only on hashes and accounts you own or are explicitly authorized to audit.",
+    "Anonymously Hiding Tools": "নেটওয়ার্ক গোপনীয়তা, anonymity ও tunnelling-সংক্রান্ত resource। ব্যবহারের আগে upstream প্রকল্প ও স্থানীয় নিয়ম যাচাই করুন।",
+    "Information gathering tools": "নিরাপত্তা inventory, public-source research ও network discovery-র resource। সক্রিয় অনুরোধে লিখিত scope থাকতে হবে।",
+    "Wordlist Generator": "Password audit ও wordlist-সংক্রান্ত resource। শুধু synthetic বা স্পষ্টভাবে অনুমোদিত test data ব্যবহার করুন।",
+    "Wireless attack tools": "Wi-Fi ও wireless security-সংক্রান্ত resource। পরীক্ষা কেবল নিজের বা অনুমোদিত equipment ও radio environment-এ সীমাবদ্ধ রাখুন।",
+    "SQL Injection Tools": "SQL injection বোঝা ও মূল্যায়নের resource; ইচ্ছাকৃতভাবে দুর্বল lab বা স্পষ্ট scope-যুক্ত application-এ ব্যবহার করুন।",
+    "Phishing attack tools": "প্রতিরক্ষামূলক সচেতনতা ও অনুমোদিত simulation-সংক্রান্ত resource। বাস্তব credential সংগ্রহ বা অনুমতি ছাড়া কাউকে লক্ষ্য করবেন না।",
+    "Web Attack tools": "Web application security-সংক্রান্ত resource। কেবল নিজের বা স্পষ্টভাবে scope-এ থাকা application-এ কাজ করুন।",
+    "Post exploitation tools": "Compromise-পরবর্তী কার্যকলাপ ও privilege analysis-সংক্রান্ত উচ্চ-ঝুঁকির resource। এই directory এগুলো চালায় না; isolated lab ও লিখিত অনুমতি আবশ্যক।",
+    "Forensic tools": "Digital evidence সংরক্ষণ, পরীক্ষা ও বোঝার resource। Evidence handling ও privacy নিয়ম অনুসরণ করুন।",
+    "Payload creation tools": "উচ্চ-ঝুঁকির payload-সংক্রান্ত reference। তৈরি করা artifact deploy করবেন না; লিখিত অনুমতিসহ isolated disposable lab ব্যবহার করুন।",
+    "Exploit framework": "Exploit development ও validation-সংক্রান্ত reference। ইচ্ছাকৃতভাবে দুর্বল lab বা অনুমোদিত scope-এর ভেতরে থাকুন।",
+    "Reverse engineering tools": "Software, binary ও file format পরীক্ষা করার resource। মালিকানা, privacy ও প্রযোজ্য আইন মানুন।",
+    "DDOS Attack Tools": "Denial-of-service-সংক্রান্ত resource কেবল defensive awareness-এর জন্য তালিকাভুক্ত। বিঘ্নকারী traffic তৈরি বা public system পরীক্ষা করবেন না।",
+    "Remote Administrator Tools (RAT)": "Remote administration ও access-সংক্রান্ত reference। বিবেচনার আগে publisher, consent, authorization ও endpoint control যাচাই করুন।",
+    "XSS Attack Tools": "Cross-site scripting শেখা ও অনুমোদিত application testing-এর resource। নির্দিষ্ট training lab অগ্রাধিকার দিন।",
+    "Steganography Tools": "Media-তে data লুকানো, শনাক্ত বা পরীক্ষা করার resource। আইন মেনে file ব্যবহার করুন এবং তদন্তে original অক্ষত রাখুন।",
+    "Active Directory Tools": "Windows identity ও directory security-সংক্রান্ত resource। কেবল lab বা নথিভুক্ত, স্পষ্টভাবে অনুমোদিত environment-এ ব্যবহার করুন।",
+    "Cloud Security Tools": "Cloud security-সংক্রান্ত resource। পরীক্ষার আগে account ownership, tenant boundary, provider policy ও লিখিত scope নিশ্চিত করুন।",
+    "Mobile Security Tools": "Mobile app ও device security-সংক্রান্ত resource। নিজের বা অনুমোদিত test device ও application ব্যবহার করুন।",
+    "Other tools": "অতিরিক্ত security ও learning resource। ব্যবহারের আগে official documentation, permission ও operating context যাচাই করুন।",
+    "Password / Hash Cracking": "Password audit ও hash analysis-এর resource। শুধু নিজের বা স্পষ্টভাবে অনুমোদিত hash ও account নিয়ে কাজ করুন।",
 }
 
 
@@ -101,21 +101,21 @@ def build() -> list[dict[str, object]]:
             "type": entry_type(tags),
             "description": CATEGORY_DESCRIPTIONS.get(
                 category,
-                "Curated security resource. Check the official source, intended use and authorization scope before use.",
+                "নিরাপত্তা ও শিক্ষামূলক resource। ব্যবহারের আগে official source, উদ্দেশ্য ও অনুমোদিত scope যাচাই করুন।",
             ),
             "sourceUrl": source_url,
             "archiveUrl": ARCHIVE_CATALOG_URL,
-            "platform": "Not specified in the archived catalog",
+            "platform": "Archived catalog-এ উল্লেখ নেই",
         })
 
     if not records:
         raise SystemExit("No entries found in the archived Markdown catalogue")
     payload = {
-        "generatedFrom": "upstream/hackingtool-master/docs/TOOLS.md",
+        "generatedFrom": "docs/TOOLS.md",
         "generatedAt": "source-controlled",
         "count": len(records),
         "sourceClaimedCount": 219,
-        "note": "The archived README claims 219 active tools; the published docs/TOOLS.md contains the records counted here. No missing entries or source URLs are invented.",
+        "note": "Archived README-তে 219টি active tool-এর দাবি রয়েছে; প্রকাশিত docs/TOOLS.md-এ এই সংখ্যক entry পাওয়া গেছে। অনুপস্থিত entry বা source URL অনুমান করে যোগ করা হয়নি।",
         "records": records,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
