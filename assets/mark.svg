@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
   <title id="title">SecureShelf mark</title>
-  <rect width="48" height="48" rx="13" fill="#c8f36a"/>
-  <path d="M14 14h20M14 23h20M14 32h20" fill="none" stroke="#111713" stroke-linecap="round" stroke-width="3"/>
-  <path d="M10 10v28M38 10v28" fill="none" stroke="#111713" stroke-linecap="round" stroke-width="2" opacity=".48"/>
-  <circle cx="14" cy="14" r="2.2" fill="#111713"/><circle cx="34" cy="23" r="2.2" fill="#111713"/><circle cx="22" cy="32" r="2.2" fill="#111713"/>
+  <rect width="48" height="48" rx="11" fill="#0b151d" stroke="#57f6d2" stroke-width="1.5"/>
+  <path d="M14 14h20M14 23h20M14 32h20" fill="none" stroke="#57f6d2" stroke-linecap="round" stroke-width="2.8"/>
+  <path d="M10 10v28M38 10v28" fill="none" stroke="#55dfff" stroke-linecap="round" stroke-width="1.7" opacity=".75"/>
+  <circle cx="14" cy="14" r="2" fill="#d8ff70"/><circle cx="34" cy="23" r="2" fill="#b48aff"/><circle cx="22" cy="32" r="2" fill="#ff69d7"/>
 </svg>

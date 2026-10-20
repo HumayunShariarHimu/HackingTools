@@ -2,22 +2,20 @@
 
 <img src="images/logo.svg" alt="HackingTool" width="600">
 
-### AI-guided, all-in-one toolkit for authorized security testing
+### Open-source security toolkit for authorized testing
 
-**219 curated tools across 21 categories** — recon, OSINT, web, wireless, phishing,
-forensics, post-exploitation and more — with an **AI layer that turns plain English
-into the right tool and the exact command**.
+**A full security workspace for authorized research** — discover resources for recon,
+OSINT, web, wireless, phishing, forensics, post-exploitation and more. Optional AI
+assistance is documented in the Features section; nothing runs without user action.
 
 **Built for** penetration testers · red teamers · blue-team/SOC and DFIR analysts ·
 OSINT researchers · bug-bounty hunters · CTF players · security researchers and
 students — all working **legally, on systems they own or are authorised to test**.
 
 
-![](https://img.shields.io/badge/21_Categories-7B61FF?style=for-the-badge&labelColor=0D1117) &nbsp;![](https://img.shields.io/badge/219_Tools-7B61FF?style=for-the-badge&labelColor=0D1117) &nbsp;![](https://img.shields.io/badge/63_Tags-7B61FF?style=for-the-badge&labelColor=0D1117) &nbsp;![](https://img.shields.io/badge/AI--Guided-7B61FF?style=for-the-badge&labelColor=0D1117&logo=openai&logoColor=white) &nbsp;![](https://img.shields.io/badge/Linux_%7C_Kali_%7C_Parrot_%7C_macOS-7B61FF?style=for-the-badge&labelColor=0D1117&logo=linux&logoColor=white)
-
 <br/>
 
-<a href="#installation"><img src="https://img.shields.io/badge/Install_Now-7B61FF?style=for-the-badge&logo=rocket&logoColor=white" alt="Install Now"></a>&nbsp; <a href="docs/HOW-TO-USE.md"><img src="https://img.shields.io/badge/How_to_Use-30363D?style=for-the-badge&logo=gnometerminal&logoColor=white" alt="How to Use"></a>&nbsp; <a href="docs/TOOLS.md"><img src="https://img.shields.io/badge/Tool_Catalog-30363D?style=for-the-badge&logo=github&logoColor=white" alt="Tool Catalog"></a>
+**Quick links:** [Install](#installation) · [How to use](docs/HOW-TO-USE.md) · [Tool catalog](docs/TOOLS.md)
 
 </div>
 
@@ -56,7 +54,7 @@ students — all working **legally, on systems they own or are authorised to tes
   plans an objective step by step, then summarizes findings and drafts an engagement
   report. Bring your own key or run a local model — nothing auto-executes and nothing
   is fabricated.
-- **🗂 219 curated tools, one interactive console** — type to search every tool, then
+- **🗂 215 published resources, one interactive console** — type to search the resource catalog, then
   install and run across 21 categories without hunting down Git repos; a fixed tag
   taxonomy (63 tags in use) makes every tool discoverable.
 - **🔎 It knows what it doesn't have** — `/find` searches your catalog first, then the
@@ -77,7 +75,7 @@ students — all working **legally, on systems they own or are authorised to tes
 
 ## Tool Categories
 
-**219 tools across 21 categories** — the full list, with available source links and tags, is in
+**215 catalog entries across 21 categories** — the complete published resource list, with available source links and tags, is in
 **[docs/TOOLS.md](docs/TOOLS.md)**.
 
 <div align="center">
@@ -98,19 +96,18 @@ students — all working **legally, on systems they own or are authorised to tes
 
 </div>
 
-<sub>44 further entries are archived (unmaintained or dead upstream) and hidden unless
-you set `show_archived true` via `/config`. The in-app header counts 22 categories /
-219 tools because it also counts the built-in Update / Uninstall menu.</sub>
+<sub>58 Python tool classes are explicitly marked archived in the source; the web directory includes them with a visible Archived status, but never runs them. The published resource list above contains 215 active entries. The older 219 total is unsupported by source data: the runtime has 217 active leaves when its two built-in menu actions are counted.</sub>
 
 ## SecureShelf Web Directory
 
-This repository also includes a Bengali-first, responsive browser directory in
-[`index.html`](index.html). Search the archived catalog by name, category or tag; filter
-by category and resource type; open resource details and source links; and save favorites
-in the current browser. This is a read-only directory: it does not execute the archived
-tools, scripts or commands. The published `docs/TOOLS.md` contains 215 catalog entries
-(203 with verified HTTPS source links; 12 without a usable HTTPS source link), while the
-upstream README claims 219; the directory does not invent missing entries or source links.
+This repository also includes an English-language, responsive Dark Neon browser directory in
+[`index.html`](index.html). Search 273 entries by name, category or tag; filter by category,
+resource type or Active/Archived status; open resource details and source links; and save
+favorites in the current browser. This is a read-only directory: it does not execute the
+archived tools, scripts or commands. The 273 entries comprise 215 published resources from
+`docs/TOOLS.md` (203 with HTTPS source links; 12 without one) plus 58 Python tool classes
+explicitly marked archived (all 58 include HTTPS project URLs). Two built-in menu actions are
+not resources. The old 219 claim was stale and is not supported by source data.
 
 For a local preview, run `python3 scripts/serve.py` from the repository root. Rebuild the
 metadata and static hosting output with `python3 scripts/build_catalog.py && python3
@@ -329,7 +326,7 @@ falls back to the classic numbered menu, where `/` or `s` searches, `t` filters 
 
 ### 🔎 `/find` — a tool for a need you don't have yet
 
-Searches the 219 curated tools first, then the GitHub search API, and ranks the
+Searches the 215 published catalog resources first, then the GitHub search API, and ranks the
 results explainably. **Suggest-only** — it never clones, installs or runs anything —
 and it makes **zero model calls**.
 
