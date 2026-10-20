@@ -73,7 +73,7 @@ button { color: inherit; }
 .brand img, .footer-brand img { filter: drop-shadow(0 0 8px rgba(87, 246, 210, .22)); }
 .brand-copy { display: grid; gap: 3px; }
 .brand-copy strong { font-size: 17px; letter-spacing: -.045em; }
-.brand-copy small { color: var(--quiet); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .14em; }
+.brand-accent { color: var(--cyan); text-shadow: 0 0 13px rgba(87, 246, 210, .24); }
 .top-nav { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); color: #b4c5c8; font-size: 12px; }
 .top-nav a { text-decoration: none; transition: color .15s ease; }
 .top-nav a:hover { color: var(--cyan); }

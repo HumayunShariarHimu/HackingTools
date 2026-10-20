@@ -42,7 +42,7 @@ students — all working **legally, on systems they own or are authorised to tes
   - [📋 Headless engagements](#-headless-engagements)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
-- [SecureShelf Web Directory](#secureshelf-web-directory)
+- [HackingTools Web Application](#hackingtools-web-application)
 - [GitHub Profile](#github-profile)
 
 ---
@@ -98,9 +98,9 @@ students — all working **legally, on systems they own or are authorised to tes
 
 <sub>58 Python tool classes are explicitly marked archived in the source; the web directory includes them with a visible Archived status, but never runs them. The published resource list above contains 215 active entries. The older 219 total is unsupported by source data: the runtime has 217 active leaves when its two built-in menu actions are counted.</sub>
 
-## SecureShelf Web Directory
+## HackingTools Web Application
 
-This repository also includes an English-language, responsive Dark Neon browser directory in
+The HackingTools application is an English-language, responsive Dark Neon browser directory in
 [`index.html`](index.html). Search 273 entries by name, category or tag; filter by category,
 resource type or Active/Archived status; open resource details and source links; and save
 favorites in the current browser. This is a read-only directory: it does not execute the

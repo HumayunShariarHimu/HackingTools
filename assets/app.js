@@ -2,7 +2,8 @@
   'use strict';
 
   const PAGE_SIZE = 18;
-  const STORAGE_KEY = 'secureshelf.saved.v1';
+  const STORAGE_KEY = 'hackingtools.saved.v1';
+  const LEGACY_STORAGE_KEY = 'secureshelf.saved.v1';
   const REPOSITORY_URL = 'https://github.com/HumayunShariarHimu/HackingTools';
   const typeLabels = { tool: 'Tool', reference: 'Reference', service: 'Online service' };
   const state = {
@@ -82,8 +83,13 @@
 
   function loadSaved() {
     try {
-      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const current = localStorage.getItem(STORAGE_KEY);
+      const previous = current === null ? localStorage.getItem(LEGACY_STORAGE_KEY) : current;
+      const parsed = JSON.parse(previous || '[]');
       if (Array.isArray(parsed)) state.saved = new Set(parsed.filter((id) => typeof id === 'string'));
+      if (current === null && state.saved.size) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...state.saved]));
+      }
     } catch {
       state.saved = new Set();
     }
@@ -476,7 +482,7 @@
       byId('data-note').textContent = typeof payload.note === 'string' ? payload.note : `${payload.generatedFrom || 'Archived catalog'} · ${state.records.length} metadata-only records.`;
       render();
     } catch (error) {
-      console.error('SecureShelf catalog failed to load:', error);
+      console.error('HackingTools catalog failed to load:', error);
       ui.grid.setAttribute('aria-busy', 'false');
       ui.grid.hidden = true;
       ui.empty.hidden = false;

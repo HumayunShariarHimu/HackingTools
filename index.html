@@ -4,24 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#070a10">
-  <meta name="description" content="A source-aware, read-only directory for authorized cybersecurity learning and assessment.">
-  <meta property="og:title" content="SecureShelf — Cybersecurity Resource Index">
-  <meta property="og:description" content="Explore the catalog, verify sources and stay within an authorized scope.">
+  <meta name="description" content="HackingTools is a responsive, source-aware directory for authorized cybersecurity learning and assessment.">
+  <meta property="og:title" content="HackingTools">
+  <meta property="og:description" content="Explore every catalog entry, check its source and stay within an authorized scope.">
   <meta property="og:type" content="website">
-  <title>SecureShelf — Cybersecurity Resource Index</title>
+  <title>HackingTools</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#directory">Skip to the directory</a>
+  <a class="skip-link" href="#directory">Skip to the tools directory</a>
   <header class="topbar">
-    <a class="brand" href="./" aria-label="SecureShelf home">
+    <a class="brand" href="./" aria-label="HackingTools home">
       <img src="assets/mark.svg" width="36" height="36" alt="">
-      <span class="brand-copy"><strong>SecureShelf</strong><small>CYBERSECURITY RESOURCE INDEX</small></span>
+      <span class="brand-copy"><strong>Hacking<span class="brand-accent">Tools</span></strong></span>
     </a>
     <nav class="top-nav" aria-label="Primary navigation">
-      <a href="#directory">Explore</a>
+      <a href="#directory">Explore tools</a>
       <a href="#safe-use">Safe use</a>
       <a class="repo-link" href="https://github.com/HumayunShariarHimu/HackingTools" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
@@ -30,18 +30,18 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> AUTHORIZED SECURITY RESEARCH / RESOURCE INDEX</p>
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> HACKINGTOOLS / AUTHORIZED SECURITY RESEARCH</p>
         <h1 id="hero-title">Explore. Verify.<br><span>Stay in scope.</span></h1>
-        <p class="hero-intro">A clear, searchable directory of cybersecurity tools, learning resources and upstream sources—built for responsible research.</p>
-        <a class="hero-cta" href="#directory">Browse the directory <span aria-hidden="true">↓</span></a>
+        <p class="hero-intro">Explore the tools, learning resources and upstream sources collected in HackingTools—organized for responsible, authorized research.</p>
+        <a class="hero-cta" href="#directory">Explore the tools <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="hero-index" aria-label="Catalog overview">
+      <div class="hero-index" aria-label="HackingTools catalog snapshot">
         <div class="index-mark" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
         <p class="index-label">CATALOG / SOURCE SNAPSHOT</p>
         <div class="stats-line"><strong id="stat-tools">—</strong><span>Catalog entries</span></div>
         <div class="stats-line"><strong id="stat-categories">—</strong><span>Categories</span></div>
-        <div class="stats-line"><strong id="stat-sources">—</strong><span>HTTPS source links</span></div>
-        <p class="snapshot-note" id="source-count-note">Source links are included only when present in the archive.</p>
+        <div class="stats-line"><strong id="stat-sources">—</strong><span>HTTPS source URLs</span></div>
+        <p class="snapshot-note" id="source-count-note">Source URLs are included only when listed in the repository.</p>
       </div>
     </section>
 
@@ -49,7 +49,7 @@
       <span class="safety-icon" aria-hidden="true">!</span>
       <div class="safety-copy">
         <h2 id="safety-title">Authorized use only</h2>
-        <p>SecureShelf never runs tools, scripts or commands. Before any assessment, obtain explicit written permission and agree on the exact systems, time window and scope.</p>
+        <p>HackingTools never runs tools, scripts or commands. Before any assessment, obtain explicit written permission and agree on the exact systems, time window and scope.</p>
       </div>
       <span class="read-only-label"><span aria-hidden="true"></span> READ-ONLY DIRECTORY</span>
     </section>
@@ -57,10 +57,10 @@
     <section class="directory-section" id="directory" aria-labelledby="directory-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow section-eyebrow">01 / RESOURCE INDEX</p>
-          <h2 id="directory-title">Browse the catalog</h2>
+          <p class="eyebrow section-eyebrow">01 / TOOLS EXPLORER</p>
+          <h2 id="directory-title">Explore the catalog</h2>
         </div>
-        <p class="section-aside">Only source links present in the archive are shown. Missing URLs and platform details are never guessed.</p>
+        <p class="section-aside">Only source URLs present in the repository are shown. Missing URLs and platform details are never guessed.</p>
       </div>
 
       <div class="filter-bar" role="search">
@@ -83,7 +83,7 @@
           <span>Status</span>
           <select id="status-filter" aria-label="Filter by source status">
             <option value="all">All entries</option>
-            <option value="active">Active resources</option>
+            <option value="active">Published resources</option>
             <option value="archived">Archived resources</option>
           </select>
         </label>
@@ -102,7 +102,7 @@
             <div class="rail-heading"><h3>Popular tags</h3></div>
             <div class="tag-filter-list" id="tag-filter-list"></div>
           </div>
-          <p class="rail-footnote">Platform details appear only when the archived source provides them.</p>
+          <p class="rail-footnote">Platform details appear only when the repository provides them.</p>
         </aside>
 
         <div class="catalog-main">
@@ -110,7 +110,7 @@
             <p id="result-count" class="result-count" aria-live="polite">Loading catalog…</p>
             <label class="sort-select-wrap" for="sort-filter"><span>Sort</span>
               <select id="sort-filter" aria-label="Sort catalog entries">
-                <option value="source">Source order</option>
+                <option value="source">Repository order</option>
                 <option value="name">Name: A to Z</option>
               </select>
             </label>
@@ -137,7 +137,7 @@
   </main>
 
   <footer class="footer">
-    <a class="footer-brand" href="./"><img src="assets/mark.svg" width="28" height="28" alt=""><strong>SecureShelf</strong></a>
+    <a class="footer-brand" href="./"><img src="assets/mark.svg" width="28" height="28" alt=""><strong>HackingTools</strong></a>
     <p>Source-aware. Scope-conscious. Read-only.</p>
     <a href="https://github.com/HumayunShariarHimu/HackingTools" target="_blank" rel="noopener noreferrer">Source repository <span aria-hidden="true">↗</span></a>
   </footer>
@@ -160,7 +160,7 @@
       <div class="dialog-safety"><span aria-hidden="true">!</span><p>Read the source documentation and license before considering use. Work only on systems you own or are explicitly authorized to assess, within a written scope. This directory never executes tools or commands.</p></div>
       <div class="dialog-actions">
         <a class="source-button" id="dialog-source-link" href="#" target="_blank" rel="noopener noreferrer">Open HTTPS source <span aria-hidden="true">↗</span></a>
-        <a class="archive-link" id="dialog-archive-link" href="#" target="_blank" rel="noopener noreferrer">View archived catalog entry</a>
+        <a class="archive-link" id="dialog-archive-link" href="#" target="_blank" rel="noopener noreferrer">View source catalog entry</a>
         <button class="button-secondary dialog-save" id="dialog-save" type="button"></button>
         <button class="copy-button" id="dialog-copy" type="button" hidden>Copy source URL</button>
       </div>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve SecureShelf's static files for local preview; no dynamic API or execution."""
+"""Serve HackingTools static files for local preview; no dynamic API or execution."""
 from __future__ import annotations
 
 import os
@@ -33,7 +33,7 @@ def main() -> None:
     host = os.environ.get("HOST", "0.0.0.0")
     port = int(os.environ.get("PORT", "3000"))
     server = ThreadingHTTPServer((host, port), StaticHandler)
-    print(f"SecureShelf static preview listening on http://{host}:{port}")
+    print(f"HackingTools static preview listening on http://{host}:{port}")
     server.serve_forever()
 
 
