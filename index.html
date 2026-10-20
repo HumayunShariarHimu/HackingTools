@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111713">
+  <meta name="description" content="নিরাপদ, source-linked cybersecurity resource directory — খুঁজুন, যাচাই করুন, scope মেনে চলুন।">
+  <meta property="og:title" content="SecureShelf — Cybersecurity Resource Library">
+  <meta property="og:description" content="অনুমোদিত security learning ও assessment-এর জন্য read-only resource directory।">
+  <meta property="og:type" content="website">
+  <title>SecureShelf — Cybersecurity Resource Library</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#directory">মূল তালিকায় যান</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="SecureShelf হোম">
+      <img src="assets/mark.svg" width="34" height="34" alt="">
+      <span class="brand-copy"><strong>SecureShelf</strong><small>SECURITY RESOURCE INDEX</small></span>
+    </a>
+    <nav class="top-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="#directory">লাইব্রেরি</a>
+      <a href="#safe-use">নিরাপদ ব্যবহার</a>
+      <a class="repo-link" href="https://github.com/HumayunShariarHimu/HackingTools" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> AUTHORIZED SECURITY RESEARCH / RESOURCE INDEX</p>
+        <h1 id="hero-title">খুঁজুন। যাচাই করুন।<br><span>scope মেনে চলুন।</span></h1>
+        <p class="hero-intro">সাইবারসিকিউরিটি টুল, শেখার উপকরণ ও upstream source—একটি পরিচ্ছন্ন, searchable directory-তে।</p>
+        <a class="hero-cta" href="#directory">রিসোর্স ব্রাউজ করুন <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-index" aria-label="ক্যাটালগের সারাংশ">
+        <div class="index-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p class="index-label">CATALOG SNAPSHOT</p>
+        <div class="stats-line"><strong id="stat-tools">—</strong><span>তালিকাভুক্ত রিসোর্স</span></div>
+        <div class="stats-line"><strong id="stat-categories">—</strong><span>বিষয়ভিত্তিক বিভাগ</span></div>
+        <p class="snapshot-note">সংরক্ষিত upstream catalog থেকে তৈরি</p>
+      </div>
+    </section>
+
+    <section class="safety-strip" id="safe-use" aria-labelledby="safety-title">
+      <span class="safety-icon" aria-hidden="true">!</span>
+      <div>
+        <h2 id="safety-title">শুধু অনুমোদিত scope-এ ব্যবহার করুন</h2>
+        <p>এই সাইট কোনো tool, script বা command চালায় না। কোনো system পরীক্ষা করার আগে মালিকের স্পষ্ট লিখিত অনুমতি ও নির্দিষ্ট scope নিশ্চিত করুন।</p>
+      </div>
+      <span class="read-only-label"><span aria-hidden="true"></span> READ-ONLY DIRECTORY</span>
+    </section>
+
+    <section class="directory-section" id="directory" aria-labelledby="directory-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-eyebrow">01 / DIRECTORY</p>
+          <h2 id="directory-title">রিসোর্স লাইব্রেরি</h2>
+        </div>
+        <p class="section-aside">উৎসে যা আছে, তালিকায় তাই—কোনো source link অনুমান করে যোগ করা হয়নি।</p>
+      </div>
+
+      <div class="filter-bar" role="search">
+        <label class="search-box" for="search-input">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+          <span class="sr-only">রিসোর্স খুঁজুন</span>
+          <input id="search-input" type="search" placeholder="নাম, বিভাগ বা keyword লিখুন…" autocomplete="off" aria-describedby="search-hint">
+          <kbd id="search-hint" aria-hidden="true">/</kbd>
+        </label>
+        <label class="type-select-wrap" for="type-filter">
+          <span>ধরন</span>
+          <select id="type-filter" aria-label="রিসোর্সের ধরন বাছুন">
+            <option value="all">সব ধরন</option>
+            <option value="tool">টুল</option>
+            <option value="reference">রেফারেন্স / শেখার উপকরণ</option>
+            <option value="service">অনলাইন সেবা</option>
+          </select>
+        </label>
+        <button class="saved-toggle" id="saved-toggle" type="button" aria-pressed="false"><span aria-hidden="true">☆</span> সংরক্ষিত <span class="saved-count" id="saved-count">0</span></button>
+        <button class="clear-button" id="clear-filters" type="button">ফিল্টার মুছুন</button>
+      </div>
+
+      <div class="active-filters" id="active-filters" aria-live="polite"></div>
+      <div class="catalog-layout">
+        <aside class="filter-rail" aria-label="ক্যাটালগ ফিল্টার">
+          <div class="rail-group">
+            <div class="rail-heading"><h3>বিষয়</h3><span id="category-count">21</span></div>
+            <nav class="category-list" id="category-list" aria-label="বিভাগ অনুযায়ী দেখুন"></nav>
+          </div>
+          <div class="rail-group tag-group">
+            <div class="rail-heading"><h3>জনপ্রিয় ট্যাগ</h3></div>
+            <div class="tag-filter-list" id="tag-filter-list"></div>
+          </div>
+          <p class="rail-footnote">Platform তথ্য archive-এ না থাকলে তা দেখানো হয় না।</p>
+        </aside>
+
+        <div class="catalog-main">
+          <div class="results-toolbar">
+            <p id="result-count" class="result-count" aria-live="polite">ক্যাটালগ লোড হচ্ছে…</p>
+            <label class="sort-select-wrap" for="sort-filter"><span>সাজান</span>
+              <select id="sort-filter" aria-label="রিসোর্স সাজান">
+                <option value="source">মূল তালিকার ক্রম</option>
+                <option value="name">নাম: ক থেকে জ</option>
+              </select>
+            </label>
+          </div>
+          <div class="resource-grid" id="resource-grid" aria-live="polite" aria-busy="true"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <span aria-hidden="true">⌕</span>
+            <h3>এই ফিল্টারে কিছু পাওয়া যায়নি</h3>
+            <p>অন্য শব্দ লিখুন অথবা ফিল্টার পরিষ্কার করে আবার চেষ্টা করুন।</p>
+            <button class="button-secondary" id="empty-clear" type="button">সব ফিল্টার মুছুন</button>
+          </div>
+          <div class="load-more-wrap"><button class="button-secondary load-more" id="load-more" type="button" hidden>আরও রিসোর্স দেখুন <span aria-hidden="true">↓</span></button></div>
+          <p class="data-note" id="data-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles" aria-labelledby="principles-title">
+      <div class="principles-title"><p class="eyebrow section-eyebrow">02 / HOW TO USE</p><h2 id="principles-title">দায়িত্বশীল কাজের<br><span>তিনটি ভিত্তি।</span></h2></div>
+      <div class="principle-item"><span>01</span><h3>অনুমতি</h3><p>নিজস্ব system বা লিখিতভাবে অনুমোদিত target ছাড়া পরীক্ষা নয়।</p></div>
+      <div class="principle-item"><span>02</span><h3>সীমা</h3><p>লক্ষ্য, সময়, পদ্ধতি এবং থামার শর্ত আগে থেকেই নির্দিষ্ট রাখুন।</p></div>
+      <div class="principle-item"><span>03</span><h3>যাচাই</h3><p>কোনো resource ব্যবহারের আগে official source, license ও ঝুঁকি যাচাই করুন।</p></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-brand" href="./"><img src="assets/mark.svg" width="26" height="26" alt=""><strong>SecureShelf</strong></a>
+    <p>Source-linked. Scope-aware. Read-only.</p>
+    <a href="https://github.com/HumayunShariarHimu/HackingTools" target="_blank" rel="noopener noreferrer">Source repository <span aria-hidden="true">↗</span></a>
+  </footer>
+
+  <dialog class="detail-dialog" id="resource-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-topline"><span class="dialog-kicker">RESOURCE DETAILS</span><button class="dialog-close" type="button" data-action="close-dialog" aria-label="বিস্তারিত বন্ধ করুন">×</button></div>
+    <div class="dialog-content">
+      <p class="dialog-category" id="dialog-category"></p>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-description" id="dialog-description"></p>
+      <div class="detail-divider"></div>
+      <dl class="detail-facts">
+        <div><dt>ধরন</dt><dd id="dialog-type"></dd></div>
+        <div><dt>Platform</dt><dd id="dialog-platform"></dd></div>
+        <div><dt>উৎসের তথ্য</dt><dd id="dialog-source-status"></dd></div>
+      </dl>
+      <div class="detail-tags" id="dialog-tags" aria-label="রিসোর্সের ট্যাগ"></div>
+      <div class="dialog-safety"><span aria-hidden="true">!</span><p>ব্যবহারের আগে source documentation ও license পড়ুন। কেবল নিজের বা স্পষ্টভাবে অনুমোদিত system-এ, লিখিত scope মেনে কাজ করুন। এই directory কোনো command বা tool চালায় না।</p></div>
+      <div class="dialog-actions">
+        <a class="source-button" id="dialog-source-link" href="#" target="_blank" rel="noopener noreferrer">Official source দেখুন <span aria-hidden="true">↗</span></a>
+        <a class="archive-link" id="dialog-archive-link" href="#" target="_blank" rel="noopener noreferrer">Archived catalog entry</a>
+        <button class="button-secondary dialog-save" id="dialog-save" type="button"></button>
+        <button class="copy-button" id="dialog-copy" type="button" hidden>Source URL কপি</button>
+      </div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,3316 @@
+{
+  "generatedFrom": "upstream/hackingtool-master/docs/TOOLS.md",
+  "generatedAt": "source-controlled",
+  "count": 215,
+  "sourceClaimedCount": 219,
+  "note": "The archived README claims 219 active tools; the published docs/TOOLS.md contains the records counted here. No missing entries or source URLs are invented.",
+  "records": [
+    {
+      "id": "001-anonymously-surf",
+      "name": "Anonymously Surf",
+      "category": "🛡 Anonymously Hiding Tools",
+      "tags": [
+        "anonymity",
+        "tunneling",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Und3rf10w/kali-anonsurf",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "002-multitor",
+      "name": "Multitor",
+      "category": "🛡 Anonymously Hiding Tools",
+      "tags": [
+        "anonymity",
+        "tunneling",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/trimstray/multitor",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "003-tor-torsocks-socks-anonymity-proxy",
+      "name": "Tor + torsocks (SOCKS anonymity proxy)",
+      "category": "🛡 Anonymously Hiding Tools",
+      "tags": [
+        "anonymity",
+        "tunneling",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gitlab.torproject.org/tpo/core/torsocks",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "004-proxychains-ng-chain-traffic-through-proxies-tor",
+      "name": "proxychains-ng (chain traffic through proxies/Tor)",
+      "category": "🛡 Anonymously Hiding Tools",
+      "tags": [
+        "anonymity",
+        "tunneling",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/rofl0r/proxychains-ng",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "005-whonix-anonymity-tor-opsec-docs",
+      "name": "Whonix — Anonymity & Tor OpSec (docs)",
+      "category": "🛡 Anonymously Hiding Tools",
+      "tags": [
+        "anonymity",
+        "reference",
+        "learning"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.whonix.org/wiki/Documentation",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "006-network-map-nmap",
+      "name": "Network Map (nmap)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "scanner",
+        "port-scan",
+        "recon",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/nmap/nmap",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "007-port-scanning",
+      "name": "Port scanning",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "port-scan",
+        "scanner",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "008-host-to-ip",
+      "name": "Host to IP",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "recon",
+        "dns",
+        "lookup"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "009-red-hawk-all-in-one-scanning",
+      "name": "RED HAWK (All In One Scanning)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "web",
+        "recon",
+        "scanner",
+        "fingerprint"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Tuhinshubhra/RED_HAWK",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "010-reconspider-for-all-scanning",
+      "name": "ReconSpider(For All Scanning)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "osint",
+        "recon",
+        "crawler"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/bhavsec/reconspider",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "011-isitdown-check-website-down-up",
+      "name": "IsItDown (Check Website Down/Up)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "recon",
+        "online-service",
+        "web"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "012-secretfinder-like-api-etc",
+      "name": "SecretFinder (like API & etc)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "web",
+        "recon",
+        "credentials",
+        "git-secrets"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/m4ll0k/SecretFinder",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "013-port-scanner-rang3r",
+      "name": "Port Scanner - rang3r",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "port-scan",
+        "scanner",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/floriankunushevci/rang3r",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "014-breacher",
+      "name": "Breacher",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "web",
+        "recon",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/s0md3v/Breacher",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "015-theharvester-osint",
+      "name": "theHarvester (OSINT)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "osint",
+        "email",
+        "subdomain-enum",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/laramies/theHarvester",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "016-amass-attack-surface-mapping",
+      "name": "Amass (Attack Surface Mapping)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "subdomain-enum",
+        "recon",
+        "osint",
+        "dns"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/owasp-amass/amass",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "017-masscan-fast-port-scanner",
+      "name": "Masscan (Fast Port Scanner)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "port-scan",
+        "scanner",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/robertdavidgraham/masscan",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "018-rustscan-modern-port-scanner",
+      "name": "RustScan (Modern Port Scanner)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "port-scan",
+        "scanner",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/RustScan/RustScan",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "019-holehe-email-social-accounts",
+      "name": "Holehe (Email → Social Accounts)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "osint",
+        "email",
+        "recon",
+        "lookup"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/megadose/holehe",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "020-maigret-username-osint",
+      "name": "Maigret (Username OSINT)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "osint",
+        "recon",
+        "lookup"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/soxoj/maigret",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "021-httpx-http-toolkit",
+      "name": "httpx (HTTP Toolkit)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "web",
+        "recon",
+        "scanner",
+        "fingerprint"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/projectdiscovery/httpx",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "022-spiderfoot-osint-automation",
+      "name": "SpiderFoot (OSINT Automation)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "osint",
+        "recon",
+        "subdomain-enum"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/smicallef/spiderfoot",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "023-subfinder-subdomain-enumeration",
+      "name": "Subfinder (Subdomain Enumeration)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "subdomain-enum",
+        "recon",
+        "osint",
+        "dns"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/projectdiscovery/subfinder",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "024-trufflehog-secret-scanner",
+      "name": "TruffleHog (Secret Scanner)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "git-secrets",
+        "credentials",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/trufflesecurity/trufflehog",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "025-gitleaks-git-secret-scanner",
+      "name": "Gitleaks (Git Secret Scanner)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "git-secrets",
+        "credentials",
+        "reporting"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/gitleaks/gitleaks",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "026-naabu-fast-port-scanner",
+      "name": "naabu (fast port scanner)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "port-scan",
+        "recon",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/projectdiscovery/naabu",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "027-dnsx-dns-toolkit",
+      "name": "dnsx (DNS toolkit)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "dns",
+        "recon",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/projectdiscovery/dnsx",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "028-reconftw-automated-recon",
+      "name": "reconFTW (Automated Recon)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "recon",
+        "osint",
+        "subdomain-enum",
+        "scanner",
+        "dns"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/six2dez/reconftw",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "029-gowitness-web-screenshots",
+      "name": "gowitness (Web Screenshots)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "web",
+        "recon",
+        "fingerprint",
+        "reporting"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/sensepost/gowitness",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "030-eyewitness-web-screenshots-headers",
+      "name": "EyeWitness (Web Screenshots + Headers)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "web",
+        "recon",
+        "fingerprint",
+        "reporting"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/RedSiege/EyeWitness",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "031-sn1per-attack-surface-scanner",
+      "name": "Sn1per (Attack Surface Scanner)",
+      "category": "🔍 Information gathering tools",
+      "tags": [
+        "scanner",
+        "recon",
+        "vuln-scan",
+        "enumeration",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/1N3/Sn1per",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "032-cupp",
+      "name": "Cupp",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "wordlist",
+        "password-attack",
+        "credentials",
+        "osint"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Mebus/cupp",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "033-hashcat-password-cracker",
+      "name": "Hashcat (Password Cracker)",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "hash-crack",
+        "password-attack",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/hashcat/hashcat",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "034-john-the-ripper",
+      "name": "John the Ripper",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "hash-crack",
+        "password-attack",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/openwall/john",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "035-haiti-hash-type-identifier",
+      "name": "haiti (Hash Type Identifier)",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "hash-crack",
+        "lookup",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/noraj/haiti",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "036-crunch-wordlist-generator",
+      "name": "crunch (Wordlist Generator)",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "wordlist",
+        "bruteforce",
+        "password-attack"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://sourceforge.net/projects/crunch-wordlist/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "037-cewl-custom-word-list",
+      "name": "CeWL (Custom Word List)",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "wordlist",
+        "osint",
+        "recon",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/digininja/CeWL",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "038-seclists-wordlist-collection",
+      "name": "SecLists (Wordlist Collection)",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "wordlist",
+        "reference",
+        "bruteforce"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/danielmiessler/SecLists",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "039-kali-wordlists-package-rockyou-etc",
+      "name": "Kali wordlists package (rockyou etc.)",
+      "category": "📚 Wordlist Generator",
+      "tags": [
+        "wordlist",
+        "reference",
+        "password-attack"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gitlab.com/kalilinux/packages/wordlists",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "040-wifi-pumpkin",
+      "name": "WiFi-Pumpkin",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "mitm",
+        "phishing",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/P0cL4bs/wifipumpkin3",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "041-pixiewps",
+      "name": "pixiewps",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "bruteforce",
+        "password-attack"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/wiire/pixiewps",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "042-bluetooth-honeypot-gui-framework",
+      "name": "Bluetooth Honeypot GUI Framework",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "sniffing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/andrewmichaelsmith/bluepot",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "043-fluxion",
+      "name": "Fluxion",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "phishing",
+        "social-engineering",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/FluxionNetwork/fluxion",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "044-wifiphisher",
+      "name": "Wifiphisher",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "phishing",
+        "social-engineering",
+        "mitm"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/wifiphisher/wifiphisher",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "045-wifite",
+      "name": "Wifite",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "password-attack",
+        "bruteforce",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/derv82/wifite2",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "046-howmanypeople",
+      "name": "Howmanypeople",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "sniffing",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "047-airgeddon-wireless-attack-suite",
+      "name": "Airgeddon (Wireless Attack Suite)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "password-attack",
+        "mitm",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/v1s1t0r1sh3r3/airgeddon",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "048-hcxdumptool-pmkid-capture",
+      "name": "hcxdumptool (PMKID Capture)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "sniffing",
+        "pcap",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/ZerBea/hcxdumptool",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "049-hcxtools-pmkid-hash-conversion",
+      "name": "hcxtools (PMKID/Hash Conversion)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "hash-crack",
+        "pcap",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/ZerBea/hcxtools",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "050-bettercap-network-wifi-ble-mitm",
+      "name": "Bettercap (Network/WiFi/BLE MITM)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "mitm",
+        "sniffing",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/bettercap/bettercap",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "051-aircrack-ng-wifi-security-suite",
+      "name": "aircrack-ng (WiFi security suite)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "password-attack",
+        "bruteforce",
+        "sniffing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/aircrack-ng/aircrack-ng",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "052-kismet-wireless-detector-wids",
+      "name": "Kismet (wireless detector / WIDS)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "sniffing",
+        "recon",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/kismetwireless/kismet",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "053-reaver-wps-pin-attack",
+      "name": "Reaver (WPS PIN attack)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "bruteforce",
+        "password-attack",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/t6x/reaver-wps-fork-t6x",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "054-wigle-wardriving-map-api",
+      "name": "WiGLE (wardriving map & API)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "osint",
+        "online-service",
+        "lookup"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://wigle.net/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "055-hashcat-example-hashes-wpa-mode-22000",
+      "name": "hashcat example hashes (WPA mode 22000)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "hash-crack",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://hashcat.net/wiki/doku.php?id=example_hashes",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "056-aircrack-ng-cracking-wpa-tutorial",
+      "name": "Aircrack-ng: cracking WPA (tutorial)",
+      "category": "📡 Wireless attack tools",
+      "tags": [
+        "wireless",
+        "learning",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.aircrack-ng.org/doku.php?id=cracking_wpa",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "057-sqlmap-tool",
+      "name": "Sqlmap tool",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "web",
+        "sql-injection",
+        "exploitation",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/sqlmapproject/sqlmap",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "058-nosqlmap",
+      "name": "NoSqlMap",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "web",
+        "sql-injection",
+        "exploitation"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/codingo/NoSQLMap",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "059-damn-small-sqli-scanner",
+      "name": "Damn Small SQLi Scanner",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "web",
+        "sql-injection",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/stamparm/DSSS",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "060-sqlscan",
+      "name": "SQLScan",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "web",
+        "sql-injection",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Cvar1984/sqlscan",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "061-ghauri-modern-sqli-tool",
+      "name": "Ghauri (Modern SQLi Tool)",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "web",
+        "sql-injection",
+        "exploitation",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/r0oth3x49/ghauri",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "062-portswigger-sql-injection-labs",
+      "name": "PortSwigger — SQL Injection Labs",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "learning",
+        "web",
+        "sql-injection",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://portswigger.net/web-security/sql-injection",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "063-payloadsallthethings-sql-injection",
+      "name": "PayloadsAllTheThings — SQL Injection",
+      "category": "💉 SQL Injection Tools",
+      "tags": [
+        "cheatsheet",
+        "reference",
+        "sql-injection",
+        "web"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "064-advphishing",
+      "name": "AdvPhishing",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "social-engineering",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Ignitetch/AdvPhishing",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "065-setoolkit",
+      "name": "Setoolkit",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "social-engineering",
+        "phishing",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/trustedsec/social-engineer-toolkit",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "066-socialfish",
+      "name": "SocialFish",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "credentials",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/UndeadSec/SocialFish",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "067-hiddeneye",
+      "name": "HiddenEye",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "credentials",
+        "social-engineering"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Morsmalleo/HiddenEye",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "068-evilginx3",
+      "name": "Evilginx3",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "mitm",
+        "credentials",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/kgretzky/evilginx2",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "069-saycheese",
+      "name": "SayCheese",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "social-engineering",
+        "phishing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/hangetzzu/saycheese",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "070-qr-code-jacking",
+      "name": "QR Code Jacking",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "social-engineering"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/cryptedwolf/ohmyqr",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "071-qrljacking",
+      "name": "QRLJacking",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "social-engineering",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/OWASP/QRLJacking",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "072-maskphish",
+      "name": "Maskphish",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "social-engineering"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/jaykali/maskphish",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "073-dnstwist",
+      "name": "dnstwist",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "osint",
+        "dns",
+        "phishing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/elceef/dnstwist",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "074-gophish-phishing-simulation",
+      "name": "GoPhish (Phishing Simulation)",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "social-engineering",
+        "email",
+        "credentials",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://getgophish.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "075-gophish-documentation",
+      "name": "GoPhish Documentation",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "reference",
+        "learning"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://docs.getgophish.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "076-mitre-att-ck-phishing-t1566",
+      "name": "MITRE ATT&CK — Phishing (T1566)",
+      "category": "🎣 Phishing attack tools",
+      "tags": [
+        "phishing",
+        "social-engineering",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://attack.mitre.org/techniques/T1566/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "077-skipfish",
+      "name": "Skipfish",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "vuln-scan",
+        "scanner",
+        "crawler"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "078-subdomain-finder",
+      "name": "SubDomain Finder",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "subdomain-enum",
+        "recon",
+        "osint",
+        "dns"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/aboul3la/Sublist3r",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "079-sub-domain-takeover",
+      "name": "Sub-Domain TakeOver",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "subdomain-enum",
+        "web",
+        "vuln-scan"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/edoardottt/takeover",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "080-dirb",
+      "name": "Dirb",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "enumeration",
+        "bruteforce",
+        "wordlist"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gitlab.com/kalilinux/packages/dirb",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "081-nuclei-vulnerability-scanner",
+      "name": "Nuclei (Vulnerability Scanner)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "vuln-scan",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/projectdiscovery/nuclei",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "082-ffuf-web-fuzzer",
+      "name": "ffuf (Web Fuzzer)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "fuzzing",
+        "enumeration",
+        "wordlist"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/ffuf/ffuf",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "083-feroxbuster-directory-brute-force",
+      "name": "Feroxbuster (Directory Brute Force)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "enumeration",
+        "bruteforce",
+        "wordlist"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/epi052/feroxbuster",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "084-nikto-web-server-scanner",
+      "name": "Nikto (Web Server Scanner)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "vuln-scan",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/sullo/nikto",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "085-wafw00f-waf-detector",
+      "name": "wafw00f (WAF Detector)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "fingerprint",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/EnableSecurity/wafw00f",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "086-katana-web-crawler",
+      "name": "Katana (Web Crawler)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "crawler",
+        "recon",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/projectdiscovery/katana",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "087-gobuster-dir-dns-vhost-brute-force",
+      "name": "Gobuster (Dir/DNS/Vhost Brute Force)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "enumeration",
+        "bruteforce",
+        "dns",
+        "wordlist"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/OJ/gobuster",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "088-dirsearch-web-path-discovery",
+      "name": "Dirsearch (Web Path Discovery)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "enumeration",
+        "bruteforce",
+        "wordlist"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/maurosoria/dirsearch",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "089-owasp-zap-web-app-scanner",
+      "name": "OWASP ZAP (Web App Scanner)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "vuln-scan",
+        "scanner",
+        "fuzzing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/zaproxy/zaproxy",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "090-testssl-sh-tls-ssl-checker",
+      "name": "testssl.sh (TLS/SSL Checker)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "scanner",
+        "fingerprint"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/drwetter/testssl.sh",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "091-arjun-http-parameter-discovery",
+      "name": "Arjun (HTTP Parameter Discovery)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "fuzzing",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/s0md3v/Arjun",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "092-caido-web-security-auditing",
+      "name": "Caido (Web Security Auditing)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "scanner",
+        "crawler"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/caido/caido",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "093-mitmproxy-intercepting-proxy",
+      "name": "mitmproxy (Intercepting Proxy)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "mitm",
+        "sniffing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/mitmproxy/mitmproxy",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "094-whatweb-web-fingerprinter",
+      "name": "WhatWeb (Web Fingerprinter)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "fingerprint",
+        "recon",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/urbanadventurer/WhatWeb",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "095-wpscan-wordpress-scanner",
+      "name": "WPScan (WordPress Scanner)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "web",
+        "vuln-scan",
+        "scanner",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/wpscanteam/wpscan",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "096-portswigger-web-security-academy",
+      "name": "PortSwigger Web Security Academy",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "learning",
+        "web",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://portswigger.net/web-security",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "097-payloadsallthethings",
+      "name": "PayloadsAllTheThings",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "cheatsheet",
+        "reference",
+        "payload",
+        "web"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "098-hacktricks",
+      "name": "HackTricks",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "cheatsheet",
+        "reference",
+        "web",
+        "privesc"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://book.hacktricks.xyz/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "099-revshells-com-reverse-shell-generator",
+      "name": "revshells.com (Reverse Shell Generator)",
+      "category": "🌐 Web Attack tools",
+      "tags": [
+        "reverse-shell",
+        "cheatsheet",
+        "online-service",
+        "web"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.revshells.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "100-pwncat-cs-reverse-shell-handler",
+      "name": "pwncat-cs (Reverse Shell Handler)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "post-exploitation",
+        "reverse-shell",
+        "persistence",
+        "privesc"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/calebstewart/pwncat",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "101-sliver-c2-framework",
+      "name": "Sliver (C2 Framework)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "c2",
+        "post-exploitation",
+        "payload"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/BishopFox/sliver",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "102-peass-ng-linpeas-winpeas-priv-esc",
+      "name": "PEASS-ng — LinPEAS/WinPEAS (Priv Esc)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "privesc",
+        "post-exploitation",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/peass-ng/PEASS-ng",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "103-ligolo-ng-tunneling-pivoting",
+      "name": "Ligolo-ng (Tunneling/Pivoting)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "tunneling",
+        "lateral-movement",
+        "post-exploitation",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/nicocha30/ligolo-ng",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "104-chisel-http-tunnel",
+      "name": "Chisel (HTTP Tunnel)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "tunneling",
+        "lateral-movement",
+        "post-exploitation",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/jpillora/chisel",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "105-evil-winrm-windows-remote-shell",
+      "name": "Evil-WinRM (Windows Remote Shell)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "lateral-movement",
+        "credentials",
+        "post-exploitation",
+        "active-directory"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Hackplayers/evil-winrm",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "106-mythic-c2-platform",
+      "name": "Mythic (C2 Platform)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "c2",
+        "post-exploitation",
+        "lateral-movement"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/its-a-feature/Mythic",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "107-pspy-unprivileged-process-snooping",
+      "name": "pspy (unprivileged process snooping)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "post-exploitation",
+        "privesc",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/DominicBreuker/pspy",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "108-linux-smart-enumeration-lse-sh",
+      "name": "linux-smart-enumeration (lse.sh)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "privesc",
+        "post-exploitation",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/diego-treitos/linux-smart-enumeration",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "109-lazagne-local-credential-recovery",
+      "name": "LaZagne (Local Credential Recovery)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "credentials",
+        "post-exploitation",
+        "password-attack"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/AlessandroZ/LaZagne",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "110-hacktricks-post-ex-privesc-playbook",
+      "name": "HackTricks (post-ex / privesc playbook)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "post-exploitation",
+        "privesc",
+        "reference",
+        "cheatsheet"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://book.hacktricks.xyz/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "111-lolbas-windows-living-off-the-land-binaries",
+      "name": "LOLBAS (Windows living-off-the-land binaries)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "privesc",
+        "post-exploitation",
+        "reference",
+        "cheatsheet"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://lolbas-project.github.io/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "112-revshells-com-reverse-shell-generator",
+      "name": "revshells.com (reverse shell generator)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "reverse-shell",
+        "post-exploitation",
+        "online-service",
+        "reference"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.revshells.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "113-payloadsallthethings-payload-technique-cheatsheets",
+      "name": "PayloadsAllTheThings (payload + technique cheatsheets)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "payload",
+        "post-exploitation",
+        "reference",
+        "cheatsheet"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "114-mimikatz-windows-credential-dumping-reference",
+      "name": "mimikatz (Windows credential dumping — reference)",
+      "category": "🔧 Post exploitation tools",
+      "tags": [
+        "credentials",
+        "post-exploitation",
+        "active-directory",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/gentilkiwi/mimikatz",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "115-autopsy",
+      "name": "Autopsy",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "metadata"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "116-wireshark",
+      "name": "Wireshark",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "network",
+        "forensics",
+        "sniffing",
+        "pcap"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "117-bulk-extractor",
+      "name": "Bulk extractor",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "memory-dump",
+        "metadata"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/simsong/bulk_extractor",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "118-disk-clone-and-iso-image-acquire",
+      "name": "Disk Clone and ISO Image Acquire",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "binary"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://guymager.sourceforge.io/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "119-toolsley",
+      "name": "Toolsley",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "reference",
+        "online-service",
+        "forensics"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.toolsley.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "120-volatility-3-memory-forensics",
+      "name": "Volatility 3 (Memory Forensics)",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "memory-dump",
+        "malware-analysis"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/volatilityfoundation/volatility3",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "121-binwalk-firmware-analysis",
+      "name": "Binwalk (Firmware Analysis)",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "binary",
+        "reversing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/ReFirmLabs/binwalk",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "122-pspy-process-monitor-no-root",
+      "name": "pspy (Process Monitor — No Root)",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "post-exploitation",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/DominicBreuker/pspy",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "123-exiftool-metadata",
+      "name": "ExifTool (Metadata)",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "metadata",
+        "image",
+        "document"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://exiftool.org/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "124-foremost-file-carving-http-foremost-sourceforge-net",
+      "name": "[Foremost (File Carving)](http://foremost.sourceforge.net/)",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "forensics",
+        "binary"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "125-eric-zimmerman-s-tools",
+      "name": "Eric Zimmerman's Tools",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "reference",
+        "forensics",
+        "online-service"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://ericzimmerman.github.io/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "126-malwarebazaar-sample-database",
+      "name": "MalwareBazaar (Sample Database)",
+      "category": "🕵 Forensic tools",
+      "tags": [
+        "online-service",
+        "reference",
+        "malware-analysis"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://bazaar.abuse.ch/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "127-the-fatrat",
+      "name": "The FatRat",
+      "category": "📦 Payload creation tools",
+      "tags": [
+        "payload",
+        "reverse-shell",
+        "apk",
+        "c2"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Screetsec/TheFatRat",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "128-stitch",
+      "name": "Stitch",
+      "category": "📦 Payload creation tools",
+      "tags": [
+        "payload",
+        "c2",
+        "reverse-shell",
+        "persistence"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://nathanlopez.github.io/Stitch",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "129-venom-shellcode-generator",
+      "name": "Venom Shellcode Generator",
+      "category": "📦 Payload creation tools",
+      "tags": [
+        "payload",
+        "reverse-shell",
+        "c2"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/r00t-3xp10it/venom",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "130-mob-droid",
+      "name": "Mob-Droid",
+      "category": "📦 Payload creation tools",
+      "tags": [
+        "payload",
+        "mobile",
+        "apk",
+        "reverse-shell"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/kinghacker0/Mob-Droid",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "131-msfvenom-payload-generator",
+      "name": "msfvenom (Payload Generator)",
+      "category": "📦 Payload creation tools",
+      "tags": [
+        "payload",
+        "reverse-shell",
+        "c2",
+        "apk"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/rapid7/metasploit-framework",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "132-lolbas-living-off-the-land-binaries",
+      "name": "LOLBAS (Living Off The Land Binaries)",
+      "category": "📦 Payload creation tools",
+      "tags": [
+        "reference",
+        "payload",
+        "post-exploitation"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://lolbas-project.github.io/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "133-routersploit",
+      "name": "RouterSploit",
+      "category": "🧰 Exploit framework",
+      "tags": [
+        "network",
+        "iot",
+        "exploitation",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/threat9/routersploit",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "134-commix",
+      "name": "Commix",
+      "category": "🧰 Exploit framework",
+      "tags": [
+        "web",
+        "exploitation",
+        "payload"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/commixproject/commix",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "135-metasploit-framework",
+      "name": "Metasploit Framework",
+      "category": "🧰 Exploit framework",
+      "tags": [
+        "exploitation",
+        "post-exploitation",
+        "payload",
+        "c2",
+        "scanner"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/rapid7/metasploit-framework",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "136-searchsploit-exploit-db-cli",
+      "name": "SearchSploit (Exploit-DB CLI)",
+      "category": "🧰 Exploit framework",
+      "tags": [
+        "exploitation",
+        "recon",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gitlab.com/exploit-database/exploitdb",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "137-exploit-db-online-archive",
+      "name": "Exploit-DB (Online Archive)",
+      "category": "🧰 Exploit framework",
+      "tags": [
+        "online-service",
+        "reference",
+        "exploitation"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.exploit-db.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "138-metasploit-unleashed-free-course",
+      "name": "Metasploit Unleashed (Free Course)",
+      "category": "🧰 Exploit framework",
+      "tags": [
+        "learning",
+        "reference",
+        "exploitation"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.offsec.com/metasploit-unleashed/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "139-androguard",
+      "name": "Androguard",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "apk",
+        "mobile",
+        "malware-analysis"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/androguard/androguard",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "140-apk2gold",
+      "name": "Apk2Gold",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "apk",
+        "mobile"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/lxdvs/apk2gold",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "141-jadx",
+      "name": "JadX",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "apk",
+        "mobile"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/skylot/jadx",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "142-ghidra-nsa-reverse-engineering",
+      "name": "Ghidra (NSA Reverse Engineering)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "binary",
+        "malware-analysis"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/NationalSecurityAgency/ghidra",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "143-radare2-re-framework",
+      "name": "Radare2 (RE Framework)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "binary"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/radareorg/radare2",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "144-apktool-apk-decode-rebuild",
+      "name": "apktool (APK Decode/Rebuild)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "apk",
+        "mobile"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://apktool.org/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "145-gdb-gnu-debugger",
+      "name": "GDB (GNU Debugger)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "binary"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.sourceware.org/gdb/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "146-binutils-strings-objdump-readelf",
+      "name": "binutils (strings / objdump / readelf)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reversing",
+        "binary"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.gnu.org/software/binutils/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "147-crackmes-one-re-practice",
+      "name": "crackmes.one (RE Practice)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reference",
+        "learning",
+        "reversing"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://crackmes.one/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "148-malware-unicorn-re101-workshop",
+      "name": "Malware Unicorn RE101 (Workshop)",
+      "category": "🔁 Reverse engineering tools",
+      "tags": [
+        "reference",
+        "learning",
+        "reversing",
+        "malware-analysis"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://malwareunicorn.org/workshops/re101.html",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "149-ddos",
+      "name": "DDoS",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "network",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/the-deepnet/ddos",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "150-slowloris",
+      "name": "SlowLoris",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "151-ufonet",
+      "name": "UFOnet",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "web",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/epsylon/ufonet",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "152-saphyraddos",
+      "name": "SaphyraDDoS",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/anonymous24x7/Saphyra-DDoS",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "153-hping3-packet-crafter-flooder",
+      "name": "hping3 (Packet Crafter / Flooder)",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/antirez/hping",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "154-slowhttptest-slow-http-dos-tester",
+      "name": "slowhttptest (Slow-HTTP DoS Tester)",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "web"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/shekyan/slowhttptest",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "155-owasp-denial-of-service-cheat-sheet",
+      "name": "OWASP Denial of Service Cheat Sheet",
+      "category": "⚡ DDOS Attack Tools",
+      "tags": [
+        "ddos",
+        "web",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "156-villain-reverse-shell-c2-manager",
+      "name": "Villain (Reverse Shell / C2 Manager)",
+      "category": "🖥 Remote Administrator Tools (RAT)",
+      "tags": [
+        "c2",
+        "reverse-shell",
+        "post-exploitation",
+        "payload"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/t3l3machus/Villain",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "157-hoaxshell-http-s-powershell-reverse-shell",
+      "name": "hoaxshell (HTTP(S) PowerShell Reverse Shell)",
+      "category": "🖥 Remote Administrator Tools (RAT)",
+      "tags": [
+        "reverse-shell",
+        "c2",
+        "payload",
+        "post-exploitation"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/t3l3machus/hoaxshell",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "158-merlin-cross-platform-c2",
+      "name": "Merlin (cross-platform C2)",
+      "category": "🖥 Remote Administrator Tools (RAT)",
+      "tags": [
+        "c2",
+        "post-exploitation",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Ne0nd0g/merlin",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "159-covenant-net-c2",
+      "name": "Covenant (.NET C2)",
+      "category": "🖥 Remote Administrator Tools (RAT)",
+      "tags": [
+        "c2",
+        "post-exploitation",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/cobbr/Covenant",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "160-dalfox-finder-of-xss",
+      "name": "DalFox (Finder of XSS)",
+      "category": "🧪 XSS Attack Tools",
+      "tags": [
+        "web",
+        "xss",
+        "scanner",
+        "fuzzing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/hahwul/dalfox",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "161-xss-payload-generator",
+      "name": "XSS Payload Generator",
+      "category": "🧪 XSS Attack Tools",
+      "tags": [
+        "web",
+        "xss",
+        "payload"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/capture0x/XSS-LOADER.git",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "162-advanced-xss-detection-suite",
+      "name": "Advanced XSS Detection Suite",
+      "category": "🧪 XSS Attack Tools",
+      "tags": [
+        "web",
+        "xss",
+        "scanner",
+        "fuzzing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/UltimateHackers/XSStrike",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "163-kxss-reflection-finder",
+      "name": "kxss (Reflection Finder)",
+      "category": "🧪 XSS Attack Tools",
+      "tags": [
+        "web",
+        "xss",
+        "scanner",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Emoe/kxss",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "164-portswigger-xss-labs",
+      "name": "PortSwigger — XSS Labs",
+      "category": "🧪 XSS Attack Tools",
+      "tags": [
+        "learning",
+        "web",
+        "xss",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://portswigger.net/web-security/cross-site-scripting",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "165-payloadsallthethings-xss-injection",
+      "name": "PayloadsAllTheThings — XSS Injection",
+      "category": "🧪 XSS Attack Tools",
+      "tags": [
+        "cheatsheet",
+        "reference",
+        "xss",
+        "web"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "166-steganohide",
+      "name": "SteganoHide",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "image",
+        "forensics"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "167-stegseek-fast-steganography-cracker",
+      "name": "Stegseek (fast steganography cracker)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "hash-crack",
+        "bruteforce"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/RickdeJager/stegseek",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "168-stegseek-fast-steghide-cracker",
+      "name": "stegseek (fast steghide cracker)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "bruteforce",
+        "password-attack",
+        "image"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/RickdeJager/stegseek",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "169-zsteg-png-bmp-lsb-detector",
+      "name": "zsteg (PNG/BMP LSB detector)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "image",
+        "forensics"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/zed-0xff/zsteg",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "170-outguess-jpeg-stego",
+      "name": "outguess (JPEG stego)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "image",
+        "forensics"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/resurrecting-open-source-projects/outguess",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "171-exiftool-metadata-reader",
+      "name": "ExifTool (metadata reader)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "metadata",
+        "image",
+        "forensics"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://exiftool.org/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "172-aperi-solve-all-in-one-image-stego",
+      "name": "Aperi'Solve (all-in-one image stego)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "image",
+        "online-service",
+        "reference"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.aperisolve.com/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "173-stegonline-in-browser-lsb-explorer",
+      "name": "StegOnline (in-browser LSB explorer)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "image",
+        "online-service"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://georgeom.net/StegOnline/upload",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "174-futureboy-stegano-decoder",
+      "name": "Futureboy Stegano decoder",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "online-service",
+        "reference"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://futureboy.us/stegano/decinput.html",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "175-stego-toolkit-docker-kit-checklist",
+      "name": "stego-toolkit (Docker kit + checklist)",
+      "category": "🖼 Steganography Tools",
+      "tags": [
+        "steganography",
+        "reference",
+        "cheatsheet"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/DominicBreuker/stego-toolkit",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "176-bloodhound-ad-attack-paths",
+      "name": "BloodHound (AD Attack Paths)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "enumeration",
+        "lateral-movement",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/BloodHoundAD/BloodHound",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "177-netexec-nxc-network-pentesting",
+      "name": "NetExec — nxc (Network Pentesting)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "network",
+        "enumeration",
+        "credentials",
+        "password-attack"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/Pennyw0rth/NetExec",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "178-impacket-network-protocol-tools",
+      "name": "Impacket (Network Protocol Tools)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "credentials",
+        "network",
+        "lateral-movement",
+        "kerberos"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/fortra/impacket",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "179-responder-llmnr-nbt-ns-poisoner",
+      "name": "Responder (LLMNR/NBT-NS Poisoner)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "credentials",
+        "mitm",
+        "sniffing",
+        "network",
+        "poisoning",
+        "relay"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/lgandx/Responder",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "180-certipy-ad-certificate-abuse",
+      "name": "Certipy (AD Certificate Abuse)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "credentials",
+        "privesc",
+        "enumeration",
+        "adcs"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/ly4k/Certipy",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "181-kerbrute-kerberos-brute-force",
+      "name": "Kerbrute (Kerberos Brute Force)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "bruteforce",
+        "password-attack",
+        "enumeration",
+        "credentials",
+        "kerberos"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/ropnop/kerbrute",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "182-ldapdomaindump-ad-ldap-dumper",
+      "name": "ldapdomaindump (AD LDAP Dumper)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "enumeration",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/dirkjanm/ldapdomaindump",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "183-coercer-authentication-coercion",
+      "name": "Coercer (Authentication Coercion)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "relay",
+        "privesc",
+        "credentials"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/p0dalirius/Coercer",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "184-pcredz-credential-extractor",
+      "name": "PCredz (Credential Extractor)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "active-directory",
+        "credentials",
+        "sniffing",
+        "pcap",
+        "kerberos"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/lgandx/PCredz",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "185-the-hacker-recipes-ad",
+      "name": "The Hacker Recipes (AD)",
+      "category": "🏢 Active Directory Tools",
+      "tags": [
+        "reference",
+        "active-directory",
+        "learning"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://www.thehacker.recipes/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "186-prowler-cloud-security-scanner",
+      "name": "Prowler (Cloud Security Scanner)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "cloud",
+        "scanner",
+        "vuln-scan"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/prowler-cloud/prowler",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "187-scoutsuite-multi-cloud-auditing",
+      "name": "ScoutSuite (Multi-Cloud Auditing)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "cloud",
+        "scanner",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/nccgroup/ScoutSuite",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "188-pacu-aws-exploitation-framework",
+      "name": "Pacu (AWS Exploitation Framework)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "cloud",
+        "exploitation",
+        "post-exploitation"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/RhinoSecurityLabs/pacu",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "189-trivy-container-k8s-scanner",
+      "name": "Trivy (Container/K8s Scanner)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "scanner",
+        "vuln-scan",
+        "cloud"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/aquasecurity/trivy",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "190-checkov-iac-misconfig-scanner",
+      "name": "Checkov (IaC Misconfig Scanner)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "cloud",
+        "scanner",
+        "vuln-scan"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/bridgecrewio/checkov",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "191-hacktricks-cloud-cloud-pentest-playbook",
+      "name": "HackTricks Cloud (cloud pentest playbook)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "reference",
+        "cloud",
+        "learning"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://cloud.hacktricks.xyz/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "192-flaws-cloud-aws-security-challenge-http-flaws-cloud",
+      "name": "[flaws.cloud (AWS Security Challenge)](http://flaws.cloud/)",
+      "category": "☁ Cloud Security Tools",
+      "tags": [
+        "learning",
+        "cloud",
+        "online-service"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "193-mobsf-mobile-security-framework",
+      "name": "MobSF (Mobile Security Framework)",
+      "category": "📱 Mobile Security Tools",
+      "tags": [
+        "mobile",
+        "apk",
+        "vuln-scan",
+        "scanner",
+        "malware-analysis"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "194-frida-dynamic-instrumentation",
+      "name": "Frida (Dynamic Instrumentation)",
+      "category": "📱 Mobile Security Tools",
+      "tags": [
+        "mobile",
+        "reversing",
+        "malware-analysis"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/frida/frida",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "195-objection-mobile-runtime-exploration",
+      "name": "Objection (Mobile Runtime Exploration)",
+      "category": "📱 Mobile Security Tools",
+      "tags": [
+        "mobile",
+        "reversing"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/sensepost/objection",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "196-adb-android-debug-bridge",
+      "name": "adb (Android Debug Bridge)",
+      "category": "📱 Mobile Security Tools",
+      "tags": [
+        "mobile",
+        "apk"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://developer.android.com/tools/adb",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "197-owasp-mas-mobile-app-security",
+      "name": "OWASP MAS (Mobile App Security)",
+      "category": "📱 Mobile Security Tools",
+      "tags": [
+        "mobile",
+        "reference",
+        "learning"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://mas.owasp.org/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "198-frida-codeshare",
+      "name": "Frida CodeShare",
+      "category": "📱 Mobile Security Tools",
+      "tags": [
+        "mobile",
+        "reversing",
+        "online-service",
+        "reference"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://codeshare.frida.re/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "199-mysms",
+      "name": "MySMS",
+      "category": "✨ Other tools",
+      "tags": [
+        "payload",
+        "mobile",
+        "apk"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/papusingh2sms/mysms",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "200-hatcloud-bypass-cloudflare-for-ip",
+      "name": "HatCloud(Bypass CloudFlare for IP)",
+      "category": "✨ Other tools",
+      "tags": [
+        "recon",
+        "network",
+        "dns"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/HatBashBR/HatCloud",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "201-hash-buster",
+      "name": "Hash Buster",
+      "category": "✨ Other tools",
+      "tags": [
+        "hash-crack",
+        "lookup",
+        "online-service",
+        "credentials"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/s0md3v/Hash-Buster",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "202-sherlock",
+      "name": "Sherlock",
+      "category": "✨ Other tools",
+      "tags": [
+        "osint",
+        "recon",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/sherlock-project/sherlock",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "203-socialscan-username-or-email",
+      "name": "SocialScan | Username or Email",
+      "category": "✨ Other tools",
+      "tags": [
+        "osint",
+        "recon",
+        "email",
+        "enumeration"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/iojw/socialscan",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "204-pixload",
+      "name": "Pixload",
+      "category": "✨ Other tools",
+      "tags": [
+        "payload",
+        "steganography",
+        "image"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/chinarulezzz/pixload",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "205-gospider",
+      "name": "Gospider",
+      "category": "✨ Other tools",
+      "tags": [
+        "web",
+        "crawler",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/jaeles-project/gospider",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "206-terminal-multiplexer",
+      "name": "Terminal Multiplexer",
+      "category": "✨ Other tools",
+      "tags": [
+        "cheatsheet",
+        "reference"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": null,
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "207-crivo",
+      "name": "Crivo",
+      "category": "✨ Other tools",
+      "tags": [
+        "network",
+        "recon"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/GMDSantana/crivo",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "208-cyberchef-cyber-swiss-army-knife",
+      "name": "CyberChef (Cyber Swiss-Army Knife)",
+      "category": "✨ Other tools",
+      "tags": [
+        "reference",
+        "online-service"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gchq.github.io/CyberChef/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "209-hashcat-gpu-hash-cracker",
+      "name": "hashcat (GPU hash cracker)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "hash-crack",
+        "password-attack",
+        "bruteforce"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/hashcat/hashcat",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "210-john-the-ripper-jumbo",
+      "name": "John the Ripper (jumbo)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "hash-crack",
+        "password-attack"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/openwall/john",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "211-hydra-network-login-cracker",
+      "name": "hydra (Network Login Cracker)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "bruteforce",
+        "password-attack",
+        "credentials",
+        "network"
+      ],
+      "type": "tool",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://github.com/vanhauser-thc/thc-hydra",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "212-crackstation-online-lookup",
+      "name": "CrackStation (online lookup)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "hash-crack",
+        "online-service",
+        "lookup"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://crackstation.net/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "213-hashes-com-hash-identifier-lookup",
+      "name": "hashes.com (hash identifier + lookup)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "hash-crack",
+        "online-service",
+        "lookup"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://hashes.com/en/tools/hash_identifier",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "214-cyberchef-the-cyber-swiss-army-knife",
+      "name": "CyberChef (the cyber swiss-army knife)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "online-service",
+        "reference"
+      ],
+      "type": "service",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gchq.github.io/CyberChef/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    },
+    {
+      "id": "215-gtfobins-unix-binary-abuse",
+      "name": "GTFOBins (unix binary abuse)",
+      "category": "🔑 Password / Hash Cracking",
+      "tags": [
+        "privesc",
+        "reference",
+        "cheatsheet"
+      ],
+      "type": "reference",
+      "description": "Curated security resource. Check the official source, intended use and authorization scope before use.",
+      "sourceUrl": "https://gtfobins.github.io/",
+      "archiveUrl": "https://github.com/HumayunShariarHimu/HackingTools/blob/main/upstream/hackingtool-master/docs/TOOLS.md",
+      "platform": "Not specified in the archived catalog"
+    }
+  ]
+}
