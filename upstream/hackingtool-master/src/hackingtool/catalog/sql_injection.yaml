@@ -1,0 +1,88 @@
+# SQL Injection — guided-ops cheatsheets for the existing Python "SQL Injection
+# Tools" collection, plus the modern sqlmap alternative and high-value references.
+# Overlays enrich existing tools by EXACT title; archived tools are left minimal.
+category:
+  title: "SQL Injection (catalog)"
+  merge_into: "SQL Injection Tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "Sqlmap tool"
+    tags: [web, sql-injection, exploitation, scanner]
+    system_pkgs: {which: sqlmap, apt: sqlmap}
+    usage:
+      - ["test a URL (auto-answer prompts)", "sqlmap -u 'http://target/page?id=1' --batch"]
+      - ["banner + current user/db", "sqlmap -u 'http://target/?id=1' --batch --banner --current-user --current-db"]
+      - ["enumerate databases", "sqlmap -u 'http://target/?id=1' --batch --dbs"]
+      - ["dump a table", "sqlmap -u 'http://target/?id=1' -D shop -T users --dump --batch"]
+      - ["test a saved Burp request", "sqlmap -r request.txt --batch"]
+      - ["POST body, target one param", "sqlmap -u 'http://target/login' --data='user=a&pass=b' -p user --batch"]
+      - ["go deeper (more tests)", "sqlmap -u 'http://target/?id=1' --level=5 --risk=3 --batch"]
+    lab_safe_notes: >-
+      sqlmap performs real injection and can modify/dump data — always scope -u/-r to
+      an authorized target and prefer --batch for repeatable runs. --level/--risk make
+      it far more intrusive (and slower); raise them only on lab boxes. --os-shell and
+      --dump touch the live DB, so confirm you have permission first.
+
+  - title: "NoSqlMap"
+    tags: [web, sql-injection, exploitation]
+    usage:
+      - ["launch the interactive tool", "python3 -m nosqlmap"]
+    lab_safe_notes: >-
+      NoSQLMap is menu-driven — it walks you through target/attack selection. It audits
+      MongoDB (and similar) injection and can enumerate/extract data, so run it only
+      against authorized instances. Needs a reachable MongoDB to be useful.
+
+  - title: "Damn Small SQLi Scanner"
+    tags: [web, sql-injection, scanner]
+    usage:
+      - ["scan a URL for SQLi", "python3 dsss.py -u 'http://target/vuln.php?id=1'"]
+      - ["pass a session cookie", "python3 dsss.py -u 'http://target/vuln.php?id=1' -c 'PHPSESSID=abc'"]
+      - ["see all options", "python3 dsss.py -h"]
+    lab_safe_notes: >-
+      DSSS is a lightweight detector (a single ~100-line script) — it flags likely
+      injection points but doesn't exploit them, so it's a gentle first pass. Confirm
+      any hit with sqlmap. Scope -u to an authorized URL.
+
+  - title: "SQLScan"
+    tags: [web, sql-injection, scanner]
+    usage:
+      - ["launch the interactive scanner", "sudo sqlscan"]
+    lab_safe_notes: >-
+      A quick crawler that hunts for injectable parameters across a site. It's a
+      discovery aid — verify findings with a real exploitation tool. Only point it at
+      domains you are authorized to test.
+
+# --- genuinely-missing, widely-used SQLi tools -------------------------------
+tools:
+  - title: "Ghauri (Modern SQLi Tool)"
+    kind: install
+    tags: [web, sql-injection, exploitation, scanner]
+    description: "Fast, sqlmap-compatible SQL injection detection and exploitation tool that handles cases sqlmap misses (WAF/complex flows)."
+    system_pkgs: {which: ghauri, pip: ghauri}
+    install: {pip: ghauri}
+    run: ["ghauri --help"]
+    project_url: "https://github.com/r0oth3x49/ghauri"
+    usage:
+      - ["test a URL", "ghauri -u 'http://target/?id=1' --batch"]
+      - ["from a Burp request file", "ghauri -r request.txt --batch"]
+      - ["current db + user", "ghauri -u 'http://target/?id=1' --current-db --current-user --batch"]
+      - ["enumerate databases", "ghauri -u 'http://target/?id=1' --dbs --batch"]
+      - ["dump a table", "ghauri -u 'http://target/?id=1' -D shop -T users --dump --batch"]
+    lab_safe_notes: >-
+      Ghauri mirrors sqlmap's flags and likewise performs real injection — scope -u/-r
+      to an authorized target and use --batch for unattended runs. Reach for it when
+      sqlmap stalls on a target it can't confirm.
+
+# --- high-value SQL-injection references -------------------------------------
+  - title: "PortSwigger — SQL Injection Labs"
+    kind: resource
+    tags: [learning, web, sql-injection, reference]
+    description: "Free hands-on SQLi labs + a clear cheat sheet (payloads per DBMS) from the makers of Burp Suite."
+    url: "https://portswigger.net/web-security/sql-injection"
+
+  - title: "PayloadsAllTheThings — SQL Injection"
+    kind: resource
+    tags: [cheatsheet, reference, sql-injection, web]
+    description: "Curated SQL injection payloads and bypasses per DBMS — auth bypass, error/blind/time-based, WAF evasion."
+    url: "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection"

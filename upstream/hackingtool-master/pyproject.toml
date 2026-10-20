@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hackingtool"
+dynamic = ["version"]                       # single-sourced from constants.VERSION
+description = "All-in-one hacking tool launcher for security researchers and pentesters"
+readme = "README.md"
+requires-python = ">=3.10"                  # floor: code uses 3.10 union syntax; no upper cap so newer Pythons work
+license = { text = "MIT" }
+authors = [{ name = "Z4nzu" }]
+keywords = ["security", "pentesting", "hacking", "recon", "osint", "cli"]
+dependencies = ["rich>=13.0.0", "pyyaml>=6.0", "platformdirs>=4.0", "prompt_toolkit>=3.0.0", "python-dotenv>=1.0.0", "textual>=8.2"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/Z4nzu/hackingtool"
+Repository = "https://github.com/Z4nzu/hackingtool"
+Issues = "https://github.com/Z4nzu/hackingtool/issues"
+
+[project.scripts]
+hackingtool = "hackingtool.cli:main"
+
+# Dev tooling for local checks + CI (single source: `scripts/check.sh`).
+# `uv run --group dev <tool>` auto-installs these into the project env.
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+# src-layout: the whole app lives in src/hackingtool/ (PyPA-standard). The YAML
+# catalog + pipelines ship as package data so `catalog/*.yaml` is available at
+# runtime from an installed wheel (registry.py resolves them via __file__).
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hackingtool = ["catalog/*.yaml", "pipelines/*.yaml", "skill/*.md", "tui/*.tcss", "sponsors.yaml"]
+
+[tool.setuptools.dynamic]
+version = { attr = "hackingtool.constants.VERSION" }

@@ -1,0 +1,281 @@
+# Web Attack — guided-ops cheatsheets for the existing Python "Web Attack tools"
+# collection plus a few genuinely-missing web tools and high-value references.
+# Overlays enrich existing tools by EXACT title (no Python edits); tools/resources
+# are added as one YAML entry each.
+category:
+  title: "Web Attack (catalog)"
+  merge_into: "Web Attack tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "Skipfish"
+    tags: [web, vuln-scan, scanner, crawler]
+    system_pkgs: {which: skipfish, apt: skipfish}
+    usage:
+      - ["crawl + audit a site to a report dir", "skipfish -o out/ http://target/"]
+      - ["use a request-word dictionary", "skipfish -o out/ -S /usr/share/skipfish/dictionaries/minimal.wl http://target/"]
+      - ["authenticated scan via cookie", "skipfish -o out/ -C 'session=VALUE' http://target/"]
+      - ["cap request rate to be gentle", "skipfish -o out/ -l 20 http://target/"]
+    lab_safe_notes: >-
+      Skipfish is a fully active scanner and generates heavy traffic — scope it to
+      a single authorized target and use -l to cap requests/sec on small lab VMs.
+      The HTML report lands in the -o directory.
+
+  - title: "SubDomain Finder"
+    tags: [subdomain-enum, recon, osint, dns]
+    system_pkgs: {which: sublist3r, apt: sublist3r}
+    usage:
+      - ["enumerate subdomains (passive OSINT)", "python3 sublist3r.py -d example.com"]
+      - ["add DNS brute-force", "python3 sublist3r.py -d example.com -b"]
+      - ["limit to specific engines", "python3 sublist3r.py -d example.com -e google,bing"]
+      - ["port-check discovered hosts", "python3 sublist3r.py -d example.com -p 80,443"]
+    lab_safe_notes: >-
+      The default run is passive — it only queries public OSINT/search sources, so
+      it's safe pre-engagement recon. -b adds active DNS queries; still light. Only
+      enumerate domains you're authorized to test.
+
+  - title: "Sub-Domain TakeOver"
+    tags: [subdomain-enum, web, vuln-scan]
+    system_pkgs: {which: takeover}
+    usage:
+      - ["check one domain (verbose)", "python3 takeover.py -d www.domain.com -v"]
+      - ["check a list of subdomains", "python3 takeover.py -l subdomains.txt"]
+      - ["tune concurrency", "python3 takeover.py -l subdomains.txt -t 20"]
+    lab_safe_notes: >-
+      Only inspects CNAME chains and service fingerprints of dangling records — very
+      low traffic and non-destructive. Confirm a flagged takeover manually before
+      reporting, and stay within authorized domains.
+
+  - title: "Dirb"
+    tags: [web, enumeration, bruteforce, wordlist]
+    system_pkgs: {which: dirb, apt: dirb}
+    usage:
+      - ["default wordlist scan", "dirb http://target/"]
+      - ["pick a wordlist", "dirb http://target/ /usr/share/wordlists/dirb/common.txt"]
+      - ["append file extensions", "dirb http://target/ -X .php,.txt"]
+      - ["throttle between requests (ms)", "dirb http://target/ -z 100"]
+    lab_safe_notes: >-
+      Directory brute-forcing sends one request per word — use -z to add a delay so
+      you don't flood a small lab box. Scope to the single target URL; -c passes a
+      session cookie for authenticated areas.
+
+  - title: "Nuclei (Vulnerability Scanner)"
+    tags: [web, vuln-scan, scanner]
+    system_pkgs: {which: nuclei, go: "github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"}
+    usage:
+      - ["scan a single URL", "nuclei -u https://target"]
+      - ["scan a list of targets", "nuclei -l urls.txt"]
+      - ["focus on high/critical only", "nuclei -u https://target -severity critical,high"]
+      - ["select template tags", "nuclei -u https://target -tags cve,exposure"]
+      - ["rate-limit requests/sec", "nuclei -u https://target -rl 50"]
+    lab_safe_notes: >-
+      Run `nuclei -update-templates` first. Some templates are intrusive — narrow
+      with -severity/-tags and throttle with -rl and -c on lab networks. Templates
+      only hit the hosts you pass; scope to authorized targets.
+
+  - title: "ffuf (Web Fuzzer)"
+    tags: [web, fuzzing, enumeration, wordlist]
+    system_pkgs: {which: ffuf, apt: ffuf, go: "github.com/ffuf/ffuf/v2@latest"}
+    usage:
+      - ["directory/file discovery", "ffuf -w wordlist.txt -u https://target/FUZZ"]
+      - ["keep only real hits", "ffuf -w wordlist.txt -u https://target/FUZZ -mc 200,301,302"]
+      - ["virtual-host fuzzing", "ffuf -w subs.txt -u https://target -H 'Host: FUZZ.target'"]
+      - ["POST body parameter fuzz", "ffuf -w wordlist.txt -X POST -d 'user=FUZZ' -u https://target/login"]
+      - ["rate-limit requests/sec", "ffuf -w wordlist.txt -u https://target/FUZZ -rate 50"]
+    lab_safe_notes: >-
+      Use -rate (and -p for a per-request delay) so you don't hammer a lab VM, and
+      -fc/-fs/-mc to filter noise. FUZZ marks the injection point; scope the URL to
+      the authorized target.
+
+  - title: "Feroxbuster (Directory Brute Force)"
+    tags: [web, enumeration, bruteforce, wordlist]
+    system_pkgs: {which: feroxbuster, apt: feroxbuster}
+    usage:
+      - ["recursive content discovery", "feroxbuster -u https://target"]
+      - ["choose a wordlist", "feroxbuster -u https://target -w /usr/share/wordlists/dirb/common.txt"]
+      - ["probe for extensions", "feroxbuster -u https://target -x php,txt,html"]
+      - ["cap depth + rate on labs", "feroxbuster -u https://target -d 2 --rate-limit 50"]
+    lab_safe_notes: >-
+      Recursion is on by default and can explode request counts — cap it with -d and
+      throttle with --rate-limit on small boxes. Scope -u to the single authorized
+      host.
+
+  - title: "Nikto (Web Server Scanner)"
+    tags: [web, vuln-scan, scanner]
+    system_pkgs: {which: nikto, apt: nikto}
+    usage:
+      - ["scan a host", "nikto -h https://target"]
+      - ["scan a non-standard TLS port", "nikto -h target -p 8443 -ssl"]
+      - ["save an HTML report", "nikto -h https://target -o report.html -Format htm"]
+      - ["select test categories", "nikto -h https://target -Tuning 1234"]
+    lab_safe_notes: >-
+      Nikto is deliberately noisy (thousands of probes) and will trip IDS — expected
+      and fine in a lab. Scope -h to the target; use -Pause to slow down and -Tuning
+      to run only the checks you need.
+
+  - title: "wafw00f (WAF Detector)"
+    tags: [web, fingerprint, recon]
+    system_pkgs: {which: wafw00f, apt: wafw00f, pip: wafw00f}
+    usage:
+      - ["detect a WAF", "wafw00f https://target"]
+      - ["list detectable WAFs", "wafw00f -l"]
+      - ["verbose fingerprint", "wafw00f https://target -v"]
+    lab_safe_notes: >-
+      Sends only a handful of probe requests, so it's a light, safe first step before
+      heavier scanning. Knowing the WAF up front tells you what evasion/throttling you
+      may need.
+
+  - title: "Katana (Web Crawler)"
+    tags: [web, crawler, recon, enumeration]
+    system_pkgs: {which: katana, go: "github.com/projectdiscovery/katana/cmd/katana@latest"}
+    usage:
+      - ["crawl a site", "katana -u https://target"]
+      - ["headless crawl (renders JS)", "katana -u https://target -headless"]
+      - ["depth cap + JS endpoint parsing", "katana -u https://target -d 3 -jc"]
+      - ["save discovered endpoints", "katana -u https://target -o endpoints.txt"]
+    lab_safe_notes: >-
+      Request volume scales with site size — cap with -d and throttle with -rl/-rate
+      on labs. Crawling only touches the target you pass; feed its output into ffuf or
+      nuclei. Scope to authorized hosts.
+
+  - title: "Gobuster (Dir/DNS/Vhost Brute Force)"
+    tags: [web, enumeration, bruteforce, dns, wordlist]
+    system_pkgs: {which: gobuster, apt: gobuster, go: "github.com/OJ/gobuster/v3@latest"}
+    usage:
+      - ["directory/file brute-force", "gobuster dir -u https://target -w wordlist.txt"]
+      - ["DNS subdomain brute-force", "gobuster dns -d example.com -w subdomains.txt"]
+      - ["virtual-host discovery", "gobuster vhost -u https://target -w subdomains.txt"]
+      - ["probe extensions", "gobuster dir -u https://target -w wordlist.txt -x php,html"]
+    lab_safe_notes: >-
+      Throttle with --delay and lower -t (threads) on small VMs. dns mode queries
+      resolvers rather than the host itself; dir/vhost hit the target directly, so
+      scope -u to the authorized host.
+
+  - title: "Dirsearch (Web Path Discovery)"
+    tags: [web, enumeration, bruteforce, wordlist]
+    system_pkgs: {which: dirsearch, apt: dirsearch, pip: dirsearch}
+    usage:
+      - ["scan a URL", "dirsearch -u https://target"]
+      - ["probe extensions", "dirsearch -u https://target -e php,html,js"]
+      - ["custom wordlist + threads", "dirsearch -u https://target -w wordlist.txt -t 20"]
+      - ["throttle between requests", "dirsearch -u https://target --delay 0.2"]
+    lab_safe_notes: >-
+      Keep -t low and add --delay to be gentle on lab boxes; avoid -r (recursive) on
+      large sites to limit request volume. Scope -u to the single authorized target.
+
+  - title: "OWASP ZAP (Web App Scanner)"
+    tags: [web, vuln-scan, scanner, fuzzing]
+    system_pkgs: {which: zaproxy, apt: zaproxy}
+    usage:
+      - ["launch the GUI proxy/scanner", "zaproxy"]
+      - ["headless daemon (API on 8080)", "zaproxy -daemon -host 127.0.0.1 -port 8080"]
+      - ["scripted quick scan to a report", "zaproxy -cmd -quickurl https://target -quickout report.html"]
+    lab_safe_notes: >-
+      Passive spidering/scanning is gentle and safe. The ACTIVE scan sends real attack
+      payloads — run it only against authorized targets and set the ZAP context/scope
+      so it can't wander off the box.
+
+  - title: "testssl.sh (TLS/SSL Checker)"
+    tags: [web, scanner, fingerprint]
+    system_pkgs: {which: testssl.sh, apt: testssl.sh}
+    usage:
+      - ["full TLS/SSL assessment", "testssl.sh https://target"]
+      - ["check a specific port", "testssl.sh target:8443"]
+      - ["test known vulnerabilities only", "testssl.sh -U https://target"]
+      - ["list protocols + ciphers", "testssl.sh -p -E https://target"]
+    lab_safe_notes: >-
+      Only negotiates TLS handshakes — no exploitation and very light traffic, so it's
+      safe against any authorized host. Great for spotting weak ciphers/protocols
+      (Heartbleed, POODLE, etc.) without touching the app.
+
+  - title: "Arjun (HTTP Parameter Discovery)"
+    tags: [web, fuzzing, enumeration]
+    system_pkgs: {which: arjun, apt: arjun, pip: arjun}
+    usage:
+      - ["discover GET parameters", "arjun -u https://target/endpoint"]
+      - ["test POST parameters", "arjun -u https://target/api -m POST"]
+      - ["use a custom param wordlist", "arjun -u https://target/endpoint -w params.txt"]
+      - ["save results as JSON", "arjun -u https://target/endpoint -oJ params.json"]
+    lab_safe_notes: >-
+      Arjun guesses params in bulk, so it fires many requests — add -T (per-request
+      timeout) and keep threads modest on lab boxes. Point it at one authorized
+      endpoint at a time.
+
+  - title: "mitmproxy (Intercepting Proxy)"
+    tags: [web, mitm, sniffing]
+    system_pkgs: {which: mitmproxy, apt: mitmproxy, pip: mitmproxy, brew: mitmproxy}
+    usage:
+      - ["interactive TUI proxy", "mitmproxy"]
+      - ["browser-based web UI", "mitmweb"]
+      - ["non-interactive capture to file", "mitmdump -w flows.mitm"]
+      - ["run a modifying addon script", "mitmdump -s addon.py"]
+    lab_safe_notes: >-
+      mitmproxy only sees traffic you route through it — set your browser/system proxy
+      to 127.0.0.1:8080 and install its CA cert for TLS. Only intercept traffic to
+      authorized targets; it forwards nothing until you let it.
+
+# --- genuinely-missing, widely-used web tools --------------------------------
+tools:
+  - title: "WhatWeb (Web Fingerprinter)"
+    kind: install
+    tags: [web, fingerprint, recon, scanner]
+    description: "Identifies web technologies — CMS, frameworks, servers, JS libs — via 1800+ plugins."
+    system_pkgs: {which: whatweb, apt: whatweb, brew: whatweb}
+    install: {apt: whatweb}
+    run: ["whatweb --help"]
+    project_url: "https://github.com/urbanadventurer/WhatWeb"
+    usage:
+      - ["fingerprint a site", "whatweb https://target"]
+      - ["stealthy single-request scan", "whatweb -a 1 https://target"]
+      - ["aggressive plugin detection", "whatweb -a 3 https://target"]
+      - ["scan a list of hosts", "whatweb -i hosts.txt"]
+      - ["verbose plugin output", "whatweb -v https://target"]
+    lab_safe_notes: >-
+      -a 1 (passive/stealthy) sends a single request; -a 3/-a 4 add extra probes but
+      traffic stays light. Knowing the stack up front points you at the right exploit
+      path. Scope to authorized targets.
+
+  - title: "WPScan (WordPress Scanner)"
+    kind: install
+    tags: [web, vuln-scan, scanner, enumeration]
+    description: "Black-box WordPress security scanner — enumerates users, plugins, themes and known CVEs."
+    system_pkgs: {which: wpscan, apt: wpscan}
+    install: {apt: wpscan}
+    run: ["wpscan --help"]
+    project_url: "https://github.com/wpscanteam/wpscan"
+    usage:
+      - ["scan a WordPress site", "wpscan --url https://target"]
+      - ["enumerate users", "wpscan --url https://target -e u"]
+      - ["enumerate vulnerable plugins", "wpscan --url https://target -e vp"]
+      - ["throttle requests (ms between)", "wpscan --url https://target --throttle 500"]
+      - ["password-guess a known user", "wpscan --url https://target -U admin -P rockyou.txt"]
+      - ["use the vuln DB (free API token)", "wpscan --url https://target --api-token TOKEN"]
+    lab_safe_notes: >-
+      Enumeration is active (many requests) — use --throttle and scope --url to the
+      target. The -P password attack hammers the login form, so run it only against
+      authorized boxes. A free WPScan API token unlocks real CVE data.
+
+# --- high-value web-exploitation references ----------------------------------
+  - title: "PortSwigger Web Security Academy"
+    kind: resource
+    tags: [learning, web, reference]
+    description: "Free, hands-on labs + guides for every major web vuln class, from the makers of Burp Suite."
+    url: "https://portswigger.net/web-security"
+
+  - title: "PayloadsAllTheThings"
+    kind: resource
+    tags: [cheatsheet, reference, payload, web]
+    description: "Massive repo of payloads and bypass techniques for web attacks — SQLi, XSS, SSTI, SSRF, upload, and more."
+    url: "https://github.com/swisskyrepo/PayloadsAllTheThings"
+
+  - title: "HackTricks"
+    kind: resource
+    tags: [cheatsheet, reference, web, privesc]
+    description: "Go-to pentest wiki: methodology and copy-paste commands for web, network, cloud and privilege escalation."
+    url: "https://book.hacktricks.xyz/"
+
+  - title: "revshells.com (Reverse Shell Generator)"
+    kind: resource
+    tags: [reverse-shell, cheatsheet, online-service, web]
+    description: "Generate reverse/bind shell one-liners in any language with your IP/port — plus listener and upgrade tips."
+    url: "https://www.revshells.com/"

@@ -1,0 +1,85 @@
+# Remote Administration (RATs / C2) — the existing Python collection's only tool
+# (Pyshell) is ARCHIVED, so there is nothing active to overlay. This file only
+# ADDS genuinely-missing, maintained, *authorized-use* remote-access / C2 tools,
+# plus two heavier C2 frameworks as references.
+#
+# Framing for EVERY entry here: a RAT/C2 gives you remote control of another
+# machine. That is only legal on hosts you own or have explicit written
+# authorization to operate on (a red-team engagement or your own lab). Deploying
+# any of these on a system without that authorization is a crime. Sliver and
+# Mythic already live in catalog/post_exploitation.yaml and are NOT duplicated here.
+category:
+  title: "Remote Administration (catalog)"
+  merge_into: "Remote Administrator Tools (RAT)"
+
+# No active tools in the source collection (Pyshell is archived) — nothing to enrich.
+overlay: []
+
+tools:
+  - title: "Villain (Reverse Shell / C2 Manager)"
+    kind: install
+    tags: [c2, reverse-shell, post-exploitation, payload]
+    description: >-
+      A lightweight multi-session C2 that manages reverse/HoaxShell sessions, adds
+      amsi/logging-bypass shell prompts, and can share sessions between teammates.
+      Great for turning a caught shell into a managed, upgradeable session.
+    system_pkgs: {which: Villain.py}
+    install:
+      commands:
+        - git clone https://github.com/t3l3machus/Villain.git
+        - pip3 install -r Villain/requirements.txt
+    run: ["python3 Villain.py -h"]
+    project_url: "https://github.com/t3l3machus/Villain"
+    usage:
+      - ["launch the interactive C2", "python3 Villain.py"]
+      - ["show all CLI options", "python3 Villain.py -h"]
+    lab_safe_notes: >-
+      Authorized engagements or your own lab ONLY — this is remote control of another
+      machine. Generated payloads/sessions must only land on hosts inside your written
+      scope, and the team server should sit on infrastructure you control. Track every
+      session you open so it can be closed during cleanup. In-console commands
+      (generate / sessions / shell) are shown once you launch it; run with -h first.
+
+  - title: "hoaxshell (HTTP(S) PowerShell Reverse Shell)"
+    kind: install
+    tags: [reverse-shell, c2, payload, post-exploitation]
+    description: >-
+      An unconventional Windows reverse-shell handler that tunnels the C2 channel over
+      plain HTTP(S) requests (no raw TCP socket), which slips past defenses that only
+      watch for classic reverse-shell traffic. Generates the PowerShell payload for you.
+    system_pkgs: {which: hoaxshell.py}
+    install:
+      commands:
+        - git clone https://github.com/t3l3machus/hoaxshell.git
+        - pip3 install -r hoaxshell/requirements.txt
+    run: ["python3 hoaxshell.py -h"]
+    project_url: "https://github.com/t3l3machus/hoaxshell"
+    usage:
+      - ["start the handler on your attacker IP", "python3 hoaxshell.py -s <attacker-ip>"]
+      - ["show all CLI options", "python3 hoaxshell.py -h"]
+    lab_safe_notes: >-
+      Authorized engagements / your own lab ONLY. -s is the attacker (listener) IP the
+      generated PowerShell payload calls back to — keep that listener on infrastructure
+      you control and only run the payload on an in-scope Windows host. Because the
+      channel rides HTTP(S) it is quiet on the wire; that is exactly why you must stay
+      strictly within written scope.
+
+  # Heavier C2 frameworks kept as REFERENCES — their build/deploy is platform-specific
+  # (Go / .NET, Docker) and I won't hardcode an install/run line I can't verify.
+  - title: "Merlin (cross-platform C2)"
+    kind: resource
+    tags: [c2, post-exploitation, reference]
+    description: >-
+      A cross-platform (Windows/Linux/macOS) post-exploitation C2 written in Go, using
+      HTTP/2 and HTTP/3 for its agent traffic. Grab a signed release from the repo and
+      run the server/agent only on authorized infrastructure and in-scope hosts.
+    url: "https://github.com/Ne0nd0g/merlin"
+
+  - title: "Covenant (.NET C2)"
+    kind: resource
+    tags: [c2, post-exploitation, reference]
+    description: >-
+      A collaborative .NET C2 with a web UI, built around Grunt implants for Windows /
+      .NET environments. Runs via Docker or `dotnet run`; stand the team server up on
+      infrastructure you own and only task in-scope hosts.
+    url: "https://github.com/cobbr/Covenant"

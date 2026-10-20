@@ -1,0 +1,149 @@
+# Reverse Engineering — guided-ops cheatsheets for the existing Python
+# "Reverse engineering tools" collection, plus missing staples (apktool, GDB,
+# binutils) and RE-learning references. Overlays enrich existing tools by EXACT
+# title. GUI tools (Ghidra) get a launch line plus the scriptable headless path;
+# Radare2's interactive prompt verbs are listed as a cheatsheet.
+category:
+  title: "Reverse Engineering (catalog)"
+  merge_into: "Reverse engineering tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "Androguard"
+    tags: [reversing, apk, mobile, malware-analysis]
+    system_pkgs: {which: androguard, apt: androguard}
+    usage:
+      - ["open an interactive analysis session", "androguard analyze app.apk"]
+      - ["decode AndroidManifest.xml", "androguard axml app.apk"]
+      - ["dump resources.arsc", "androguard arsc app.apk"]
+      - ["decompile to Java source", "androguard decompile app.apk"]
+      - ["generate a call graph (GML)", "androguard cg app.apk"]
+    lab_safe_notes: >-
+      Androguard statically parses an APK — decode, decompile and diff it without
+      running the app, so it's safe on suspected-malicious samples. For live/dynamic
+      Android malware still detonate inside an isolated emulator/VM, never a real device.
+
+  - title: "Apk2Gold"
+    tags: [reversing, apk, mobile]
+    usage:
+      - ["decompile an APK to Java", "apk2gold app.apk"]
+    lab_safe_notes: >-
+      apk2gold statically decompiles an APK's Dalvik bytecode back to Java — it never
+      installs or runs the app. Analyze only APKs you're authorized to study; treat
+      malicious samples in an isolated VM.
+
+  - title: "JadX"
+    tags: [reversing, apk, mobile]
+    usage:
+      - ["decompile an APK to a folder", "jadx app.apk -d out/"]
+      - ["decompile a single .dex", "jadx classes.dex -d out/"]
+      - ["skip resource decoding (faster)", "jadx --no-res app.apk -d out/"]
+      - ["browse interactively (GUI)", "jadx-gui app.apk"]
+      - ["show CLI help", "jadx --help"]
+    lab_safe_notes: >-
+      JadX is a static decompiler — it reads dex/apk/aar/zip and writes Java source,
+      running nothing from the sample. jadx-gui is the point-and-click twin over the same
+      engine. Study only apps you're authorized to; keep malware work in an isolated VM.
+
+  - title: "Ghidra (NSA Reverse Engineering)"
+    tags: [reversing, binary, malware-analysis]
+    usage:
+      - ["launch the GUI", "ghidraRun"]
+      - ["headless: import + auto-analyze a binary", "analyzeHeadless ./proj MyProj -import ./bin"]
+      - ["headless: run a script after analysis", "analyzeHeadless ./proj MyProj -import ./bin -postScript MyScript.py"]
+    lab_safe_notes: >-
+      Ghidra disassembles and decompiles a binary statically — it never executes the
+      target, so it's safe on malware. Use the headless (analyzeHeadless) mode to batch
+      or script analysis. Analyze only binaries you're authorized to; open unknown samples
+      inside an isolated VM.
+
+  - title: "Radare2 (RE Framework)"
+    tags: [reversing, binary]
+    system_pkgs: {which: r2, apt: radare2}
+    usage:
+      - ["load + auto-analyze a binary", "r2 -A ./bin"]
+      - ["batch: list functions then quit", "r2 -qc afl ./bin"]
+      - ["r2 prompt: analyze everything", "aaa"]
+      - ["r2 prompt: list functions", "afl"]
+      - ["r2 prompt: disassemble current function", "pdf"]
+      - ["r2 prompt: list strings", "iz"]
+      - ["show CLI help", "r2 -h"]
+    lab_safe_notes: >-
+      Static analysis (-A, aaa, afl, pdf, iz) only reads the file. r2 can also debug
+      live (r2 -d), which actually runs the target — do that only in an isolated VM for
+      untrusted binaries. Cutter is the r2 GUI over the same core.
+
+# --- genuinely-missing, widely-used RE tools ---------------------------------
+tools:
+  - title: "apktool (APK Decode/Rebuild)"
+    kind: install
+    tags: [reversing, apk, mobile]
+    description: "Decodes APK resources and smali, and rebuilds them into a new APK — the standard for editing/analyzing Android app internals."
+    system_pkgs: {which: apktool, apt: apktool, brew: apktool}
+    install: {apt: apktool}
+    run: ["apktool --version"]
+    project_url: "https://apktool.org/"
+    usage:
+      - ["decode an APK (resources + smali)", "apktool d app.apk -o out/"]
+      - ["decode, skipping smali (resources only)", "apktool d -s app.apk -o out/"]
+      - ["decode, skipping resources (smali only)", "apktool d -r app.apk -o out/"]
+      - ["rebuild a modified folder into an APK", "apktool b out/ -o rebuilt.apk"]
+    lab_safe_notes: >-
+      Decoding is read-only on the input APK. A rebuilt APK is unsigned — sign it
+      (apksigner/jarsigner) before installing on a device you own. Analyze only apps
+      you're authorized to; keep suspected malware in an isolated emulator/VM.
+
+  - title: "GDB (GNU Debugger)"
+    kind: install
+    tags: [reversing, binary]
+    description: "The standard Linux debugger for stepping through, disassembling and inspecting native binaries; pair with pwndbg or GEF for exploit-dev ergonomics."
+    system_pkgs: {which: gdb, apt: gdb, brew: gdb}
+    install: {apt: gdb}
+    run: ["gdb --version"]
+    project_url: "https://www.sourceware.org/gdb/"
+    usage:
+      - ["load a binary (quiet)", "gdb -q ./bin"]
+      - ["load with arguments", "gdb -q --args ./bin arg1 arg2"]
+      - ["prompt: set a breakpoint at main", "break main"]
+      - ["prompt: start / continue", "run"]
+      - ["prompt: disassemble a function", "disassemble main"]
+      - ["prompt: dump registers", "info registers"]
+      - ["prompt: examine memory as instructions", "x/16i $pc"]
+    lab_safe_notes: >-
+      GDB executes the target to debug it dynamically — only run untrusted or malicious
+      binaries inside an isolated VM with no network. Static inspection (disassemble,
+      info functions) is safe. pwndbg and GEF are popular add-ons that enrich the prompt
+      for RE/CTF; install them from their own repos (checksum first, no curl|bash).
+
+  - title: "binutils (strings / objdump / readelf)"
+    kind: install
+    tags: [reversing, binary]
+    description: "The core GNU binary toolkit — quick static triage of an executable without a full disassembler: printable strings, disassembly, ELF headers and symbols."
+    system_pkgs: {which: objdump, apt: binutils}
+    install: {apt: binutils}
+    run: ["objdump --version"]
+    project_url: "https://www.gnu.org/software/binutils/"
+    usage:
+      - ["identify a file's type", "file ./bin"]
+      - ["extract printable strings (min length 8)", "strings -n 8 ./bin"]
+      - ["disassemble all code", "objdump -d ./bin"]
+      - ["list dynamic symbols (imports)", "objdump -T ./bin"]
+      - ["show ELF header", "readelf -h ./bin"]
+      - ["list symbols", "nm ./bin"]
+    lab_safe_notes: >-
+      Every command here reads the binary statically and runs nothing from it — safe on
+      any sample, including malware. strings is usually the fastest first look for URLs,
+      keys and hints in CTF binaries.
+
+# --- RE learning references --------------------------------------------------
+  - title: "crackmes.one (RE Practice)"
+    kind: resource
+    tags: [reference, learning, reversing]
+    description: "A large archive of legal crackme binaries to practice reverse engineering against, tagged by platform, language and difficulty."
+    url: "https://crackmes.one/"
+
+  - title: "Malware Unicorn RE101 (Workshop)"
+    kind: resource
+    tags: [reference, learning, reversing, malware-analysis]
+    description: "A free, hands-on introductory reverse-engineering and malware-analysis workshop covering static and dynamic analysis fundamentals."
+    url: "https://malwareunicorn.org/workshops/re101.html"

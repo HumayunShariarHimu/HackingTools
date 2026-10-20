@@ -1,0 +1,20 @@
+# docker-compose.yml
+# Run the interactive TUI:  docker compose run --rm hackingtool
+# Or pull the published image instead of building:
+#   docker run -it --rm ghcr.io/z4nzu/hackingtool:latest
+
+services:
+  hackingtool:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/z4nzu/hackingtool:latest
+    container_name: hackingtool
+    stdin_open: true
+    tty: true
+    # Persist tools installed at runtime across container restarts.
+    volumes:
+      - hackingtool_data:/root/.hackingtool
+
+volumes:
+  hackingtool_data:

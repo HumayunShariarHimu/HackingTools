@@ -1,0 +1,8 @@
+"""Single source of truth for TUI glyphs (mirrors the claude-* component look)."""
+PROMPT = "❯"
+RUN = "⏺"
+SUB = "⎿"
+STATUS = "◆"
+INSTALLED = "✔"
+NOT_INSTALLED = "○"
+LAB = "lab"

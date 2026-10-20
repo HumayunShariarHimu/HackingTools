@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Runs the same checks as CI before anything leaves your machine.
+# Enable once per clone:  git config core.hooksPath .githooks  (or: make setup)
+# Bypass in a pinch:      git push --no-verify
+exec "$(git rev-parse --show-toplevel)/scripts/check.sh"

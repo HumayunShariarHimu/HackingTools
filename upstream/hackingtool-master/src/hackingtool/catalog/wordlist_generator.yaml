@@ -1,0 +1,71 @@
+# Wordlist Generation — guided-ops cheatsheets for the existing Python "Wordlist
+# Generator" collection, plus staples the list is missing (crunch, CeWL) and
+# wordlist references. Overlays enrich existing tools by EXACT title. Only Cupp
+# is overlaid here: Hashcat / John / haiti are cracking tools curated in
+# catalog/hash_cracking.yaml — overlaying a title in two files would conflict.
+category:
+  title: "Wordlist Generation (catalog)"
+  merge_into: "Wordlist Generator"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "Cupp"
+    tags: [wordlist, password-attack, credentials, osint]
+    system_pkgs: {which: cupp, apt: cupp}
+    usage:
+      - ["build a profile interactively", "python3 cupp.py -i"]
+      - ["improve an existing wordlist", "python3 cupp.py -w existing.txt"]
+      - ["download common wordlists", "python3 cupp.py -l"]
+    lab_safe_notes: >-
+      Cupp only generates a candidate password list from personal details (names,
+      dates, pet names) you supply — it targets nothing on its own. Feed the output to
+      a cracker or login test only against accounts/systems you are authorized to test.
+
+# --- genuinely-missing, widely-used wordlist tools --------------------------
+tools:
+  - title: "crunch (Wordlist Generator)"
+    kind: install
+    tags: [wordlist, bruteforce, password-attack]
+    description: "Generates wordlists from a character set and length range, with pattern and charset control — the standard offline candidate-list generator."
+    system_pkgs: {which: crunch, apt: crunch}
+    install: {apt: crunch}
+    run: ["crunch --help"]
+    project_url: "https://sourceforge.net/projects/crunch-wordlist/"
+    usage:
+      - ["all 8-char lowercase-a..z combos", "crunch 8 8 -o list.txt"]
+      - ["fixed charset, length 6-8", "crunch 6 8 abcdef0123456789 -o list.txt"]
+      - ["pattern: 5 chars, 'pass' + 1 digit", "crunch 5 5 -t pass% -o list.txt"]
+    lab_safe_notes: >-
+      crunch writes a text file and touches no network or target — but a wide length
+      range explodes into terabytes fast, so always bound min/max and stream with -o.
+      Use the generated list only against authorized targets.
+
+  - title: "CeWL (Custom Word List)"
+    kind: install
+    tags: [wordlist, osint, recon, credentials]
+    description: "Spiders a target website and builds a custom wordlist from the words it finds — great for organization-specific password/username candidates."
+    system_pkgs: {which: cewl, apt: cewl}
+    install: {apt: cewl}
+    run: ["cewl --help"]
+    project_url: "https://github.com/digininja/CeWL"
+    usage:
+      - ["scrape a site into a wordlist", "cewl https://target -w list.txt"]
+      - ["depth 2, min word length 5", "cewl -d 2 -m 5 -w list.txt https://target"]
+      - ["also grab email addresses", "cewl -e https://target -w list.txt"]
+    lab_safe_notes: >-
+      CeWL sends real HTTP requests and crawls the site, so it is active recon — only
+      run it against web apps you are authorized to spider. The word list it builds is
+      just text; responsible use applies when you feed it to a cracker or login test.
+
+# --- high-value wordlist references ------------------------------------------
+  - title: "SecLists (Wordlist Collection)"
+    kind: resource
+    tags: [wordlist, reference, bruteforce]
+    description: "The definitive curated collection of security wordlists — usernames, passwords, URLs, fuzzing payloads and more, used by nearly every web/CTF workflow."
+    url: "https://github.com/danielmiessler/SecLists"
+
+  - title: "Kali wordlists package (rockyou etc.)"
+    kind: resource
+    tags: [wordlist, reference, password-attack]
+    description: "The `wordlists` apt package ships staples like rockyou.txt under /usr/share/wordlists — the default starting point for password attacks on Kali/Debian."
+    url: "https://gitlab.com/kalilinux/packages/wordlists"

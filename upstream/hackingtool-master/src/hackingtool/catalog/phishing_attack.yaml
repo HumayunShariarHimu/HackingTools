@@ -1,0 +1,161 @@
+# Phishing / social-engineering — guided-ops cheatsheets for the existing Python
+# "Phishing attack tools" collection, plus GoPhish (the standard authorized
+# phishing-simulation platform) and SE references. Most of these clone-and-run
+# scripts are INTERACTIVE menu drivers (AdvPhishing/SocialFish/HiddenEye/etc.):
+# there are no meaningful flags to cheatsheet, so their usage is just the launch
+# line + a "menu-driven" note. Only Setoolkit, Evilginx3 and dnstwist expose a
+# real command surface worth documenting.
+#
+# EVERYTHING HERE IS FOR AUTHORIZED ASSESSMENTS ONLY. See lab_safe_notes.
+category:
+  title: "Phishing (catalog)"
+  merge_into: "Phishing attack tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "AdvPhishing"
+    tags: [phishing, social-engineering, credentials]
+    usage:
+      - ["launch (interactive menu)", "sudo bash AdvPhishing.sh"]
+    lab_safe_notes: >-
+      Menu-driven — pick a template, then it serves a fake login and relays the OTP
+      prompt in real time. There are no CLI flags; everything is chosen in the menu.
+      OTP-relay phishing is high-impact: run it ONLY against accounts you own or
+      targets covered by explicit written authorization, never real users.
+
+  - title: "Setoolkit"
+    tags: [social-engineering, phishing, credentials]
+    system_pkgs: {which: setoolkit}
+    usage:
+      - ["launch the framework (menu-driven)", "sudo setoolkit"]
+      - ["typical path: Social-Engineering Attacks", "menu 1"]
+      - ["clone a site to harvest creds", "menu 1 > 2 (Website Attack) > 3 (Credential Harvester) > 2 (Site Cloner)"]
+    lab_safe_notes: >-
+      SET is an interactive menu framework, not a flag-driven CLI — you navigate numbered
+      menus (the paths above are the numbers you type, not shell arguments). The credential
+      harvester and site cloner capture real passwords; only ever point them at your own
+      test accounts / domains or an engagement with signed authorization and defined scope.
+
+  - title: "SocialFish"
+    tags: [phishing, credentials, web]
+    usage:
+      - ["launch (web dashboard; login root/pass)", "sudo python3 SocialFish.py root pass"]
+      - ["then open the dashboard", "http://127.0.0.1:5000"]
+    lab_safe_notes: >-
+      SocialFish is driven from its web dashboard, not the CLI — the two args are just the
+      dashboard username/password. Change the default root/pass before exposing it. It
+      clones login pages and logs captured credentials; use only with written authorization
+      against consenting test targets.
+
+  - title: "HiddenEye"
+    tags: [phishing, credentials, social-engineering]
+    usage:
+      - ["launch (interactive menu)", "sudo python3 HiddenEye.py"]
+    lab_safe_notes: >-
+      Menu-driven: you select the template and tunnelling service (ngrok/serveo) inside the
+      program — no meaningful CLI flags. It harvests credentials and can request location; run
+      only against your own accounts or an authorized, scoped engagement.
+
+  - title: "Evilginx3"
+    tags: [phishing, mitm, credentials, web]
+    system_pkgs: {which: evilginx}
+    usage:
+      - ["start the interactive console", "evilginx"]
+      - ["[in console] set the base domain", "config domain example.com"]
+      - ["[in console] set the external IP", "config ipv4 external <your-ip>"]
+      - ["[in console] load a phishlet on a hostname", "phishlets hostname <phishlet> login.example.com"]
+      - ["[in console] enable a phishlet", "phishlets enable <phishlet>"]
+      - ["[in console] create a lure for a phishlet", "lures create <phishlet>"]
+      - ["[in console] get the phishing URL for a lure", "lures get-url <id>"]
+    lab_safe_notes: >-
+      evilginx runs as an interactive console — the lines above are commands typed AT its
+      prompt, not shell arguments. It is a reverse-proxy MITM that captures live credentials
+      AND session cookies to bypass 2FA, so it is extremely powerful and dangerous. Use only
+      with explicit written authorization, on domains you control, against consenting test
+      accounts — never real users or third-party services.
+
+  - title: "SayCheese"
+    tags: [social-engineering, phishing]
+    usage:
+      - ["launch (interactive menu)", "sudo bash saycheese.sh"]
+    lab_safe_notes: >-
+      Menu-driven: generates a link that grabs a webcam snapshot when the target opens it and
+      grants camera permission. This is covert capture of a person — only ever send to a
+      consenting test subject in an authorized engagement, never to real / unaware people.
+
+  - title: "QR Code Jacking"
+    tags: [phishing, social-engineering]
+    usage:
+      - ["launch (interactive menu)", "sudo bash ohmyqr.sh"]
+    lab_safe_notes: >-
+      Menu-driven QR-login hijack — relays a target service's login QR so a victim scan
+      authenticates YOUR session. No CLI flags. High-impact account takeover; run only against
+      accounts you own or a scoped, authorized test. (Wished-for tag `qr` is not in the
+      taxonomy — mapped to phishing/social-engineering.)
+
+  - title: "QRLJacking"
+    tags: [phishing, social-engineering, credentials]
+    usage:
+      - ["launch (interactive framework)", "python3 QrlJacker.py"]
+    lab_safe_notes: >-
+      OWASP QRLJacker is an interactive framework (module-select prompts, not shell flags) for
+      QR-login session hijacking. It hijacks real login sessions — use only with written
+      authorization against consenting test accounts. (Wished-for tag `qr` not in taxonomy.)
+
+  - title: "Maskphish"
+    tags: [phishing, social-engineering]
+    usage:
+      - ["launch (interactive menu)", "sudo bash maskphish.sh"]
+    lab_safe_notes: >-
+      Menu-driven URL-masking helper: wraps an existing phishing link behind a legit-looking
+      domain (e.g. google.com@evil). It does not phish on its own — it makes a phishing URL
+      look trustworthy, so it is only for authorized awareness tests with a real target's
+      consent, never to deceive real users.
+
+  - title: "dnstwist"
+    tags: [osint, dns, phishing]
+    system_pkgs: {which: dnstwist}
+    usage:
+      - ["generate + resolve look-alike domains", "dnstwist example.com"]
+      - ["only show already-registered permutations", "dnstwist --registered example.com"]
+      - ["JSON output for pipelines", "dnstwist --format json example.com"]
+      - ["add whois lookups on registered hits", "dnstwist --registered --whois example.com"]
+      - ["flag domains with MX (can receive phishing mail)", "dnstwist --mxcheck example.com"]
+      - ["fuzzy-compare pages to spot cloned sites", "dnstwist --ssdeep example.com"]
+    lab_safe_notes: >-
+      dnstwist is a DEFENSIVE / OSINT tool — it enumerates typosquat and look-alike domains of
+      a name you give it and checks which are registered. Passive (DNS/whois lookups); safe to
+      run against your own brand to find impersonation. Use --format json to feed the pipeline.
+
+# --- genuinely-missing, widely-used tool -------------------------------------
+tools:
+  - title: "GoPhish (Phishing Simulation)"
+    kind: install
+    tags: [phishing, social-engineering, email, credentials, web]
+    description: "The standard open-source phishing-simulation platform for authorized awareness campaigns: web admin UI + REST API to build email templates, landing pages, sending profiles and track opens/clicks/submits."
+    system_pkgs: {which: gophish}
+    run: ["gophish"]
+    project_url: "https://getgophish.com/"
+    usage:
+      - ["start the server (reads config.json)", "./gophish"]
+      - ["then open the admin UI (creds printed on first run)", "https://127.0.0.1:3333"]
+      - ["phishing pages/tracking are served on", "http://0.0.0.0:80"]
+    lab_safe_notes: >-
+      GoPhish is configured through its web admin UI and REST API, not shell flags — download
+      the pinned release binary from the GitHub releases page (verify the checksum), do NOT
+      pipe an installer to a shell. Built for organizations to phish THEIR OWN staff with
+      management sign-off; every campaign needs explicit written authorization, defined scope,
+      and target consent per your org's policy. Change the default admin password immediately.
+
+# --- authorized social-engineering references --------------------------------
+  - title: "GoPhish Documentation"
+    kind: resource
+    tags: [phishing, reference, learning]
+    description: "Official GoPhish docs — install, config.json, building campaigns/templates/landing-pages and the REST API for scripted phishing simulations."
+    url: "https://docs.getgophish.com/"
+
+  - title: "MITRE ATT&CK — Phishing (T1566)"
+    kind: resource
+    tags: [phishing, social-engineering, reference]
+    description: "ATT&CK technique reference for phishing (spearphishing attachment/link/service) — adversary procedures, detections and mitigations to model and defend against in engagements."
+    url: "https://attack.mitre.org/techniques/T1566/"

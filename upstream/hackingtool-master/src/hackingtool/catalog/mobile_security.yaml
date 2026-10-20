@@ -1,0 +1,83 @@
+# Mobile Security — guided-ops cheatsheets for the existing Python "Mobile
+# Security Tools" collection (MobSF / Frida / Objection), plus adb as the
+# missing Android staple and two high-value references. Overlays enrich existing
+# tools by EXACT title (no Python edits). apktool/JadX are intentionally NOT here
+# — they already live in reverse_engineering.yaml (don't duplicate titles).
+category:
+  title: "Mobile Security (catalog)"
+  merge_into: "Mobile Security Tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "MobSF (Mobile Security Framework)"
+    tags: [mobile, apk, vuln-scan, scanner, malware-analysis]
+    usage:
+      - ["start the web UI (from the cloned repo)", "./run.sh 127.0.0.1:8000"]
+      - ["run the whole stack via Docker", "docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest"]
+    lab_safe_notes: >-
+      MobSF is a web app — start it, open http://127.0.0.1:8000, then upload the
+      APK/IPA to analyze. Static analysis is fully offline and safe; the dynamic
+      analyzer drives a real/emulated device, so only test apps you own or are
+      authorized to assess.
+
+  - title: "Frida (Dynamic Instrumentation)"
+    tags: [mobile, reversing, malware-analysis]
+    system_pkgs: {which: frida, pip: frida-tools}
+    usage:
+      - ["list running apps on the USB device", "frida-ps -U"]
+      - ["list installed apps", "frida-ps -U -a -i"]
+      - ["spawn an app and load a hook script", "frida -U -f com.example.app -l hook.js"]
+      - ["attach to a running app by name", "frida -U -n AppName"]
+    lab_safe_notes: >-
+      Frida instruments a live process, so it needs a rooted/jailbroken test
+      device or emulator with a matching frida-server running (-U talks to it over
+      USB). Only hook apps you own or are explicitly authorized to test.
+
+  - title: "Objection (Mobile Runtime Exploration)"
+    tags: [mobile, reversing]
+    system_pkgs: {which: objection, pip: objection}
+    usage:
+      - ["explore a running app (interactive REPL)", "objection -g com.example.app explore"]
+      - ["explore with SSL pinning disabled at start", "objection -g com.example.app explore --startup-command 'android sslpinning disable'"]
+      - ["patch an APK with the Frida gadget (no root)", "objection patchapk -s app.apk"]
+    lab_safe_notes: >-
+      Objection is powered by Frida — the `explore` flow needs frida-server on a
+      rooted/jailbroken device or emulator; `patchapk` embeds the gadget so a
+      non-rooted device works instead. Runtime changes (pinning/root bypass) are
+      per-session and non-persistent. Authorized apps only.
+
+# --- genuinely-missing Android staple ---------------------------------------
+tools:
+  - title: "adb (Android Debug Bridge)"
+    kind: install
+    tags: [mobile, apk]
+    description: "Android Debug Bridge — the core CLI for talking to Android devices/emulators: install/pull APKs, shell, and read logs."
+    system_pkgs: {which: adb, apt: adb, brew: android-platform-tools}
+    install: {apt: adb}
+    run: ["adb version"]
+    project_url: "https://developer.android.com/tools/adb"
+    usage:
+      - ["list connected devices/emulators", "adb devices"]
+      - ["install an APK", "adb install app.apk"]
+      - ["pull an installed app's APK off the device", "adb shell pm path com.example.app"]
+      - ["open a device shell", "adb shell"]
+      - ["stream device logs", "adb logcat"]
+      - ["list installed packages", "adb shell pm list packages"]
+    lab_safe_notes: >-
+      adb needs USB debugging enabled on the device; use it only on test
+      devices/emulators and apps you own or are authorized to assess. `adb shell`
+      runs as the shell user (not root) unless the device is rooted — no blanket
+      privilege is required for install/pull/logcat.
+
+# --- high-value mobile-security references -----------------------------------
+  - title: "OWASP MAS (Mobile App Security)"
+    kind: resource
+    tags: [mobile, reference, learning]
+    description: "OWASP Mobile Application Security project — the MASVS standard and the MASTG testing guide with concrete Android/iOS test cases."
+    url: "https://mas.owasp.org/"
+
+  - title: "Frida CodeShare"
+    kind: resource
+    tags: [mobile, reversing, online-service, reference]
+    description: "Community repository of ready-to-run Frida scripts (SSL-pinning bypasses, root-detection bypasses, tracing) — load with `frida --codeshare`."
+    url: "https://codeshare.frida.re/"

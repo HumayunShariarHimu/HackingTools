@@ -1,0 +1,61 @@
+/* src/hackingtool/tui/app.tcss — single source of visual style (claude-* look) */
+Screen { background: $surface; }
+
+#ht-header {
+    dock: top;
+    height: auto;
+    padding: 0 1;
+    color: $text;
+    border-bottom: solid $panel;
+}
+
+#ht-banner { dock: top; height: auto; padding: 0 1; }
+#ht-logo { border: round $accent; width: auto; height: auto; padding: 0 1; color: $text; text-style: bold; }
+
+OptionList { border: round $panel; padding: 0 1; }
+OptionList > .option-list--option-highlighted { background: $boost; color: $text; }
+
+/* list fills the middle and scrolls within itself; prompt pinned at the bottom */
+#main-cats, #cat-tools { height: 1fr; }
+#ht-prompt { dock: bottom; height: 3; border: round $panel; padding: 0 1; }
+
+#ht-hint { color: $text-muted; height: 1; padding: 0 1; }
+
+UpdateModal { align: center middle; }
+UpdateModal > #update-box {
+    width: 80%;
+    max-width: 90;
+    border: round $warning;
+    padding: 1 2;
+    background: $panel;
+}
+
+EditModal { align: center middle; }
+EditModal > #edit-box {
+    width: 70%;
+    border: round $accent;
+    padding: 1 2;
+    background: $panel;
+}
+
+PermissionModal { align: center middle; }
+PermissionModal > #perm-box {
+    width: 70%;
+    border: round $warning;
+    padding: 1 2;
+    background: $panel;
+}
+
+/* Floating slash-command palette: overlay lifts it above the 3-row bottom prompt
+   without growing the screen (pattern verified from Textual's Select). */
+CommandPalette {
+    overlay: screen;
+    constrain: none inside;
+    max-height: 12;
+    dock: bottom;
+    offset-y: -3;
+    width: 1fr;
+    border: round $accent;
+    background: $panel;
+    padding: 0 1;
+}

@@ -1,0 +1,603 @@
+# Legacy tool overlays — tags (+ verified usage) for tools that are defined
+# as Python classes rather than catalog YAML. Matched to the existing tool by
+# exact title; `tags` are a subset of tags.TAXONOMY (enforced by tests). This
+# lets the data-driven catalog power search/recommend/AI2 for these tools too.
+# Curated in M7. Surveillance/C2/keylogger tools are tags-only by design.
+overlay:
+- title: Dracnmap
+  tags:
+  - port-scan
+  - scanner
+  - network
+  - recon
+- title: Port scanning
+  tags:
+  - port-scan
+  - scanner
+  - network
+- title: 'Host to IP '
+  tags:
+  - recon
+  - dns
+  - lookup
+- title: RED HAWK (All In One Scanning)
+  tags:
+  - web
+  - recon
+  - scanner
+  - fingerprint
+- title: ReconSpider(For All Scanning)
+  tags:
+  - osint
+  - recon
+  - crawler
+- title: IsItDown (Check Website Down/Up)
+  tags:
+  - recon
+  - online-service
+  - web
+- title: Infoga - Email OSINT
+  tags:
+  - osint
+  - email
+  - recon
+  usage:
+  - - gather email info for a domain
+    - python infoga.py --domain <domain> --source all
+- title: ReconDog
+  tags:
+  - recon
+  - osint
+  - scanner
+- title: Striker
+  tags:
+  - recon
+  - vuln-scan
+  - web
+  - scanner
+- title: Find Info Using Shodan
+  tags:
+  - osint
+  - recon
+  - lookup
+  - network
+  usage:
+  - - look up a host by IP
+    - shodan host <ip>
+  - - search the Shodan index
+    - shodan search <query>
+- title: theHarvester (OSINT)
+  tags:
+  - osint
+  - email
+  - subdomain-enum
+  - recon
+  usage:
+  - - gather emails/hosts for a domain
+    - theHarvester -d <domain> -b all
+  - - query a single source
+    - theHarvester -d <domain> -b google
+- title: SpiderFoot (OSINT Automation)
+  tags:
+  - osint
+  - recon
+  - subdomain-enum
+  usage:
+  - - start the web UI
+    - python3 sf.py -l 127.0.0.1:5001
+- title: Breacher
+  tags:
+  - web
+  - recon
+  - enumeration
+  usage:
+  - - find admin/login panels on a site
+    - python3 breacher.py -u <target>
+- title: Xerosploit
+  tags:
+  - mitm
+  - sniffing
+  - network
+  - poisoning
+- title: SecretFinder (like API & etc)
+  tags:
+  - web
+  - recon
+  - credentials
+  - git-secrets
+  usage:
+  - - scan a live JS-heavy URL
+    - python3 SecretFinder.py -i https://<target>/ -o cli
+  - - scan a local JS file
+    - python3 SecretFinder.py -i /path/to/app.js -o cli
+- title: Port Scanner - rang3r
+  tags:
+  - port-scan
+  - scanner
+  - network
+  usage:
+  - - scan a single host
+    - python rang3r.py --ip <target>
+- title: Amass (Attack Surface Mapping)
+  tags:
+  - subdomain-enum
+  - recon
+  - osint
+  - dns
+  usage:
+  - - active + passive enumeration
+    - amass enum -d <domain>
+  - - passive-only enumeration
+    - amass enum -passive -d <domain>
+  - - intel gathering by domain
+    - amass intel -d <domain>
+- title: Masscan (Fast Port Scanner)
+  tags:
+  - port-scan
+  - scanner
+  - network
+  usage:
+  - - scan all ports on a range
+    - sudo masscan <ip-range> -p1-65535 --rate 1000
+  - - scan common web ports
+    - sudo masscan <ip-range> -p80,443 --rate 10000
+- title: RustScan (Modern Port Scanner)
+  tags:
+  - port-scan
+  - scanner
+  - network
+  usage:
+  - - fast scan a host
+    - rustscan -a <target>
+  - - scan then pipe to nmap
+    - rustscan -a <target> -- -A -sC
+- title: Holehe (Email → Social Accounts)
+  tags:
+  - osint
+  - email
+  - recon
+  - lookup
+  usage:
+  - - check an email across sites
+    - holehe <email>
+  - - show only sites where used
+    - holehe --only-used <email>
+- title: Maigret (Username OSINT)
+  tags:
+  - osint
+  - recon
+  - lookup
+  usage:
+  - - search a username across sites
+    - maigret <username>
+  - - write an HTML/PDF report
+    - maigret <username> --html --pdf
+- title: httpx (HTTP Toolkit)
+  tags:
+  - web
+  - recon
+  - scanner
+  - fingerprint
+  usage:
+  - - probe a list of hosts
+    - httpx -l hosts.txt -silent
+  - - title, status, tech from stdin
+    - cat hosts.txt | httpx -title -status-code -tech-detect
+- title: Subfinder (Subdomain Enumeration)
+  tags:
+  - subdomain-enum
+  - recon
+  - osint
+  - dns
+  usage:
+  - - passive subdomain enum
+    - subfinder -d <domain>
+  - - clean output for pipelines
+    - subfinder -d <domain> -silent
+- title: TruffleHog (Secret Scanner)
+  tags:
+  - git-secrets
+  - credentials
+  - recon
+  usage:
+  - - scan a git repo
+    - trufflehog git <repo-url>
+  - - scan a local filesystem path
+    - trufflehog filesystem <path>
+  - - only verified secrets
+    - trufflehog git <repo-url> --only-verified
+- title: Gitleaks (Git Secret Scanner)
+  tags:
+  - git-secrets
+  - credentials
+  - reporting
+  usage:
+  - - scan git history
+    - gitleaks detect --source <path> -v
+  - - scan uncommitted changes
+    - gitleaks protect --source <path> -v
+- title: Autophisher RK
+  tags:
+  - phishing
+  - social-engineering
+  - credentials
+- title: Pyphisher
+  tags:
+  - phishing
+  - social-engineering
+  - credentials
+- title: I-See_You
+  tags:
+  - phishing
+  - social-engineering
+  - osint
+- title: BlackEye
+  tags:
+  - phishing
+  - social-engineering
+  - credentials
+- title: ShellPhish
+  tags:
+  - phishing
+  - social-engineering
+  - credentials
+- title: Thanos
+  tags:
+  - phishing
+  - social-engineering
+- title: BlackPhish
+  tags:
+  - phishing
+  - social-engineering
+  - credentials
+- title: Instagram Attack
+  tags:
+  - bruteforce
+  - password-attack
+  - credentials
+  - social-engineering
+- title: AllinOne SocialMedia Attack
+  tags:
+  - bruteforce
+  - password-attack
+  - credentials
+  - social-engineering
+- title: Facebook Attack
+  tags:
+  - bruteforce
+  - password-attack
+  - credentials
+  - social-engineering
+- title: Application Checker
+  tags:
+  - reference
+  - learning
+- title: Find SocialMedia By Facial Recognation System
+  tags:
+  - osint
+  - recon
+  - image
+  - lookup
+- title: Find SocialMedia By UserName
+  tags:
+  - osint
+  - recon
+  - enumeration
+  - lookup
+- title: Sherlock
+  tags:
+  - osint
+  - recon
+  - enumeration
+  usage:
+  - - hunt accounts by username
+    - sherlock <username>
+- title: SocialScan | Username or Email
+  tags:
+  - osint
+  - recon
+  - email
+  - enumeration
+  usage:
+  - - check username or email usage
+    - socialscan <user_or_email>
+- title: EvilURL
+  tags:
+  - phishing
+  - dns
+  - osint
+- title: Knockmail
+  tags:
+  - osint
+  - email
+  - recon
+  - lookup
+- title: Extended XSS Searcher and Finder
+  tags:
+  - web
+  - xss
+  - scanner
+- title: XSS-Freak
+  tags:
+  - web
+  - xss
+  - scanner
+- title: XSpear
+  tags:
+  - web
+  - xss
+  - scanner
+  usage:
+  - - scan a URL for XSS
+    - xspear -u <url>
+  - - verbose scan
+    - xspear -u <url> -v 1
+- title: XSSCon
+  tags:
+  - web
+  - xss
+  - scanner
+  usage:
+  - - scan a URL for XSS
+    - python3 xsscon.py -u <url>
+- title: XanXSS
+  tags:
+  - web
+  - xss
+  - scanner
+- title: RVuln
+  tags:
+  - web
+  - vuln-scan
+  - scanner
+- title: Explo
+  tags:
+  - web
+  - vuln-scan
+  usage:
+  - - run a yaml testcase
+    - explo <testcase.yaml>
+- title: Blisqy - Exploit Time-based blind-SQL injection
+  tags:
+  - web
+  - sql-injection
+  - exploitation
+- title: Leviathan - Wide Range Mass Audit Toolkit
+  tags:
+  - scanner
+  - sql-injection
+  - bruteforce
+  - network
+- title: Web2Attack
+  tags:
+  - web
+  - exploitation
+- title: CheckURL
+  tags:
+  - web
+  - phishing
+  - lookup
+- title: Blazy(Also Find ClickJacking)
+  tags:
+  - web
+  - bruteforce
+  - password-attack
+- title: Caido (Web Security Auditing)
+  tags:
+  - web
+  - scanner
+  - crawler
+- title: WebSploit
+  tags:
+  - web
+  - mitm
+  - exploitation
+- title: Gospider
+  tags:
+  - web
+  - crawler
+  - recon
+  usage:
+  - - crawl a site
+    - gospider -s <url>
+  - - crawl with more depth
+    - gospider -s <url> -d 3
+- title: Keydroid
+  tags:
+  - payload
+  - mobile
+  - apk
+  - post-exploitation
+- title: MySMS
+  tags:
+  - payload
+  - mobile
+  - apk
+- title: Lockphish (Grab target LOCK PIN)
+  tags:
+  - phishing
+  - social-engineering
+  - mobile
+  - credentials
+- title: DroidCam (Capture Image)
+  tags:
+  - payload
+  - mobile
+  - post-exploitation
+- title: EvilApp (Hijack Session)
+  tags:
+  - payload
+  - mobile
+  - apk
+  - post-exploitation
+- title: Brutal
+  tags:
+  - payload
+  - social-engineering
+  - reverse-shell
+- title: MSFvenom Payload Creator
+  tags:
+  - payload
+  - exploitation
+  - reverse-shell
+  usage:
+  - - generate a reverse shell payload
+    - msfvenom -p <payload> LHOST=<ip> LPORT=<port> -f <fmt> -o <output>
+  - - list available payloads
+    - msfvenom --list payloads
+- title: Spycam
+  tags:
+  - payload
+  - post-exploitation
+  - mobile
+- title: Enigma
+  tags:
+  - payload
+  - exploitation
+- title: Debinject
+  tags:
+  - payload
+  - exploitation
+- title: Pixload
+  tags:
+  - payload
+  - steganography
+  - image
+  usage:
+  - - embed a payload into a PNG image
+    - pixload-png -p '<payload>' -o <output>
+  - - inject a payload into an existing image
+    - pixload-gif -i <input> -p '<payload>' -o <output>
+- title: Pyshell
+  tags:
+  - payload
+  - reverse-shell
+  - post-exploitation
+- title: WordlistCreator
+  tags:
+  - wordlist
+  - password-attack
+- title: Goblin WordGenerator
+  tags:
+  - wordlist
+  - password-attack
+- title: Password list (1.4 Billion Clear Text Password)
+  tags:
+  - wordlist
+  - password-attack
+  - reference
+- title: Hashcat (Password Cracker)
+  tags:
+  - hash-crack
+  - password-attack
+  - credentials
+  usage:
+  - - crack a hash with a wordlist
+    - hashcat -m <mode> -a 0 <hashfile> <wordlist>
+- title: John the Ripper
+  tags:
+  - hash-crack
+  - password-attack
+  - credentials
+  usage:
+  - - crack a hash with a wordlist
+    - john --wordlist=<wordlist> <hashfile>
+  - - show cracked passwords
+    - john --show <hashfile>
+- title: haiti (Hash Type Identifier)
+  tags:
+  - hash-crack
+  - lookup
+  - reference
+  usage:
+  - - identify a hash type
+    - haiti <hash>
+- title: Hash Buster
+  tags:
+  - hash-crack
+  - lookup
+  - online-service
+  - credentials
+- title: EvilTwin
+  tags:
+  - wireless
+  - mitm
+  - phishing
+  - credentials
+- title: Fastssh
+  tags:
+  - bruteforce
+  - network
+  - password-attack
+  - credentials
+- title: WifiJammer-NG
+  tags:
+  - wireless
+  - ddos
+- title: KawaiiDeauther
+  tags:
+  - wireless
+  - ddos
+- title: Asyncrone | Multifunction SYN Flood DDoS Weapon
+  tags:
+  - ddos
+  - network
+- title: GoldenEye
+  tags:
+  - ddos
+  - web
+  usage:
+  - - run an HTTP DoS test against a URL
+    - python3 goldeneye.py <url>
+- title: Vegile - Ghost In The Shell
+  tags:
+  - persistence
+  - post-exploitation
+  - payload
+- title: Chrome Keylogger
+  tags:
+  - credentials
+  - post-exploitation
+  - payload
+- title: Havoc (C2 Framework)
+  tags:
+  - c2
+  - post-exploitation
+  - payload
+- title: Stegseek (fast steganography cracker)
+  tags:
+  - steganography
+  - hash-crack
+  - bruteforce
+  usage:
+  - - crack steghide-hidden data with a wordlist
+    - stegseek <stegofile> <wordlist>
+- title: StegoCracker
+  tags:
+  - steganography
+  - bruteforce
+  - password-attack
+- title: Whitespace
+  tags:
+  - steganography
+  - payload
+- title: Disk Clone and ISO Image Acquire
+  tags:
+  - forensics
+  - binary
+  usage:
+  - - image a disk to a file
+    - sudo dd if=<device> of=<image.iso> bs=4M status=progress
+- title: Terminal Multiplexer
+  tags:
+  - cheatsheet
+  - reference
+  usage:
+  - - start a new named session
+    - tmux new -s <session>
+  - - reattach to a session
+    - tmux attach -t <session>
+- title: Crivo
+  tags:
+  - network
+  - recon

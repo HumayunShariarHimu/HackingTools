@@ -1,0 +1,9 @@
+# Sponsors shown in the hackingtool banner.
+# Add yours via a pull request, or sponsor the project: https://github.com/sponsors/Z4nzu
+# Each entry: name (required), url (required, http/https), tagline (optional), tier (gold|silver|bronze, default bronze).
+sponsors: []
+# Example:
+#   - name: "Acme Security"
+#     url: "https://acme.example"
+#     tagline: "Cloud pentest platform"
+#     tier: "gold"

@@ -1,0 +1,19 @@
+# pipelines/recon.yaml
+name: recon
+description: Passive subdomain discovery -> live-host probe -> vuln scan.
+steps:
+  - tool: subfinder
+    args: ["-silent"]
+    input: targets
+    output: raw/subfinder.txt
+    parser: subfinder
+  - tool: httpx
+    args: ["-silent", "-json"]
+    input: previous
+    output: raw/httpx.jsonl
+    parser: httpx
+  - tool: nuclei
+    args: ["-silent", "-jsonl"]
+    input: previous
+    output: raw/nuclei.jsonl
+    parser: nuclei

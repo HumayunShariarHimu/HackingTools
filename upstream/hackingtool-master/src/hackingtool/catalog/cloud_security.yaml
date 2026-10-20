@@ -1,0 +1,97 @@
+# Cloud Security — guided-ops cheatsheets for the existing Python "Cloud
+# Security Tools" collection, plus Checkov (IaC/misconfig staple the list is
+# missing) and two cloud references. Overlays enrich existing tools by EXACT
+# title. Pacu is interactive, so it gets a launch line.
+category:
+  title: "Cloud Security (catalog)"
+  merge_into: "Cloud Security Tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "Prowler (Cloud Security Scanner)"
+    tags: [cloud, scanner, vuln-scan]
+    system_pkgs: {which: prowler}
+    usage:
+      - ["assess an AWS account", "prowler aws"]
+      - ["assess Azure", "prowler azure"]
+      - ["assess GCP", "prowler gcp"]
+      - ["assess a Kubernetes cluster", "prowler kubernetes"]
+      - ["use a named AWS profile", "prowler aws --profile myprofile"]
+      - ["list all available checks", "prowler aws --list-checks"]
+    lab_safe_notes: >-
+      Only assess accounts/subscriptions you own or are explicitly authorized to test.
+      Prowler is read-only, but it calls hundreds of cloud APIs — that generates
+      CloudTrail/audit-log entries and can incur API-call costs. Start with a scoped
+      profile/region rather than a whole org.
+
+  - title: "ScoutSuite (Multi-Cloud Auditing)"
+    tags: [cloud, scanner, enumeration]
+    system_pkgs: {which: scout}
+    usage:
+      - ["audit an AWS account", "scout aws"]
+      - ["audit AWS with a named profile", "scout aws --profile myprofile"]
+      - ["audit GCP", "scout gcp"]
+      - ["audit Azure", "scout azure"]
+    lab_safe_notes: >-
+      Authorized accounts only. ScoutSuite enumerates your cloud config via read-only
+      API calls and writes a static HTML report to ./scoutsuite-report/ — no changes to
+      the environment, but the API calls are logged. Review the report locally.
+
+  - title: "Pacu (AWS Exploitation Framework)"
+    tags: [cloud, exploitation, post-exploitation]
+    system_pkgs: {which: pacu}
+    usage:
+      - ["launch the interactive framework", "pacu"]
+    lab_safe_notes: >-
+      Pacu is an OFFENSIVE AWS framework — its modules actively enumerate, exploit
+      misconfigurations, escalate privilege and can modify resources. Run it only against
+      AWS accounts you own or have written authorization to attack. Work inside its
+      interactive shell (`list`/`search`/`run <module>`); some modules are noisy and
+      leave audit-log evidence.
+
+  - title: "Trivy (Container/K8s Scanner)"
+    tags: [scanner, vuln-scan, cloud]
+    system_pkgs: {which: trivy, brew: trivy}
+    usage:
+      - ["scan a container image", "trivy image nginx:latest"]
+      - ["scan a project filesystem", "trivy fs ."]
+      - ["scan IaC / config for misconfigs", "trivy config ."]
+      - ["scan a remote git repo", "trivy repo https://github.com/org/repo"]
+      - ["only HIGH/CRITICAL findings", "trivy image --severity HIGH,CRITICAL nginx:latest"]
+    lab_safe_notes: >-
+      Image/filesystem/config scans are fully local and read-only — safe to run anywhere.
+      Trivy downloads its vulnerability DB on first run (needs network). Scan only images
+      and repos you're authorized to assess.
+
+# --- genuinely-missing, widely-used cloud/IaC tool ---------------------------
+tools:
+  - title: "Checkov (IaC Misconfig Scanner)"
+    kind: install
+    tags: [cloud, scanner, vuln-scan]
+    description: "Static analysis for infrastructure-as-code (Terraform, CloudFormation, Kubernetes, Helm, ARM, Dockerfiles) that flags insecure cloud configuration before deploy."
+    system_pkgs: {which: checkov, brew: checkov}
+    install: {pip: checkov}
+    run: ["checkov --version"]
+    project_url: "https://github.com/bridgecrewio/checkov"
+    usage:
+      - ["scan a directory of IaC", "checkov -d ."]
+      - ["scan a single file", "checkov -f main.tf"]
+      - ["restrict to one framework", "checkov -d . --framework terraform"]
+      - ["list all built-in checks", "checkov --list"]
+    lab_safe_notes: >-
+      Checkov reads your IaC files statically and never touches a live cloud account or
+      makes API calls — completely safe and offline. Ideal in CI to catch insecure
+      defaults (public buckets, open security groups) before they ship.
+
+# --- high-value cloud-security references ------------------------------------
+  - title: "HackTricks Cloud (cloud pentest playbook)"
+    kind: resource
+    tags: [reference, cloud, learning]
+    description: "The cloud-focused HackTricks book — AWS/GCP/Azure/Kubernetes enumeration, privilege-escalation and post-exploitation techniques with copy-paste commands."
+    url: "https://cloud.hacktricks.xyz/"
+
+  - title: "flaws.cloud (AWS Security Challenge)"
+    kind: resource
+    tags: [learning, cloud, online-service]
+    description: "A free hands-on AWS security lab that walks through common S3/IAM misconfigurations as a CTF — a safe, authorized target to practice cloud recon on."
+    url: "http://flaws.cloud/"

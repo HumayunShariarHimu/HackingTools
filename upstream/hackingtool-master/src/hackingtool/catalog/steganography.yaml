@@ -1,0 +1,137 @@
+# Steganography (catalog) — enriches the EXISTING Python-defined
+# "Steganography Tools" category via merge_into, plus overlays that add usage
+# cheatsheets + lab-safe notes to the two active Python tools. Everything here is
+# CTF-oriented: hide/extract/carve/inspect files entirely offline.
+category:
+  title: "Steganography (catalog)"
+  merge_into: "Steganography Tools"
+
+# Overlays enrich the EXISTING (Python-defined) tools by EXACT title — no per-tool
+# Python edits. SteganoHide wraps `steghide`; StegnoCracker wraps `stegcracker`.
+overlay:
+  - title: "SteganoHide"
+    tags: [steganography, image, forensics]
+    system_pkgs: {which: steghide, apt: steghide, brew: steghide}
+    usage:
+      - ["hide a message in a JPEG/WAV/BMP", "steghide embed -cf cover.jpg -ef secret.txt"]
+      - ["hide with a passphrase", "steghide embed -cf cover.jpg -ef secret.txt -p 's3cret'"]
+      - ["extract hidden data", "steghide extract -sf stego.jpg"]
+      - ["extract with a known passphrase", "steghide extract -sf stego.jpg -p 's3cret'"]
+      - ["list embedded info (may prompt for pass)", "steghide info stego.jpg"]
+    lab_safe_notes: >-
+      steghide only reads/writes local files — it never touches a target host, so
+      it's safe on any box. Supported covers are JPEG, BMP, WAV and AU. If you have
+      the stego file but not the passphrase, hand it to stegseek (below) — it brute
+      forces steghide far faster than stegcracker.
+
+  - title: "StegnoCracker"
+    tags: [steganography, bruteforce, password-attack, image]
+    system_pkgs: {which: stegcracker, pip: stegcracker}
+    usage:
+      - ["brute-force a steghide passphrase", "stegcracker stego.jpg rockyou.txt"]
+      - ["use the built-in default wordlist", "stegcracker stego.jpg"]
+      - ["recovered data is written next to it", "cat stego.jpg.out"]
+    lab_safe_notes: >-
+      Fully offline dictionary attack against steghide-embedded files; it shells out
+      to `steghide`, so that must be installed too. rockyou.txt lives at
+      /usr/share/wordlists/rockyou.txt on Kali (gunzip it first). stegcracker is
+      slow and effectively superseded by stegseek — reach for stegseek first.
+
+tools:
+  - title: "stegseek (fast steghide cracker)"
+    kind: install
+    tags: [steganography, bruteforce, password-attack, image]
+    description: "Cracks steghide-embedded files 1000x+ faster than stegcracker; the go-to for a passphrase-protected JPEG in a CTF."
+    system_pkgs: {which: stegseek}
+    install:
+      git: "https://github.com/RickdeJager/stegseek"
+    run: ["stegseek --help"]
+    project_url: "https://github.com/RickdeJager/stegseek"
+    usage:
+      - ["crack with a wordlist", "stegseek stego.jpg rockyou.txt"]
+      - ["auto-use the built-in wordlist", "stegseek stego.jpg"]
+      - ["write recovered payload to a file", "stegseek stego.jpg rockyou.txt out.bin"]
+      - ["detect an empty passphrase / bail fast", "stegseek --seed stego.jpg"]
+    lab_safe_notes: >-
+      Offline only. Prebuilt .deb releases are on the GitHub Releases page; from the
+      git clone, build with `cmake . && make` (needs libmcrypt, libmhash, zlib). On
+      success it drops the embedded file next to the image.
+
+  - title: "zsteg (PNG/BMP LSB detector)"
+    kind: install
+    tags: [steganography, image, forensics]
+    description: "Detects LSB stego, hidden text and appended data in PNG/BMP images — the first thing to run on a suspicious PNG."
+    system_pkgs: {which: zsteg}
+    install:
+      commands: ["gem install zsteg"]
+    run: ["zsteg --help"]
+    project_url: "https://github.com/zed-0xff/zsteg"
+    usage:
+      - ["scan every LSB channel/order", "zsteg -a suspicious.png"]
+      - ["quick default checks", "zsteg suspicious.png"]
+      - ["carve a specific bit-plane payload", "zsteg -E 'b1,rgb,lsb,xy' suspicious.png > out.bin"]
+      - ["show all detections verbosely", "zsteg -v suspicious.png"]
+    lab_safe_notes: >-
+      Ruby gem, offline. Only handles PNG and BMP (use steghide/stegseek for
+      JPEG/WAV). `-a` tries all channel/bit-order combos and is the usual first pass;
+      `-E` extracts once you know the channel string zsteg reported.
+
+  - title: "outguess (JPEG stego)"
+    kind: install
+    tags: [steganography, image, forensics]
+    description: "Classic redundancy-preserving steganography for JPEG; a common alternative to steghide in CTF challenges."
+    system_pkgs: {which: outguess, apt: outguess}
+    install: {apt: outguess}
+    run: ["outguess -h"]
+    project_url: "https://github.com/resurrecting-open-source-projects/outguess"
+    usage:
+      - ["hide a file in a JPEG", "outguess -d secret.txt cover.jpg stego.jpg"]
+      - ["hide with a key", "outguess -k 'mypass' -d secret.txt cover.jpg stego.jpg"]
+      - ["extract hidden data", "outguess -r stego.jpg recovered.txt"]
+      - ["extract with a key", "outguess -k 'mypass' -r stego.jpg recovered.txt"]
+    lab_safe_notes: >-
+      Offline file operation. If steghide/zsteg find nothing on a JPEG, try
+      outguess — challenges often pick one specific tool, so cycle through them.
+
+  - title: "ExifTool (metadata reader)"
+    kind: install
+    tags: [steganography, metadata, image, forensics]
+    description: "Reads/writes metadata in images, PDFs and media; flags live in EXIF comments, GPS and maker-note fields more often than you'd think."
+    system_pkgs: {which: exiftool, apt: libimage-exiftool-perl, brew: exiftool}
+    install: {apt: libimage-exiftool-perl}
+    run: ["exiftool -ver"]
+    project_url: "https://exiftool.org/"
+    usage:
+      - ["dump all metadata", "exiftool suspicious.jpg"]
+      - ["show a specific field", "exiftool -Comment -GPSPosition suspicious.jpg"]
+      - ["extract an embedded thumbnail/preview", "exiftool -b -ThumbnailImage suspicious.jpg > thumb.jpg"]
+      - ["scan a whole directory", "exiftool -r -Comment ./images/"]
+    lab_safe_notes: >-
+      Read-only by default and fully offline. Always the cheapest first check on any
+      media file — look at Comment, Artist, Software and GPS fields before pulling
+      out the heavy stego tooling.
+
+  # --- RESOURCE entries: the online stego toolkits CTF players actually use. ---
+  - title: "Aperi'Solve (all-in-one image stego)"
+    kind: resource
+    tags: [steganography, image, online-service, reference]
+    description: "Upload an image and it runs zsteg, steghide, binwalk, exiftool, foremost and layer/bit-plane analysis in one pass — the fastest triage for a mystery image."
+    url: "https://www.aperisolve.com/"
+
+  - title: "StegOnline (in-browser LSB explorer)"
+    kind: resource
+    tags: [steganography, image, online-service]
+    description: "Browser tool to toggle bit planes / colour channels, extract LSB data and view image layers — no upload to a server needed."
+    url: "https://georgeom.net/StegOnline/upload"
+
+  - title: "Futureboy Stegano decoder"
+    kind: resource
+    tags: [steganography, online-service, reference]
+    description: "Classic online steghide-style hide/reveal service; handy when you can't install steghide locally."
+    url: "https://futureboy.us/stegano/decinput.html"
+
+  - title: "stego-toolkit (Docker kit + checklist)"
+    kind: resource
+    tags: [steganography, reference, cheatsheet]
+    description: "DominicBreuker's Docker image bundling ~all common stego/forensics tools plus a practical 'which tool for which file' checklist — the reference to keep open during a CTF."
+    url: "https://github.com/DominicBreuker/stego-toolkit"

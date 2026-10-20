@@ -1,0 +1,140 @@
+# Adds maintained, widely-used recon tools into the EXISTING (Python-defined)
+# "Information gathering tools" category via merge_into — proving a new tool is
+# one YAML entry, no code edits. These are not duplicates of the Python classes.
+category:
+  title: "Information gathering (catalog)"
+  merge_into: "Information gathering tools"
+
+# Overlays enrich EXISTING (Python-defined) tools by title — usage cheatsheets,
+# tags, lab-safe notes, reuse-first hints — with no per-tool Python edits.
+overlay:
+  - title: "Network Map (nmap)"
+    tags: [scanner, port-scan, recon, network]
+    system_pkgs: {which: nmap, apt: nmap, brew: nmap}
+    usage:
+      - ["ping-sweep a subnet (who's alive)", "nmap -sn 10.10.10.0/24"]
+      - ["quick scan of common ports", "nmap -F <target>"]
+      - ["service + version detection", "nmap -sV -Pn <target>"]
+      - ["full TCP port scan", "nmap -p- <target>"]
+      - ["safe default scripts + versions", "nmap -sC -sV -Pn <target>"]
+      - ["output all formats for later", "nmap -sV -oA scan <target>"]
+    lab_safe_notes: >-
+      To go easy on a lab box, prefer -T2 and scope to the single target; avoid
+      -T5 subnet sweeps. -Pn skips host discovery (useful when ICMP is blocked).
+      nmap only touches the hosts you name — never a broadcast.
+
+tools:
+  - title: "naabu (fast port scanner)"
+    kind: install
+    tags: [port-scan, recon, network]
+    description: "SYN/CONNECT port scanner built for reliability and speed; pipes cleanly into nmap/httpx."
+    system_pkgs: {which: naabu}
+    install: {go: "github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"}
+    run: ["naabu -version"]
+    project_url: "https://github.com/projectdiscovery/naabu"
+    usage:
+      - ["scan top ports on a host", "naabu -host <target> -top-ports 100"]
+      - ["scan a list of hosts", "naabu -l hosts.txt"]
+      - ["hand open ports to nmap", "naabu -host <target> -silent | nmap -sV -iL -"]
+    lab_safe_notes: >-
+      naabu sends real connection packets — scope to the target box only. Use
+      -rate 150 (or lower) on lab networks so you don't overwhelm a small VM.
+
+  - title: "dnsx (DNS toolkit)"
+    kind: install
+    tags: [dns, recon, enumeration]
+    description: "Fast, multi-purpose DNS toolkit for resolving and probing records from a list."
+    system_pkgs: {which: dnsx}
+    install: {go: "github.com/projectdiscovery/dnsx/cmd/dnsx@latest"}
+    run: ["dnsx -version"]
+    project_url: "https://github.com/projectdiscovery/dnsx"
+    usage:
+      - ["resolve a list of hosts (A records)", "dnsx -l hosts.txt -a -resp"]
+      - ["find live subdomains from a wordlist", "dnsx -d example.com -w words.txt"]
+      - ["pull CNAME/MX/TXT records", "dnsx -l hosts.txt -cname -mx -txt -resp"]
+    lab_safe_notes: >-
+      Passive-ish: only queries DNS resolvers, not the target host itself. Safe for
+      recon before you touch the box. Use -rl to rate-limit against public resolvers.
+
+  - title: "reconFTW (Automated Recon)"
+    kind: install
+    tags: [recon, osint, subdomain-enum, scanner, dns]
+    description: >-
+      Chains the best-of-breed recon tools (subdomain enum, web probing, takeovers,
+      port + vuln checks) into one automated pipeline against a domain.
+    install: {commands: ["git clone https://github.com/six2dez/reconftw", "cd reconftw && ./install.sh"]}
+    run: ["./reconftw.sh -h"]
+    project_url: "https://github.com/six2dez/reconftw"
+    usage:
+      - ["full recon on a domain (no active attacks)", "./reconftw.sh -d target.com -r"]
+      - ["passive footprint only (quietest)", "./reconftw.sh -d target.com -p"]
+      - ["subdomains + web probe + takeovers", "./reconftw.sh -d target.com -s"]
+      - ["recon a list of domains to a dir", "./reconftw.sh -l targets.txt -r -o out/"]
+      - ["deep recon (VPS recommended)", "./reconftw.sh -d target.com -r --deep"]
+    lab_safe_notes: >-
+      -p (passive) and -r (recon) launch no active attacks — safe first passes. -a
+      ("YOLO") adds active vulnerability checks and WILL send exploit-style traffic, so
+      use it only against scoped, authorized targets. --deep is heavy; run it off a VPS.
+
+  - title: "gowitness (Web Screenshots)"
+    kind: install
+    tags: [web, recon, fingerprint, reporting]
+    description: >-
+      Single-binary web screenshotter (headless Chrome) — grab thumbnails of many hosts
+      at once and browse them in a built-in report UI. Great for triaging a big host list.
+    system_pkgs: {which: gowitness}
+    install: {go: "github.com/sensepost/gowitness@latest"}
+    run: ["gowitness version"]
+    project_url: "https://github.com/sensepost/gowitness"
+    usage:
+      - ["screenshot a single URL", "gowitness scan single --url https://example.com --write-db"]
+      - ["screenshot a list of URLs", "gowitness scan file -f urls.txt --write-db"]
+      - ["screenshot web services from an nmap XML", "gowitness scan nmap -f nmap.xml --service-contains http --write-db"]
+      - ["browse results in the report UI", "gowitness report server"]
+    lab_safe_notes: >-
+      gowitness just loads each URL in headless Chrome and saves a screenshot — passive
+      rendering, no attacks — but it does request every host, so scope to authorized
+      targets. After a scan, `gowitness report server` serves the gallery at
+      http://localhost:7171.
+
+  - title: "EyeWitness (Web Screenshots + Headers)"
+    kind: install
+    tags: [web, recon, fingerprint, reporting]
+    description: >-
+      Screenshots websites, grabs server headers and flags likely default credentials —
+      turns a host list into a skimmable HTML report. Reads nmap XML directly.
+    install: {commands: ["git clone https://github.com/RedSiege/EyeWitness", "cd EyeWitness/setup && sudo ./setup.sh"]}
+    run: ["python3 Python/EyeWitness.py --help"]
+    project_url: "https://github.com/RedSiege/EyeWitness"
+    usage:
+      - ["screenshot a list of URLs", "python3 Python/EyeWitness.py -f urls.txt"]
+      - ["screenshot a single site", "python3 Python/EyeWitness.py --single https://example.com"]
+      - ["screenshot web services from an nmap XML", "python3 Python/EyeWitness.py -x nmap.xml"]
+      - ["write the report to a folder", "python3 Python/EyeWitness.py -f urls.txt -d out/"]
+    lab_safe_notes: >-
+      EyeWitness only requests and renders each URL (like a browser) — no exploitation —
+      but it still hits every host, so screenshot only authorized targets. Run it from the
+      cloned dir with its virtualenv active (setup.sh builds eyewitness-venv); open
+      report.html in the output dir to triage fast.
+
+  - title: "Sn1per (Attack Surface Scanner)"
+    kind: install
+    tags: [scanner, recon, vuln-scan, enumeration, web]
+    description: >-
+      All-in-one automated recon + vulnerability scanner that chains many tools into scan
+      "modes" (normal/stealth/web/discover) and collects everything into workspaces.
+    install: {commands: ["git clone https://github.com/1N3/Sn1per.git", "cd Sn1per && sudo bash install.sh"]}
+    run: ["sniper --status"]
+    project_url: "https://github.com/1N3/Sn1per"
+    usage:
+      - ["standard scan of a target", "sniper -t example.com -m normal"]
+      - ["quiet / low-intrusion scan", "sniper -t example.com -m stealth"]
+      - ["web-app scan (ports 80/443)", "sniper -t example.com -m web"]
+      - ["sweep a CIDR into a workspace", "sniper -t 10.10.10.0/24 -m discover -w labnet"]
+      - ["list scans / show status", "sniper --list"]
+    lab_safe_notes: >-
+      Two heads-up. (1) Install is the project's own `sudo bash install.sh` (installs to
+      /usr/share/sniper, needs root); Sn1per is source-available under a custom EULA —
+      review LICENSE.md before use or redistribution. (2) normal/web/nuke modes run ACTIVE
+      scans and real exploit checks; only stealth is low-intrusion. Point it solely at
+      systems you're authorized to test — prefer stealth or discover first to map scope.

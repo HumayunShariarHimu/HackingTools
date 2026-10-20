@@ -1,0 +1,84 @@
+# Anonymity — guided-ops cheatsheets for the existing "Anonymously Hiding Tools"
+# collection. Overlays enrich the two active Python tools by EXACT title.
+# Adds Tor/torsocks and proxychains-ng (the actual staples anonsurf/multitor
+# wrap) plus one anonymity reference. GUI/daemon tools get launch + status lines;
+# no invented flags — anonsurf/multitor commands mirror their upstream READMEs.
+category:
+  title: "Anonymity (catalog)"
+  merge_into: "Anonymously Hiding Tools"
+
+# --- enrich existing Python-defined tools by EXACT title --------------------
+overlay:
+  - title: "Anonymously Surf"
+    tags: [anonymity, tunneling, network]
+    usage:
+      - ["route all traffic through Tor", "sudo anonsurf start"]
+      - ["stop and restore normal routing", "sudo anonsurf stop"]
+      - ["check whether anonsurf is active", "sudo anonsurf status"]
+      - ["show current public IP", "sudo anonsurf myip"]
+      - ["get a fresh Tor circuit / new IP", "sudo anonsurf change"]
+    lab_safe_notes: >-
+      anonsurf transparently forces the whole host through Tor, so every process
+      is affected, not just your browser — verify with `anonsurf myip` before
+      trusting it. Needs root (iptables). Tor exit traffic is slow and some
+      services block Tor; only tunnel activity you are authorized to route.
+
+  - title: "Multitor"
+    tags: [anonymity, tunneling, network]
+    usage:
+      - ["spawn N Tor instances behind a load balancer", "multitor --init 2 --user debian-tor --socks-port 9000 --control-port 9900 --proxy privoxy --haproxy"]
+      - ["show all options", "multitor --help"]
+      - ["show version", "multitor --version"]
+    lab_safe_notes: >-
+      multitor runs several Tor processes and rotates between them behind
+      HAProxy/Privoxy, giving many exit IPs at once — useful for spreading
+      authorized scanning/OSINT so no single circuit is hammered. Runs as the
+      dedicated tor user (`--user debian-tor`); still slow, and rotating IPs
+      does not make out-of-scope targets in-scope.
+
+# --- genuinely-missing anonymity staples ------------------------------------
+tools:
+  - title: "Tor + torsocks (SOCKS anonymity proxy)"
+    kind: install
+    tags: [anonymity, tunneling, network]
+    description: "The Tor daemon plus torsocks, which transparently pushes any single command through Tor's SOCKS proxy (default 127.0.0.1:9050)."
+    system_pkgs: {which: torsocks, apt: torsocks, brew: torsocks}
+    install: {apt: "tor torsocks"}
+    run: ["torsocks --version"]
+    project_url: "https://gitlab.torproject.org/tpo/core/torsocks"
+    usage:
+      - ["start the Tor daemon (SOCKS on 9050)", "sudo systemctl start tor"]
+      - ["run any single command through Tor", "torsocks curl https://check.torproject.org"]
+      - ["confirm the exit IP is a Tor node", "torsocks curl https://check.torproject.org/api/ip"]
+      - ["tunnel an SSH session over Tor", "torsocks ssh user@host"]
+    lab_safe_notes: >-
+      torsocks wraps only the command you prefix — unwrapped tools still leak
+      your real IP, so confirm with the check.torproject.org line. UDP and ICMP
+      cannot go through Tor (no `torsocks nmap -sU`, no ping). Keep it to
+      authorized recon; Tor is slow and many targets rate-limit or block exits.
+
+  - title: "proxychains-ng (chain traffic through proxies/Tor)"
+    kind: install
+    tags: [anonymity, tunneling, network]
+    description: "Forces a program's TCP connections through a chain of SOCKS/HTTP proxies (or Tor) defined in proxychains4.conf."
+    system_pkgs: {which: proxychains4, apt: proxychains4, brew: proxychains-ng}
+    install: {apt: proxychains4}
+    run: ["proxychains4 --help"]
+    project_url: "https://github.com/rofl0r/proxychains-ng"
+    usage:
+      - ["route a command through the configured chain", "proxychains4 curl https://ifconfig.me"]
+      - ["proxy an Nmap connect scan (TCP only)", "proxychains4 nmap -sT -Pn -p 80,443 target"]
+      - ["use an alternate config file", "proxychains4 -f ./proxychains.conf curl https://ifconfig.me"]
+    lab_safe_notes: >-
+      proxychains hijacks TCP only via LD_PRELOAD; Nmap must use `-sT -Pn`
+      (SYN/UDP/ping bypass the proxy and leak your IP). Edit
+      /etc/proxychains4.conf to point at Tor's 9050 socks and set
+      `proxy_dns` to avoid DNS leaks. Chain only through proxies you are
+      authorized to use, against authorized targets.
+
+  # --- anonymity reference ---------------------------------------------------
+  - title: "Whonix — Anonymity & Tor OpSec (docs)"
+    kind: resource
+    tags: [anonymity, reference, learning]
+    description: "Practical, tool-agnostic guidance on staying anonymous with Tor: leak vectors, DNS/UDP pitfalls, and what Tor does and does not protect."
+    url: "https://www.whonix.org/wiki/Documentation"

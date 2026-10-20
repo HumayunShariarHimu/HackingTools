@@ -1,0 +1,77 @@
+# XSS — guided-ops cheatsheets for the existing Python "XSS Attack Tools"
+# collection. Most tools in tools/xss_attack.py are ARCHIVED; only DalFox,
+# XSS Payload Generator, and XSStrike are active, so only those are overlaid.
+# Plus kxss (stdin reflection finder that fits the pipeline) and PortSwigger's
+# XSS labs. Overlays enrich existing tools by EXACT title.
+category:
+  title: "XSS (catalog)"
+  merge_into: "XSS Attack Tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "DalFox (Finder of XSS)"
+    tags: [web, xss, scanner, fuzzing]
+    system_pkgs: {which: dalfox, go: "github.com/hahwul/dalfox/v2@latest"}
+    usage:
+      - ["scan a single URL", "dalfox url 'https://target/?q=1'"]
+      - ["scan a file of URLs", "dalfox file urls.txt"]
+      - ["scan URLs from stdin (pipe mode)", "cat urls.txt | dalfox pipe"]
+      - ["register a blind-XSS callback", "dalfox url 'https://target/?q=1' -b https://your-collab"]
+      - ["save results to a file", "dalfox url 'https://target/?q=1' -o result.txt"]
+    lab_safe_notes: >-
+      DalFox fires real XSS payloads at the target and analyzes reflected
+      parameters — point url/file/pipe only at hosts you're authorized to test.
+      The blind (-b) callback exfiltrates to your own Collaborator/host, so use an
+      endpoint you control. Pipe mode composes with recon output (gau, waybackurls).
+
+  - title: "XSS Payload Generator"
+    tags: [web, xss, payload]
+    usage:
+      - ["launch the interactive generator", "python3 payloader.py"]
+    lab_safe_notes: >-
+      XSS-LOADER is a menu-driven payload/encoder generator — it builds and encodes
+      payloads for you to test manually. Generating payloads is offline and safe;
+      only fire the results at authorized targets.
+
+  - title: "Advanced XSS Detection Suite"
+    tags: [web, xss, scanner, fuzzing]
+    usage:
+      - ["scan a URL", "python3 xsstrike.py -u 'http://target/page?q=1'"]
+      - ["test a POST body", "python3 xsstrike.py -u 'http://target/login' --data 'q=1'"]
+      - ["crawl the site then scan", "python3 xsstrike.py -u 'http://target/' --crawl"]
+      - ["blind XSS injection", "python3 xsstrike.py -u 'http://target/?q=1' --blind"]
+    lab_safe_notes: >-
+      XSStrike sends crafted payloads to detect and fuzz XSS — scope -u to an
+      authorized target. --crawl multiplies the requests it sends across the site,
+      so keep it to lab/authorized scope. Run from inside the cloned XSStrike dir.
+
+# --- genuinely-missing, widely-used XSS tools --------------------------------
+tools:
+  - title: "kxss (Reflection Finder)"
+    kind: install
+    tags: [web, xss, scanner, recon]
+    description: "Reads URLs on stdin and reports which parameters reflect and which special characters (<>\"'`) go through unfiltered — a fast pre-filter before payloading."
+    system_pkgs: {which: kxss, go: "github.com/Emoe/kxss@latest"}
+    install: {go: "github.com/Emoe/kxss@latest"}
+    run: ["kxss"]
+    project_url: "https://github.com/Emoe/kxss"
+    usage:
+      - ["check a file of URLs", "cat urls.txt | kxss"]
+      - ["check one URL", "echo 'https://target/?q=1' | kxss"]
+    lab_safe_notes: >-
+      kxss only probes which characters reflect unfiltered — it doesn't execute an
+      XSS, but it does send requests to the target, so feed it only authorized URLs.
+      Its stdout (URLs with unfiltered chars) chains straight into dalfox pipe.
+
+# --- high-value XSS references -----------------------------------------------
+  - title: "PortSwigger — XSS Labs"
+    kind: resource
+    tags: [learning, web, xss, reference]
+    description: "Free hands-on cross-site-scripting labs (reflected, stored, DOM, contexts) plus a clear XSS cheat sheet from the makers of Burp Suite."
+    url: "https://portswigger.net/web-security/cross-site-scripting"
+
+  - title: "PayloadsAllTheThings — XSS Injection"
+    kind: resource
+    tags: [cheatsheet, reference, xss, web]
+    description: "Curated XSS payloads, filter bypasses, and context-specific vectors (attribute, JS, DOM, polyglot)."
+    url: "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection"

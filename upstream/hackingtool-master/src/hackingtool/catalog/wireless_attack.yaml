@@ -1,0 +1,231 @@
+# Wireless attack (catalog) — overlays the EXISTING Python-defined "Wireless attack
+# tools" collection with tags/usage/lab-safe notes, then adds the missing staples
+# (aircrack-ng, kismet, reaver) and a few wireless references. No Python edits.
+category:
+  title: "Wireless attack (catalog)"
+  merge_into: "Wireless attack tools"
+
+# Enrich EXISTING tools by EXACT title. Wireless is legally sensitive: every note
+# stays authorized-targets-only (your own AP / a lab you control).
+overlay:
+  - title: "WiFi-Pumpkin"
+    tags: [wireless, mitm, phishing, credentials]
+    system_pkgs: {which: wifipumpkin3, pip: wifipumpkin3}
+    usage:
+      - ["launch the framework", "sudo wifipumpkin3"]
+      - ["set the AP interface (in-prompt)", "set interface wlan0"]
+      - ["name the rogue AP", "set ssid FreeWiFi"]
+      - ["start the access point", "start"]
+      - ["list available modules", "help"]
+    lab_safe_notes: >-
+      Stands up a rogue AP that intercepts traffic — only run it on a network and
+      for clients you own or are explicitly authorized to test. Broadcasting a fake
+      SSID near third parties is illegal. Use an isolated lab SSID and your own
+      client device.
+
+  - title: "pixiewps"
+    tags: [wireless, bruteforce, password-attack]
+    system_pkgs: {which: pixiewps, apt: pixiewps}
+    usage:
+      - ["put your adapter in monitor mode", "sudo airmon-ng start wlan0"]
+      - ["find WPS-enabled APs", "sudo wash -i wlan0mon"]
+      - ["collect pixie-dust data via reaver", "sudo reaver -i wlan0mon -b <BSSID> -c <ch> -vvv -K 1"]
+      - ["run the offline pixie-dust attack", "pixiewps -e <pke> -r <pkr> -s <ehash1> -z <ehash2> -a <authkey> -n <enonce>"]
+      - ["show all options", "pixiewps -h"]
+    lab_safe_notes: >-
+      The pixie-dust computation is offline, but capturing the WPS exchange (reaver)
+      transmits to a live AP — only target your own router. Many modern APs lock WPS
+      after failed attempts; test on a lab AP with WPS deliberately enabled.
+
+  - title: "Bluetooth Honeypot GUI Framework"
+    tags: [wireless, sniffing]
+    system_pkgs: {which: java}
+    usage:
+      - ["install the Bluetooth dev libs", "sudo apt-get install -y libbluetooth-dev"]
+      - ["confirm your BT adapter is up", "hciconfig -a"]
+      - ["run the honeypot (needs a BT receiver)", "cd bluepot && sudo java -jar bluepot.jar"]
+    lab_safe_notes: >-
+      A defensive/research honeypot — it listens for Bluetooth connections. Run it on
+      hardware you own; only log devices you are authorized to observe. Requires a
+      working Bluetooth receiver and a JRE.
+
+  - title: "Fluxion"
+    tags: [wireless, phishing, social-engineering, credentials]
+    system_pkgs: {which: fluxion}
+    usage:
+      - ["start fluxion (menu-driven)", "sudo bash fluxion.sh -i"]
+      - ["scan for target networks", "# menu: pick interface -> scan all channels"]
+      - ["capture a handshake", "# menu: Handshake Snooper"]
+      - ["serve the captive-portal credential grab", "# menu: Captive Portal"]
+    lab_safe_notes: >-
+      Evil-twin + captive portal that tricks a user into typing the WiFi password —
+      strictly your own network and your own test client. Deauthing or phishing users
+      of a network you don't own is illegal. Keep it in an isolated lab.
+
+  - title: "Wifiphisher"
+    tags: [wireless, phishing, social-engineering, mitm]
+    system_pkgs: {which: wifiphisher, apt: wifiphisher, pip: wifiphisher}
+    usage:
+      - ["auto-run and pick a target AP", "sudo wifiphisher"]
+      - ["use a specific phishing scenario", "sudo wifiphisher -p firmware-upgrade"]
+      - ["target a known ESSID", "sudo wifiphisher -e \"Lab WiFi\" -p oauth-login"]
+      - ["set the AP and jamming interfaces", "sudo wifiphisher -aI wlan0 -jI wlan1"]
+    lab_safe_notes: >-
+      Performs targeted association attacks and serves fake portals — authorized red
+      team engagements or your own lab only. Two adapters (one AP, one deauth) are
+      typical. Never target real users or nearby networks.
+
+  - title: "Wifite"
+    tags: [wireless, password-attack, bruteforce, credentials]
+    system_pkgs: {which: wifite, apt: wifite}
+    usage:
+      - ["scan and list nearby networks", "sudo wifite"]
+      - ["capture WPA handshakes only", "sudo wifite --wpa"]
+      - ["grab a PMKID (no client needed)", "sudo wifite --pmkid"]
+      - ["attack one specific AP", "sudo wifite --bssid <BSSID> -c <channel>"]
+      - ["skip WPS and crack with a wordlist", "sudo wifite --no-wps --dict rockyou.txt"]
+    lab_safe_notes: >-
+      Automates airmon/airodump/aireplay/aircrack and will deauth clients by default —
+      only run against an AP you own. Prefer --pmkid to avoid deauthing, and scope to a
+      single --bssid so you never touch neighbouring networks.
+
+  - title: "Howmanypeople"
+    tags: [wireless, sniffing, recon]
+    system_pkgs: {which: howmanypeoplearearound, pip: howmanypeoplearearound}
+    usage:
+      - ["count people around you", "sudo howmanypeoplearearound"]
+      - ["target a specific adapter", "sudo howmanypeoplearearound -a wlan0"]
+      - ["scan a fixed number of times", "sudo howmanypeoplearearound -n 10"]
+      - ["write results to a file", "sudo howmanypeoplearearound -o out.csv"]
+    lab_safe_notes: >-
+      Passively counts nearby devices from WiFi probe traffic. Monitoring MAC addresses
+      on networks you don't own may be illegal in your jurisdiction — use only where you
+      are authorized. Needs an adapter that supports monitor mode.
+
+  - title: "Airgeddon (Wireless Attack Suite)"
+    tags: [wireless, password-attack, mitm, credentials]
+    system_pkgs: {which: airgeddon, apt: airgeddon}
+    usage:
+      - ["start the interactive suite", "sudo bash airgeddon.sh"]
+      - ["put adapter in monitor mode", "# menu: select interface -> Put in monitor mode"]
+      - ["capture a handshake / PMKID", "# menu: Handshake/PMKID tools -> Capture"]
+      - ["offline-decrypt the capture", "# menu: Offline WPA/WPA2 decrypt (aircrack/hashcat)"]
+      - ["evil-twin AP attack", "# menu: Evil Twin attacks"]
+    lab_safe_notes: >-
+      A menu wrapper around aircrack-ng/hcxdumptool/hashcat — the same authorized-only
+      rules apply. Its deauth and evil-twin modes hit live clients; keep them pointed at
+      your own lab AP and test device only.
+
+  - title: "hcxdumptool (PMKID Capture)"
+    tags: [wireless, sniffing, pcap, credentials]
+    system_pkgs: {which: hcxdumptool, apt: hcxdumptool}
+    usage:
+      - ["put interface in monitor mode", "sudo airmon-ng start wlan0"]
+      - ["capture PMKIDs/handshakes to pcapng", "sudo hcxdumptool -i wlan0mon -o capture.pcapng --enable_status=1"]
+      - ["restrict to your target AP", "sudo hcxdumptool -i wlan0mon -o capture.pcapng --filterlist_ap=target.txt --filtermode=2"]
+      - ["show all options", "hcxdumptool --help"]
+    lab_safe_notes: >-
+      Actively solicits PMKIDs from APs in range — that is a transmit, so it must be your
+      own AP only. Always use --filterlist_ap/--filtermode to scope to your target BSSID
+      so you don't touch neighbouring networks.
+
+  - title: "hcxtools (PMKID/Hash Conversion)"
+    tags: [wireless, hash-crack, pcap, credentials]
+    system_pkgs: {which: hcxpcapngtool, apt: hcxtools}
+    usage:
+      - ["convert a capture to hashcat 22000 format", "hcxpcapngtool -o hashes.hc22000 capture.pcapng"]
+      - ["crack the result with hashcat", "hashcat -m 22000 hashes.hc22000 rockyou.txt"]
+      - ["list PMKIDs/ESSIDs found in a capture", "hcxpcapngtool --all -o hashes.hc22000 capture.pcapng"]
+      - ["show all options", "hcxpcapngtool --help"]
+    lab_safe_notes: >-
+      Pure offline conversion — never touches a network. The output feeds hashcat mode
+      22000 (WPA-PBKDF2/PMKID). Only crack captures from networks you are authorized to
+      test.
+
+  - title: "Bettercap (Network/WiFi/BLE MITM)"
+    tags: [wireless, mitm, sniffing, network]
+    system_pkgs: {which: bettercap, apt: bettercap, brew: bettercap}
+    usage:
+      - ["start an interactive session on an iface", "sudo bettercap -iface wlan0"]
+      - ["WiFi recon (scan APs/clients)", "sudo bettercap -iface wlan0 -eval 'wifi.recon on'"]
+      - ["ARP-spoof MITM on a LAN", "sudo bettercap -iface eth0 -eval 'set arp.spoof.targets <ip>; arp.spoof on; net.sniff on'"]
+      - ["scan for BLE devices", "sudo bettercap -eval 'ble.recon on'"]
+    lab_safe_notes: >-
+      A live MITM/spoofing framework across WiFi, BLE, and Ethernet — only against hosts
+      and networks you own or are contracted to test. arp.spoof and wifi deauth affect
+      other devices on the segment; scope arp.spoof.targets to a single lab IP.
+
+tools:
+  - title: "aircrack-ng (WiFi security suite)"
+    kind: install
+    tags: [wireless, password-attack, bruteforce, sniffing]
+    description: "The core WiFi auditing suite — airmon-ng (monitor mode), airodump-ng (capture), aireplay-ng (deauth/injection), aircrack-ng (WEP/WPA cracking)."
+    system_pkgs: {which: aircrack-ng, apt: aircrack-ng, brew: aircrack-ng}
+    install: {apt: aircrack-ng}
+    run: ["aircrack-ng --help"]
+    project_url: "https://github.com/aircrack-ng/aircrack-ng"
+    usage:
+      - ["kill interfering processes", "sudo airmon-ng check kill"]
+      - ["enable monitor mode", "sudo airmon-ng start wlan0"]
+      - ["scan APs and clients", "sudo airodump-ng wlan0mon"]
+      - ["capture a handshake on one AP", "sudo airodump-ng -c 6 --bssid <BSSID> -w capture wlan0mon"]
+      - ["deauth a client to force a handshake", "sudo aireplay-ng --deauth 5 -a <BSSID> -c <CLIENT> wlan0mon"]
+      - ["crack the handshake with a wordlist", "aircrack-ng -w rockyou.txt -b <BSSID> capture-01.cap"]
+    lab_safe_notes: >-
+      airodump/aircrack are passive+offline, but aireplay-ng --deauth transmits and
+      disconnects clients — only ever against your own AP and your own test client.
+      Scope --bssid/-c to a single target so you never disrupt neighbouring networks.
+
+  - title: "Kismet (wireless detector / WIDS)"
+    kind: install
+    tags: [wireless, sniffing, recon, network]
+    description: "Passive wireless detector, sniffer, and intrusion-detection system — maps APs/clients across WiFi/Bluetooth without transmitting. Ideal for blue-team monitoring and recon."
+    system_pkgs: {which: kismet, apt: kismet, brew: kismet}
+    install: {apt: kismet}
+    run: ["kismet --help"]
+    project_url: "https://github.com/kismetwireless/kismet"
+    usage:
+      - ["start capturing on an adapter", "sudo kismet -c wlan0"]
+      - ["open the web UI (default port 2501)", "xdg-open http://localhost:2501"]
+      - ["log to a chosen prefix", "sudo kismet -c wlan0 --log-prefix ~/kismet-logs"]
+      - ["list detected devices from a log", "kismetdb_dump_devices --in *.kismet"]
+    lab_safe_notes: >-
+      Kismet is receive-only — it never transmits, so it's the safe way to survey RF.
+      Still, only monitor spectrum you're authorized to observe; passive capture of
+      third-party traffic can be regulated. Runs a local web UI on 127.0.0.1:2501.
+
+  - title: "Reaver (WPS PIN attack)"
+    kind: install
+    tags: [wireless, bruteforce, password-attack, credentials]
+    description: "Brute-forces the WPS registrar PIN to recover a WPA/WPA2 passphrase; ships with wash to scan for WPS-enabled APs and supports pixie-dust mode."
+    system_pkgs: {which: reaver, apt: reaver}
+    install: {apt: reaver}
+    run: ["reaver --help"]
+    project_url: "https://github.com/t6x/reaver-wps-fork-t6x"
+    usage:
+      - ["scan for WPS-enabled APs", "sudo wash -i wlan0mon"]
+      - ["brute-force a WPS PIN", "sudo reaver -i wlan0mon -b <BSSID> -c <ch> -vvv"]
+      - ["pixie-dust mode (fast, offline PIN)", "sudo reaver -i wlan0mon -b <BSSID> -c <ch> -K 1 -vvv"]
+      - ["slow down to dodge AP lockouts", "sudo reaver -i wlan0mon -b <BSSID> -c <ch> -d 60 -vvv"]
+    lab_safe_notes: >-
+      WPS brute-forcing transmits to a live AP and can lock or crash weak routers — run
+      it only against your own AP with WPS deliberately enabled. Pair with the pixiewps
+      entry for the offline pixie-dust step.
+
+  - title: "WiGLE (wardriving map & API)"
+    kind: resource
+    tags: [wireless, osint, online-service, lookup]
+    description: "Crowd-sourced database mapping hundreds of millions of WiFi/cell networks by BSSID and location — look up an AP you're authorized to assess, or geolocate your own."
+    url: "https://wigle.net/"
+
+  - title: "hashcat example hashes (WPA mode 22000)"
+    kind: resource
+    tags: [wireless, hash-crack, reference]
+    description: "Official hashcat hash-mode reference — find the right -m for WPA/PMKID (22000) and every other format when cracking captured handshakes."
+    url: "https://hashcat.net/wiki/doku.php?id=example_hashes"
+
+  - title: "Aircrack-ng: cracking WPA (tutorial)"
+    kind: resource
+    tags: [wireless, learning, reference]
+    description: "Step-by-step official guide to capturing a handshake and cracking WPA/WPA2 with aircrack-ng — the canonical walkthrough for the whole capture-to-crack flow."
+    url: "https://www.aircrack-ng.org/doku.php?id=cracking_wpa"

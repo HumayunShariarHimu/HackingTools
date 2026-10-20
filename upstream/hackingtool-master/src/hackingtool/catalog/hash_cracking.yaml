@@ -1,0 +1,93 @@
+# Password / Hash Cracking — a NEW top-level category built entirely from data.
+# Demonstrates: new category with no Python code, install tools with usage
+# cheatsheets + lab-safe notes, and first-class RESOURCE entries (sites/services).
+category:
+  title: "Password / Hash Cracking"
+  icon: "🔓"
+  menu_label: "Hash Cracking"
+  description: >-
+    Identify a hash, pick the right cracker, or look it up online. Covers the
+    "I found a hash in a TryHackMe box — now what?" workflow end to end.
+  merge_into: null   # null => shows as its own category in the main menu
+
+tools:
+  - title: "hashcat (GPU hash cracker)"
+    kind: install
+    tags: [hash-crack, password-attack, bruteforce]
+    description: "World's fastest password recovery tool; cracks 300+ hash types on GPU/CPU."
+    system_pkgs: {which: hashcat, apt: hashcat, brew: hashcat}
+    install: {apt: hashcat}
+    run: ["hashcat --help"]
+    project_url: "https://github.com/hashcat/hashcat"
+    usage:
+      - ["identify a hash type first", "hashcat --identify hash.txt"]
+      - ["crack MD5 with a wordlist", "hashcat -m 0 -a 0 hash.txt rockyou.txt"]
+      - ["crack NTLM with a wordlist", "hashcat -m 1000 -a 0 hash.txt rockyou.txt"]
+      - ["crack sha512crypt ($6$) shadow", "hashcat -m 1800 -a 0 hash.txt rockyou.txt"]
+      - ["show already-cracked results", "hashcat -m 0 hash.txt --show"]
+      - ["brute-force a mask (8 digits)", "hashcat -m 0 -a 3 hash.txt ?d?d?d?d?d?d?d?d"]
+    lab_safe_notes: >-
+      Cracking is fully offline — it never touches the target. Use -m to match the
+      hash type (hashcat --example-hashes lists them). rockyou.txt lives at
+      /usr/share/wordlists/rockyou.txt on Kali (gunzip it first).
+
+  - title: "John the Ripper (jumbo)"
+    kind: install
+    tags: [hash-crack, password-attack]
+    description: "Classic CPU cracker with format auto-detect and hundreds of *2john extractors."
+    system_pkgs: {which: john, apt: john, brew: john-jumbo}
+    install: {apt: john}
+    run: ["john --help"]
+    project_url: "https://github.com/openwall/john"
+    usage:
+      - ["let John auto-detect + crack", "john --wordlist=rockyou.txt hash.txt"]
+      - ["extract a hash from a zip", "zip2john secret.zip > hash.txt"]
+      - ["extract a hash from a PDF", "pdf2john document.pdf > hash.txt"]
+      - ["crack a Linux shadow file", "unshadow /etc/passwd /etc/shadow > both.txt; john both.txt"]
+      - ["show cracked passwords", "john --show hash.txt"]
+    lab_safe_notes: >-
+      Offline only. The *2john helpers (zip2john, ssh2john, pdf2john…) turn a file
+      into a crackable hash — the single most useful thing John does in CTFs.
+
+  - title: "hydra (Network Login Cracker)"
+    kind: install
+    tags: [bruteforce, password-attack, credentials, network]
+    description: "Fast ONLINE (network) login brute-forcer — throws wordlists at live services: SSH, FTP, RDP, SMB, HTTP forms and 50+ more protocols. The online counterpart to hashcat/John."
+    system_pkgs: {which: hydra, apt: hydra, brew: hydra}
+    install: {apt: hydra}
+    run: ["hydra -h"]
+    project_url: "https://github.com/vanhauser-thc/thc-hydra"
+    usage:
+      - ["brute-force SSH (one user, pass list)", "hydra -l root -P rockyou.txt ssh://10.10.10.5"]
+      - ["password-spray one password over users", "hydra -L users.txt -p 'Winter2025!' ssh://10.10.10.5"]
+      - ["FTP with user + password lists", "hydra -L users.txt -P pass.txt ftp://10.10.10.5"]
+      - ["HTTP POST login form", "hydra -l admin -P rockyou.txt 10.10.10.5 http-post-form '/login:user=^USER^&pass=^PASS^:F=incorrect'"]
+      - ["stop at first hit, go gentle", "hydra -f -t 4 -l admin -P rockyou.txt rdp://10.10.10.5"]
+    lab_safe_notes: >-
+      Unlike hashcat/John (offline), hydra sends real login attempts to a LIVE service —
+      it's noisy and WILL lock accounts and trip alerts. Authorized targets only. Use
+      -t 4 to slow it down and -f to stop at the first valid credential.
+
+  - title: "CrackStation (online lookup)"
+    kind: resource
+    tags: [hash-crack, online-service, lookup]
+    description: "Free lookup for unsalted MD5/SHA1/SHA256 against a 15B-entry rainbow table. Try before you brute-force."
+    url: "https://crackstation.net/"
+
+  - title: "hashes.com (hash identifier + lookup)"
+    kind: resource
+    tags: [hash-crack, online-service, lookup]
+    description: "Identify an unknown hash type and look it up / submit for cracking."
+    url: "https://hashes.com/en/tools/hash_identifier"
+
+  - title: "CyberChef (the cyber swiss-army knife)"
+    kind: resource
+    tags: [online-service, reference]
+    description: "In-browser encode/decode, hashing, and data transforms — great for base64, hex, ROT, JWTs."
+    url: "https://gchq.github.io/CyberChef/"
+
+  - title: "GTFOBins (unix binary abuse)"
+    kind: resource
+    tags: [privesc, reference, cheatsheet]
+    description: "Curated list of how legit unix binaries can be abused for privesc / shell escape — the go-to after a foothold."
+    url: "https://gtfobins.github.io/"

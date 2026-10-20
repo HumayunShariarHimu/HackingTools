@@ -1,0 +1,32 @@
+# Version control
+.git/
+.gitignore
+
+# GitHub / docs
+.github/
+images/
+# keep README.md: pyproject reads it during `pip install .` and the Dockerfile COPYs it
+*.md
+!README.md
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Tests
+tests/
+test_*.py
+
+# Docker files themselves (don't recurse)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# OS / editor noise
+.DS_Store
+*.swp
+*.swo

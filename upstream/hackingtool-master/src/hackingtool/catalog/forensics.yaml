@@ -1,0 +1,136 @@
+# Forensics — guided-ops cheatsheets for the existing Python "Forensic tools"
+# collection, plus two staples the list is missing (ExifTool, Foremost) and
+# DFIR references. Overlays enrich existing tools by EXACT title. GUI tools get
+# a launch line; Wireshark's usage leans on the scriptable `tshark` CLI.
+category:
+  title: "Forensics (catalog)"
+  merge_into: "Forensic tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "Autopsy"
+    tags: [forensics, metadata]
+    usage:
+      - ["launch the GUI", "autopsy"]
+    lab_safe_notes: >-
+      Autopsy analyzes a copy of a disk image read-only — it recovers deleted files,
+      timelines and metadata without touching the original evidence. Work from a
+      forensic image (dd/E01), never the live disk.
+
+  - title: "Wireshark"
+    tags: [network, forensics, sniffing, pcap]
+    system_pkgs: {which: wireshark, apt: wireshark}
+    usage:
+      - ["open the GUI", "wireshark"]
+      - ["read a capture on the CLI", "tshark -r capture.pcap"]
+      - ["capture live to a file", "tshark -i eth0 -w out.pcap"]
+      - ["keep only HTTP requests", "tshark -r capture.pcap -Y 'http.request'"]
+      - ["extract fields (src IP + DNS query)", "tshark -r capture.pcap -T fields -e ip.src -e dns.qry.name"]
+      - ["follow a TCP stream", "tshark -r capture.pcap -z follow,tcp,ascii,0"]
+    lab_safe_notes: >-
+      Analyzing a provided .pcap is completely passive and safe. Live capture needs
+      privileges and only sees traffic on networks you're authorized to monitor. tshark
+      is the CLI twin — great for scripting the same display filters as the GUI.
+
+  - title: "Bulk extractor"
+    tags: [forensics, memory-dump, metadata]
+    system_pkgs: {which: bulk_extractor, apt: bulk-extractor}
+    usage:
+      - ["scan an image to an output dir", "bulk_extractor -o out/ image.dd"]
+      - ["run only the email scanner", "bulk_extractor -o out/ -E email image.dd"]
+      - ["scan a memory dump", "bulk_extractor -o out/ memory.raw"]
+    lab_safe_notes: >-
+      bulk_extractor pulls emails, URLs, credit-card numbers and other features straight
+      from an image without parsing the filesystem — fully read-only on the input. Point
+      -o at an empty output directory.
+
+  - title: "Volatility 3 (Memory Forensics)"
+    tags: [forensics, memory-dump, malware-analysis]
+    usage:
+      - ["list processes (Windows)", "python3 vol.py -f memory.dmp windows.pslist"]
+      - ["find hidden/terminated procs", "python3 vol.py -f memory.dmp windows.psscan"]
+      - ["network connections", "python3 vol.py -f memory.dmp windows.netscan"]
+      - ["process command lines", "python3 vol.py -f memory.dmp windows.cmdline"]
+      - ["list processes (Linux)", "python3 vol.py -f memory.dmp linux.pslist"]
+    lab_safe_notes: >-
+      Volatility reads a memory image offline and never touches a live system — safe on
+      any dump you're authorized to examine. Plugins are namespaced by OS
+      (windows.* / linux.* / mac.*); run `vol.py -f dump windows.info` first to confirm
+      the profile.
+
+  - title: "Binwalk (Firmware Analysis)"
+    tags: [forensics, binary, reversing]
+    usage:
+      - ["scan a firmware image", "binwalk firmware.bin"]
+      - ["extract embedded files", "binwalk -e firmware.bin"]
+      - ["recursively extract", "binwalk -Me firmware.bin"]
+      - ["entropy scan (spot crypto/compression)", "binwalk -E firmware.bin"]
+    lab_safe_notes: >-
+      Scanning and extracting are read-only on the input image. -Me can unpack deeply
+      nested archives and fill the disk, so extract into a scratch directory. Great for
+      pulling filesystems and configs out of router/IoT firmware.
+
+  - title: "pspy (Process Monitor — No Root)"
+    tags: [forensics, post-exploitation, enumeration]
+    usage:
+      - ["watch processes + file events", "./pspy64"]
+      - ["set the scan interval (ms)", "./pspy64 -i 1000"]
+      - ["show all options", "./pspy64 -h"]
+    lab_safe_notes: >-
+      pspy is passive — it snapshots /proc to reveal cron jobs and commands run by other
+      users without needing root, and changes nothing on the host. Ideal on a box you
+      already have a foothold on to catch privileged scheduled tasks.
+
+  - title: "Toolsley"
+    tags: [reference, online-service, forensics]
+
+# --- genuinely-missing, widely-used forensics tools --------------------------
+tools:
+  - title: "ExifTool (Metadata)"
+    kind: install
+    tags: [forensics, metadata, image, document]
+    description: "The standard tool for reading, writing and stripping metadata (EXIF/IPTC/XMP/GPS) across images, PDFs, office docs and video."
+    system_pkgs: {which: exiftool, apt: libimage-exiftool-perl, brew: exiftool}
+    install: {apt: libimage-exiftool-perl}
+    run: ["exiftool -ver"]
+    project_url: "https://exiftool.org/"
+    usage:
+      - ["read all metadata", "exiftool image.jpg"]
+      - ["read just GPS location", "exiftool -gps:all -c '%.6f' image.jpg"]
+      - ["recurse a folder", "exiftool -r ./photos/"]
+      - ["strip ALL metadata", "exiftool -all= image.jpg"]
+      - ["dump embedded thumbnail", "exiftool -b -ThumbnailImage image.jpg > thumb.jpg"]
+    lab_safe_notes: >-
+      Reading metadata is passive and safe. Writing/stripping (-all=, -TAG=) edits the
+      file in place (it keeps a *_original backup) — copy evidence first. GPS/timestamp
+      fields are gold for OSINT and CTF stego challenges.
+
+  - title: "Foremost (File Carving)"
+    kind: install
+    tags: [forensics, binary]
+    description: "Recovers files from disk images or raw data by carving on file headers/footers — recovers deleted files with no filesystem."
+    system_pkgs: {which: foremost, apt: foremost}
+    install: {apt: foremost}
+    run: ["foremost -V"]
+    project_url: "http://foremost.sourceforge.net/"
+    usage:
+      - ["carve everything from an image", "foremost -i image.dd -o out/"]
+      - ["carve specific types only", "foremost -t jpg,pdf,zip -i image.dd -o out/"]
+      - ["verbose + keep audit log", "foremost -v -i image.dd -o out/"]
+    lab_safe_notes: >-
+      Foremost only reads the input image and writes recovered files to -o (which must
+      not already exist) — non-destructive on the evidence. Handy for recovering deleted
+      files in disk-forensics and CTF challenges.
+
+# --- high-value DFIR references ----------------------------------------------
+  - title: "Eric Zimmerman's Tools"
+    kind: resource
+    tags: [reference, forensics, online-service]
+    description: "The go-to free Windows DFIR toolset — registry, MFT, event-log, timeline and shellbag parsers."
+    url: "https://ericzimmerman.github.io/"
+
+  - title: "MalwareBazaar (Sample Database)"
+    kind: resource
+    tags: [online-service, reference, malware-analysis]
+    description: "abuse.ch's searchable repository of real malware samples and IOCs for analysis and detection engineering."
+    url: "https://bazaar.abuse.ch/"

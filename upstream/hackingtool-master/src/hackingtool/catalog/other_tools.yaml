@@ -1,0 +1,28 @@
+# Other Tools — grab-bag menu. Almost every entry in the Python "Other tools"
+# collection is itself a sub-menu (social-media bruteforce, android attack, hash
+# cracking, wifi jamming, payload injection, web crawling, homograph, email
+# verify, mix tools ...) with no single canonical command — those are curated in
+# their own catalogs, so they're skipped here. HatCloud is the one real leaf CLI.
+category:
+  title: "Other Tools (catalog)"
+  merge_into: "Other tools"
+
+# --- enrich existing Python-defined tools by title --------------------------
+overlay:
+  - title: "HatCloud(Bypass CloudFlare for IP)"
+    tags: [recon, network, dns]
+    usage:
+      - ["find the origin IP behind CloudFlare for a domain", "ruby hatcloud.rb -b example.com"]
+    lab_safe_notes: >-
+      HatCloud queries public/CrimeFlare data to guess the real origin IP hidden
+      behind CloudFlare — it does not attack the target. Only run it against
+      domains you're authorized to test; use the result to confirm scope, not to
+      route around a WAF on an out-of-scope host.
+
+# --- grab-bag reference every archetype reaches for --------------------------
+tools:
+  - title: "CyberChef (Cyber Swiss-Army Knife)"
+    kind: resource
+    tags: [reference, online-service]
+    description: "GCHQ's browser-based workbench for encoding/decoding, encryption, compression, hashing and data analysis — chain 'recipes' to decode CTF/forensics artifacts with no install."
+    url: "https://gchq.github.io/CyberChef/"
