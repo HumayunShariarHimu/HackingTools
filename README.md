@@ -13,12 +13,6 @@ OSINT researchers · bug-bounty hunters · CTF players · security researchers a
 students — all working **legally, on systems they own or are authorised to test**.
 
 
-<br/>
-
-[![License](https://img.shields.io/github/license/Z4nzu/hackingtool?style=flat-square&labelColor=0D1117&color=7B61FF)](LICENSE) [![Python](https://img.shields.io/badge/Python-3.10+-0D1117?style=flat-square&labelColor=0D1117&logo=python&logoColor=7B61FF)](https://www.python.org/) [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat-square&labelColor=0D1117&color=7B61FF)](https://github.com/Z4nzu/hackingtool/stargazers) [![Forks](https://img.shields.io/github/forks/Z4nzu/hackingtool?style=flat-square&labelColor=0D1117&color=7B61FF)](https://github.com/Z4nzu/hackingtool/network/members) [![Issues](https://img.shields.io/github/issues/Z4nzu/hackingtool?style=flat-square&labelColor=0D1117&color=7B61FF)](https://github.com/Z4nzu/hackingtool/issues) [![Last Commit](https://img.shields.io/github/last-commit/Z4nzu/hackingtool?style=flat-square&labelColor=0D1117&color=7B61FF)](https://github.com/Z4nzu/hackingtool/commits/master)
-
-<br/>
-
 ![](https://img.shields.io/badge/21_Categories-7B61FF?style=for-the-badge&labelColor=0D1117) &nbsp;![](https://img.shields.io/badge/219_Tools-7B61FF?style=for-the-badge&labelColor=0D1117) &nbsp;![](https://img.shields.io/badge/63_Tags-7B61FF?style=for-the-badge&labelColor=0D1117) &nbsp;![](https://img.shields.io/badge/AI--Guided-7B61FF?style=for-the-badge&labelColor=0D1117&logo=openai&logoColor=white) &nbsp;![](https://img.shields.io/badge/Linux_%7C_Kali_%7C_Parrot_%7C_macOS-7B61FF?style=for-the-badge&labelColor=0D1117&logo=linux&logoColor=white)
 
 <br/>
@@ -50,7 +44,8 @@ students — all working **legally, on systems they own or are authorised to tes
   - [📋 Headless engagements](#-headless-engagements)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
-- [Social](#social)
+- [SecureShelf Web Directory](#secureshelf-web-directory)
+- [GitHub Profile](#github-profile)
 
 ---
 
@@ -106,6 +101,20 @@ students — all working **legally, on systems they own or are authorised to tes
 <sub>44 further entries are archived (unmaintained or dead upstream) and hidden unless
 you set `show_archived true` via `/config`. The in-app header counts 22 categories /
 219 tools because it also counts the built-in Update / Uninstall menu.</sub>
+
+## SecureShelf Web Directory
+
+This repository also includes a Bengali-first, responsive browser directory in
+[`index.html`](index.html). Search the archived catalog by name, category or tag; filter
+by category and resource type; open resource details and source links; and save favorites
+in the current browser. This is a read-only directory: it does not execute the archived
+tools, scripts or commands. The published `docs/TOOLS.md` contains 215 linked catalog
+entries, while the upstream README claims 219; the directory reports the published list
+count and does not invent the missing entries or source links.
+
+For a local preview, run `python3 scripts/serve.py` from the repository root. Rebuild the
+metadata and static hosting output with `python3 scripts/build_catalog.py && python3
+scripts/build_site.py`; the ready-to-host files are written to `dist/`.
 
 ---
 

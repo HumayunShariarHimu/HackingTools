@@ -19,6 +19,7 @@ def main() -> None:
     OUTPUT.mkdir(parents=True)
     shutil.copy2(ROOT / "index.html", OUTPUT / "index.html")
     shutil.copy2(ROOT / "manus-routes.json", OUTPUT / "manus-routes.json")
+    shutil.copy2(ROOT / "robots.txt", OUTPUT / "robots.txt")
     for directory in ("assets", "data"):
         shutil.copytree(ROOT / directory, OUTPUT / directory)
     print(f"Static site built at {OUTPUT.relative_to(ROOT)}")
