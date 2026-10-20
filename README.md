@@ -1,6 +1,5 @@
 <div align="center">
 
-<img src="images/logo.svg" alt="HackingTool" width="600">
 
 ### Open-source security toolkit for authorized testing
 
@@ -488,6 +487,3 @@ one-entry catalog walkthrough — is in **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 - [Humayun Shariar Himu](https://github.com/HumayunShariarHimu)
 
 > **For authorized security testing only.**
-> Thanks to all original authors of the tools included in hackingtool.
-
-Your favourite tool is not listed? [Suggest it here](https://github.com/Z4nzu/hackingtool/issues/new?template=tool_request.md)
