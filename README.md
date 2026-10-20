@@ -1,7 +1,7 @@
 <div align="center">
 
 
-### Open-source security toolkit for authorized testing
+### HackigTooLs - All in One Hacking Tools Collection
 
 **A full security workspace for authorized research** — discover resources for recon,
 OSINT, web, wireless, phishing, forensics, post-exploitation and more. Optional AI
