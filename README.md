@@ -77,7 +77,7 @@ students — all working **legally, on systems they own or are authorised to tes
 
 ## Tool Categories
 
-**219 tools across 21 categories** — the full list, with links and tags, is in
+**219 tools across 21 categories** — the full list, with available source links and tags, is in
 **[docs/TOOLS.md](docs/TOOLS.md)**.
 
 <div align="center">
@@ -108,9 +108,9 @@ This repository also includes a Bengali-first, responsive browser directory in
 [`index.html`](index.html). Search the archived catalog by name, category or tag; filter
 by category and resource type; open resource details and source links; and save favorites
 in the current browser. This is a read-only directory: it does not execute the archived
-tools, scripts or commands. The published `docs/TOOLS.md` contains 215 linked catalog
-entries, while the upstream README claims 219; the directory reports the published list
-count and does not invent the missing entries or source links.
+tools, scripts or commands. The published `docs/TOOLS.md` contains 215 catalog entries
+(203 with verified HTTPS source links; 12 without a usable HTTPS source link), while the
+upstream README claims 219; the directory does not invent missing entries or source links.
 
 For a local preview, run `python3 scripts/serve.py` from the repository root. Rebuild the
 metadata and static hosting output with `python3 scripts/build_catalog.py && python3
